@@ -1,0 +1,23 @@
+name: Import verified YAPIGUC recovery snapshot
+on:
+  push:
+    branches: [codex/recovery-import-2026-11-15]
+permissions:
+  contents: write
+concurrency:
+  group: yapiguc-recovery-import
+  cancel-in-progress: false
+jobs:
+  import:
+    if: github.repository == 'trcayan/trcayan'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Reconstruct and push only the verified recovery branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 .recovery-import/import.py
