@@ -37,7 +37,9 @@ class Preview(SimpleHTTPRequestHandler):
  def do_POST(self):self.send_error(503,'Forms are not submitted from the local static preview')
 
 if __name__=='__main__':
- parser=argparse.ArgumentParser();parser.add_argument('--port',type=int,default=8765);args=parser.parse_args()
+ parser=argparse.ArgumentParser();parser.add_argument('--port',type=int,default=8765);parser.add_argument('--built',action='store_true');args=parser.parse_args()
+ if args.built:SITE=ROOT/'dist'
+ if not (SITE/'index.html').is_file():parser.error('Build output is missing; run node tools/build.mjs first')
  server=ThreadingHTTPServer(('127.0.0.1',args.port),partial(Preview,directory=str(SITE)))
  print(f'YAPIGUC local preview: http://127.0.0.1:{args.port}/',flush=True)
  try:server.serve_forever()

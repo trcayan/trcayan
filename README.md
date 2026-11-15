@@ -7,9 +7,13 @@
 
 - `site/`: yayımlanmış HTML, CSS, JavaScript, görsel, video ve belgeler.
 - `netlify.toml`: taşınabilir dağıtım yapılandırması. Eski bilgisayarın mutlak
-  dizini yerine `publish = "site"` kullanır. 249 TOML yönlendirmesi ve 5 başlık
+  dizini yerine `publish = "dist"` kullanır. 249 TOML yönlendirmesi ve 5 başlık
   kuralı korundu; `site/_redirects` içindeki 6 kural da korundu.
 - `tools/preview.py`: Python 3.11+ ile ek paket gerektirmeyen yerel önizleme.
+- `tools/build.mjs`: Node.js ile ek paket gerektirmeyen derleme. `site/`
+  kaynaklarını `dist/` içine kopyalar; üretim bağlamında içeriği değiştirmez.
+  Deploy Preview ve branch deploy ortamlarında indekslemeyi ve form gönderimini
+  kapatan bir önizleme katmanı ekler. Kaynak dosyaları değiştirmez.
 
 Özgün `netlify.toml`, değiştirilmemiş tam yedekte bulunur. Çalışma kopyasında
 yapılandırma dosyası web kökünün dışına alındı. Bu sayede bilgisayar yolu tekrar
@@ -27,20 +31,36 @@ python tools/preview.py
 desteklenir. Önizleme arama motorlarına `noindex, nofollow` başlığı gönderir.
 Formlar gönderilmez; sunucu API'leri taklit edilmez. Sunucuyu Ctrl+C ile kapatın.
 
+Netlify önizleme davranışını PowerShell'de yerelde doğrulamak için:
+
+```powershell
+$env:CONTEXT='deploy-preview'
+node tools/build.mjs
+python tools/preview.py --built
+```
+
+Üretim çıktısını hazırlamak için `CONTEXT` değerini `production` yapıp yeniden
+derleyin. `dist/` geçicidir ve Git'e alınmaz. Netlify bağlamı otomatik belirler.
+
 ## Geliştirme ve yayın
 
 Değişiklikleri `site/` içinde yapın. Önce yerelde, ardından mevcut projeye bağlı
 bir Netlify taslak dağıtımında doğrulayın. Netlify CLI zaten kurulu ve oturum
-açılmışsa `netlify deploy --dir site` taslak oluşturur. Komut çalıştırmadan önce
+açılmışsa önce önizleme bağlamında derleyip `netlify deploy --dir dist` ile taslak
+oluşturun. Komut çalıştırmadan önce
 CLI'nin mevcut `golden-mousse-6377c5` projesine bağlı olduğunu doğrulayın.
 
-Bu kurtarma sırasında GitHub'a kod gönderilmedi ve yeni Netlify dağıtımı
-oluşturulmadı. Mevcut GitHub bağlantısı `trcayan/trcayan`; inceleme sırasında
-`master` dalında yalnız `.gitignore` bulunuyordu.
+GitHub deposu: https://github.com/trcayan/trcayan
 
-Yerel `recovery/netlify-2026-11-15` dalı, mevcut GitHub `master` geçmişinden
-başlatıldı. Eski başlangıç commit'i ve ignore kuralları korundu. Dal uzaktaki
-depoya gönderilmedi; üretim dalı değiştirilmedi.
+Geliştirme dalı: `recovery/netlify-2026-11-15`. Mevcut `master` geçmişinden
+başlatıldı; eski başlangıç commit'i ve ignore kuralları korundu.
+
+Taslak PR: https://github.com/trcayan/trcayan/pull/1
+
+Netlify önizleme: https://deploy-preview-1--golden-mousse-6377c5.netlify.app/
+
+Üretim dalı `master` olarak kalır. Önizleme değişiklikleri bu dalda incelenir;
+canlıya yayın için PR'ın ayrıca değerlendirilmesi gerekir.
 
 ## Yedeğin kapsamı
 

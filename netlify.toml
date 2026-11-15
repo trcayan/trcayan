@@ -5,7 +5,8 @@ plugins = []
   [functions."*"]
 
 [build]
-publish = "site"
+command = "node tools/build.mjs"
+publish = "dist"
 
   [build.environment]
 
