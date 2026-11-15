@@ -43,8 +43,8 @@ def download(rec):
     else:
      with urllib.request.urlopen(urllib.request.Request(url,headers={'Accept-Encoding':'identity'}),timeout=60) as response:data=response.read()
     break
-   except Exception:
-    if attempt==3:raise
+   except Exception as error:
+    if attempt==3:raise RuntimeError('Download failed: '+rec['path']+' ('+str(error)+')') from error
     time.sleep(attempt+1)
  if len(data)!=rec['bytes'] or blob_sha(data)!=rec['sha']:raise ValueError('Content verification failed: '+rec['path'])
  target.write_bytes(data)

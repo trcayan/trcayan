@@ -44,7 +44,8 @@
       "mode": "100644",
       "sha": "cf8b30d1d52cf6c14dc98f39ada3568e880da5bd",
       "path": "site/_redirects",
-      "bytes": 366
+      "bytes": 366,
+      "override": "overrides/site/_redirects"
     },
     {
       "mode": "100644",
