@@ -1,0 +1,339 @@
+<!DOCTYPE html><html lang="tr"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site Haritası: Hizmetler, Makaleler ve İletişim | YAPIGÜÇ</title>
+<meta name="description" content="YAPIGÜÇ hizmetleri, güçlendirme projeleri, teknik makaleler, referanslar ve merkez ile şube iletişim bilgilerine site haritasından ulaşın.">
+<link rel="canonical" href="https://www.yapiguc.net/site-haritasi">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;color:#333;line-height:1.7}
+
+/* HEADER */
+.header{background:#1c2331;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:999;box-shadow:0 2px 20px rgba(0,0,0,.3)}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo img{height:42px;border-radius:6px}
+.logo-name{font-size:17px;font-weight:900;color:#fff}
+.logo-sub{font-size:10px;color:#c9a84c;font-weight:600;letter-spacing:.5px}
+.header-tel{color:rgba(255,255,255,.85);text-decoration:none;font-size:13px;font-weight:700;border:1px solid rgba(255,255,255,.2);padding:7px 16px;border-radius:20px;transition:.2s}
+.header-tel:hover{background:rgba(255,255,255,.1);color:#c9a84c}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#1c2331 0%,#2d3a4a 60%,#1c2331 100%);padding:56px 24px;text-align:center}
+.hero h1{font-size:clamp(26px,4vw,42px);font-weight:900;color:#fff;margin-bottom:10px}
+.hero p{font-size:16px;color:rgba(255,255,255,.75);max-width:600px;margin:0 auto}
+
+/* HIZLI İLETİŞİM */
+.quick-contact{background:#fff;padding:32px 24px;border-bottom:1px solid #eee}
+.quick-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.qc-card{background:#f8f9fa;border-radius:12px;padding:20px;text-align:center;border-top:3px solid #c9a84c;transition:.2s}
+.qc-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.1)}
+.qc-card .icon{font-size:28px;margin-bottom:10px;display:block}
+.qc-card h4{font-size:13px;font-weight:800;color:#1c2331;margin-bottom:6px}
+.qc-card a{display:block;font-size:13px;color:#1c2331;text-decoration:none;font-weight:600;margin-bottom:3px}
+.qc-card a:hover{color:#c9a84c}
+.qc-card .badge{display:inline-block;background:#1c2331;color:#c9a84c;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-top:6px}
+
+/* ŞUBELER BÖLÜMÜ */
+.subeler-section{max-width:1100px;margin:40px auto;padding:0 24px}
+.subeler-section h2{font-size:24px;font-weight:900;color:#1c2331;margin-bottom:6px}
+.subeler-section .sub-desc{font-size:14px;color:#888;margin-bottom:24px}
+.divider{width:48px;height:3px;background:linear-gradient(90deg,#c9a84c,rgba(201,168,76,.3));border-radius:2px;margin:10px 0 24px}
+
+/* ŞUBE KARTLARI */
+.subeler-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+
+.sube-kart{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.07);transition:.2s}
+.sube-kart:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,.12)}
+
+/* Harita alanı */
+.sube-harita{width:100%;height:200px;border:none;display:block}
+
+/* Bilgi alanı */
+.sube-bilgi{padding:18px 20px}
+.sube-bilgi .sube-baslik{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.sube-bilgi .sube-baslik .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.sube-bilgi .sube-baslik h3{font-size:15px;font-weight:800;color:#1c2331}
+.sube-bilgi .adres{font-size:13px;color:#555;line-height:1.7;margin-bottom:12px}
+.sube-bilgi .adres strong{color:#1c2331;font-weight:700}
+
+/* Butonlar */
+.sube-btns{display:flex;gap:8px;flex-wrap:wrap}
+.sube-btn{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;transition:.2s}
+.sube-btn:hover{opacity:.85;transform:translateY(-1px)}
+.btn-tel{background:#1c2331;color:#fff}
+.btn-wa{background:#25D366;color:#fff}
+.btn-maps{background:#f8f9fa;color:#1c2331;border:1px solid #e0e0e0}
+.btn-maps:hover{background:#1c2331;color:#c9a84c;border-color:#1c2331}
+
+/* Merkez kart — öne çıkar */
+.sube-kart.merkez{grid-column:span 1;border:2px solid #c9a84c}
+.sube-kart.merkez .sube-bilgi .sube-baslik h3{color:#1c2331}
+
+/* Geniş kart — İstanbul */
+.sube-kart.wide{grid-column:span 1}
+
+/* CTA */
+.cta-section{background:linear-gradient(135deg,#1c2331,#2d3a4a);padding:56px 24px;text-align:center;margin-top:40px}
+.cta-inner{max-width:700px;margin:0 auto}
+.cta-inner h2{font-size:clamp(22px,3vw,32px);font-weight:900;color:#fff;margin-bottom:12px}
+.cta-inner p{font-size:15px;color:rgba(255,255,255,.75);margin-bottom:28px;line-height:1.8}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta-btn-gold{background:#c9a84c;color:#1c2331;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:800;font-size:15px;transition:.2s}
+.cta-btn-gold:hover{background:#e6c96a}
+.cta-btn-outline{background:transparent;color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px;border:2px solid rgba(255,255,255,.3);transition:.2s}
+.cta-btn-outline:hover{background:rgba(255,255,255,.1)}
+
+/* FOOTER */
+.footer{background:#111827;padding:28px 24px;text-align:center}
+.footer p{font-size:12px;color:rgba(255,255,255,.4);line-height:1.8}
+.footer a{color:rgba(255,255,255,.5);text-decoration:none}
+.footer a:hover{color:#c9a84c}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .subeler-grid{grid-template-columns:1fr 1fr}
+  .quick-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .subeler-grid{grid-template-columns:1fr}
+  .quick-inner{grid-template-columns:1fr 1fr}
+  .sube-kart.merkez{grid-column:span 1}
+}
+
+/* ===== GELİŞMİŞ ANİMASYONLAR ===== */
+
+/* Kart hover efekti */
+.sube-kart {
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease;
+  cursor: default;
+}
+.sube-kart:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 16px 48px rgba(0,0,0,.15);
+}
+
+/* Harita açılış efekti */
+.sube-harita {
+  transition: height .4s ease, opacity .3s ease;
+  opacity: .85;
+}
+.sube-kart:hover .sube-harita {
+  opacity: 1;
+  height: 220px;
+}
+
+/* Buton hover */
+.sube-btn {
+  transition: all .2s cubic-bezier(.34,1.56,.64,1);
+}
+.sube-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+}
+
+/* Yol tarifi butonu */
+.btn-yol {
+  background: linear-gradient(135deg,#1565c0,#1a237e);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all .2s cubic-bezier(.34,1.56,.64,1);
+}
+.btn-yol:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 14px rgba(26,35,126,.35);
+  opacity: .9;
+}
+
+/* Kart giriş animasyonu */
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.sube-kart {
+  animation: cardFadeIn .5s ease forwards;
+}
+.sube-kart:nth-child(1) { animation-delay: .05s; }
+.sube-kart:nth-child(2) { animation-delay: .10s; }
+.sube-kart:nth-child(3) { animation-delay: .15s; }
+.sube-kart:nth-child(4) { animation-delay: .20s; }
+.sube-kart:nth-child(5) { animation-delay: .25s; }
+.sube-kart:nth-child(6) { animation-delay: .30s; }
+
+/* Harita overlay — tıkla aç */
+.harita-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.harita-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(28,35,49,.0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .3s ease;
+  cursor: pointer;
+}
+.harita-overlay span {
+  background: rgba(28,35,49,.85);
+  color: #c9a84c;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 10px 20px;
+  border-radius: 20px;
+  opacity: 0;
+  transform: scale(.8);
+  transition: all .3s ease;
+  pointer-events: none;
+}
+.sube-kart:hover .harita-overlay {
+  background: rgba(28,35,49,.15);
+}
+.sube-kart:hover .harita-overlay span {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Şube başlık renk çizgisi */
+.sube-bilgi {
+  position: relative;
+}
+.sube-bilgi::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--sube-renk, #c9a84c), transparent);
+}
+
+/* Hızlı iletişim hover */
+.qc-card {
+  transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s ease;
+}
+.qc-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.1);
+}
+
+/* Pulse animasyonu — telefon */
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,.4); }
+  50% { box-shadow: 0 0 0 8px rgba(201,168,76,.0); }
+}
+.qc-card:first-child {
+  animation: pulse 2.5s infinite;
+}
+
+
+/* ===== ŞUBE DETAY ÖZELLİKLERİ ===== */
+.sube-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 10px 0 12px;
+  padding: 10px 12px;
+  background: rgba(0,0,0,.03);
+  border-radius: 8px;
+  font-size: 12px;
+}
+.sube-meta-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: #555;
+  line-height: 1.5;
+}
+.sube-meta-row .meta-icon {
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.sube-meta-row .meta-label {
+  font-weight: 700;
+  color: #1c2331;
+  min-width: 70px;
+  flex-shrink: 0;
+}
+.sube-meta-row .meta-val {
+  color: #555;
+}
+.sube-cta {
+  display: block;
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 12px;
+  transition: all .25s cubic-bezier(.34,1.56,.64,1);
+  letter-spacing: .3px;
+}
+.sube-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,.2);
+}
+.sube-cta-ankara  { background: linear-gradient(135deg,#1a237e,#283593); color: #c9a84c; }
+.sube-cta-istanbul{ background: linear-gradient(135deg,#b71c1c,#c62828); color: #fff; }
+.sube-cta-malatya { background: linear-gradient(135deg,#6a1b9a,#7b1fa2); color: #fff; }
+.sube-cta-iskenderun { background: linear-gradient(135deg,#1b5e20,#2e7d32); color: #fff; }
+.sube-cta-antakya { background: linear-gradient(135deg,#bf360c,#e65100); color: #fff; }
+.sube-cta-uretim  { background: linear-gradient(135deg,#263238,#37474f); color: #c9a84c; }
+
+.acik-badge {
+  display: inline-block;
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.kapali-badge {
+  display: inline-block;
+  background: #ffebee;
+  color: #c62828;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+</style>
+<link rel="stylesheet" href="/assets/yapiguc.css"><noscript><style>@media(max-width:900px){.yg-navigation{display:flex!important;position:static!important;flex-direction:column!important;max-height:none!important}.yg-header-main{flex-wrap:wrap!important}.yg-menu-button{display:none!important}.yg-header{position:static!important}}</style></noscript><meta name="robots" content="index,follow,max-image-preview:large"><meta property="og:title" content="Site Haritası: Hizmetler, Makaleler ve İletişim | YAPIGÜÇ"><meta property="og:url" content="https://www.yapiguc.net/site-haritasi"><link rel="stylesheet" href="/assets/audit.css"><link rel="stylesheet" href="/assets/growth.css"><link rel="stylesheet" href="/assets/refinement.css"><link rel="icon" href="/favicon.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180"><link rel="stylesheet" href="/assets/visitor-growth.css"><link rel="stylesheet" href="/assets/content-protection-6154b6995f.css"><script defer="" src="/assets/content-protection-9371381351.js"></script><link rel="stylesheet" href="/assets/service-details.e7c23b1ca5.css"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.yapiguc.net/#organization","name":"YAPIGÜÇ MÜŞ. MÜH. SAN. VE TİC. A.Ş.","url":"https://www.yapiguc.net","logo":"https://www.yapiguc.net/assets/yapiguc-logo-transparent.png","telephone":"+905405163636","email":"info@yapiguc.net"},{"@type":"CollectionPage","name":"Site Haritası: Hizmetler, Makaleler ve İletişim | YAPIGÜÇ","description":"YAPIGÜÇ hizmetleri, güçlendirme projeleri, teknik makaleler, referanslar ve merkez ile şube iletişim bilgilerine site haritasından ulaşın.","url":"https://www.yapiguc.net/site-haritasi","inLanguage":"tr","about":{"@id":"https://www.yapiguc.net/#organization"},"mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Yapısal Güçlendirme: Proje, Onarım ve Uygulama","url":"https://www.yapiguc.net/yapi-guclendirme"},{"@type":"ListItem","position":2,"name":"Betonarme Güçlendirme","url":"https://www.yapiguc.net/betonarme-guclendirme"},{"@type":"ListItem","position":3,"name":"Çelik Güçlendirme","url":"https://www.yapiguc.net/celik-guclendirme"},{"@type":"ListItem","position":4,"name":"Karbon Fiber ve FRP Güçlendirme","url":"https://www.yapiguc.net/kolon-guclendirme"},{"@type":"ListItem","position":5,"name":"Temel Güçlendirme","url":"https://www.yapiguc.net/temel-guclendirme"},{"@type":"ListItem","position":6,"name":"Kiriş ve Döşeme Güçlendirme","url":"https://www.yapiguc.net/kiris-doseme-guclendirme"},{"@type":"ListItem","position":7,"name":"Perde ve Taşıyıcı Duvar Güçlendirme","url":"https://www.yapiguc.net/perde-duvar-guclendirme"},{"@type":"ListItem","position":8,"name":"Ankraj ve Güçlendirme Bağlantıları","url":"https://www.yapiguc.net/ankraj-guclendirme"},{"@type":"ListItem","position":9,"name":"Yapısal Onarım ve Enjeksiyon","url":"https://www.yapiguc.net/epoksi-enjeksiyon"},{"@type":"ListItem","position":10,"name":"Tarihi ve Yığma Yapı Güçlendirme","url":"https://www.yapiguc.net/tarihi-eser-guclendirme"},{"@type":"ListItem","position":11,"name":"Güçlendirme Kapsamında Karot ve Delgi","url":"https://www.yapiguc.net/karot-delim"},{"@type":"ListItem","position":12,"name":"Güçlendirme Projesi Hazırlama","url":"https://www.yapiguc.net/guclendirme-projesi-cizimi"},{"@type":"ListItem","position":13,"name":"Deprem Performans Analizi","url":"https://www.yapiguc.net/deprem-performans-analizi"},{"@type":"ListItem","position":14,"name":"Üniversite Değerlendirme ve Onay Koordinasyonu","url":"https://www.yapiguc.net/universite-onay-sureci"},{"@type":"ListItem","position":15,"name":"Tasarım Gözetimi ve Kontrolü","url":"https://www.yapiguc.net/tasarim-gozetmenligi"},{"@type":"ListItem","position":16,"name":"Riskli Yapı Tespiti ve Teknik Süreç","url":"https://www.yapiguc.net/riskli-yapi-tespiti"}]}}]}</script><script defer="" src="/assets/contact-metrics-39a5a7e808.js"></script><link rel="stylesheet" href="/assets/deprem-gundemi.css"><link rel="stylesheet" href="/assets/engineering-depth.css"><link rel="stylesheet" href="/assets/service-depth.css"><link rel="stylesheet" href="/assets/field-story.css"><link rel="stylesheet" href="/assets/cookie-panel-0cd7f09d2b.css"><link rel="stylesheet" href="/assets/accessibility-0ccdd9c109.css"><link rel="stylesheet" href="/assets/layout-repair-03eb26008a.css"><link rel="stylesheet" href="/assets/home-modern-20261014.css?v=18abe02549"></head>
+<body class="yg-site yg-contact"><a class="yg-skip" href="#yg-main">İçeriğe geç</a><header class="yg-header"><div class="yg-utility"><p>Türkiye Genelinde Proje · Onarım · Güçlendirme</p><div class="yg-utility-links"><a href="tel:+905405163636">0540 516 36 36</a><a href="https://wa.me/905405163636" target="_blank" rel="noopener noreferrer">WhatsApp</a></div></div><div class="yg-header-main"><a class="yg-brand" href="/" aria-label="YAPIGÜÇ ana sayfa"><img class="growth-brand-logo" src="/assets/yapiguc-logo-transparent.png" alt="YAPIGÜÇ" width="2172" height="724"><small class="scope-brand-subtitle">Müşavirlik Mühendislik A.Ş.</small></a><nav class="yg-navigation" id="yg-navigation" aria-label="Ana menü"><details class="yg-mega"><summary>Hizmetler</summary><div class="yg-mega-links"><a href="/uzmanlik-alanlarimiz">Tüm Uzmanlık Alanlarımız · Mühendislik ve Uygulama</a><a href="/tasarim-gozetmenligi">Tasarım Gözetmenliği</a><a href="/universite-onay-sureci">Üniversite Değerlendirme ve Onay Süreci</a><a href="/guclendirme-projesi-cizimi">Güçlendirme Projesi Hazırlama</a><a href="/yapi-guclendirme">Yapısal Güçlendirme İmalatları</a><a href="/betonarme-guclendirme">Betonarme Güçlendirme</a><a href="/celik-guclendirme">Çelik Güçlendirme</a><a href="/kolon-guclendirme">Karbon Fiber / FRP Güçlendirme</a><a href="/temel-guclendirme">Temel Güçlendirme</a><a href="/kiris-doseme-guclendirme">Kiriş ve Döşeme Güçlendirme</a><a href="/perde-duvar-guclendirme">Perde ve Duvar Güçlendirme</a><a href="/ankraj-guclendirme">Ankraj ve Bağlantı İmalatları</a><a href="/epoksi-enjeksiyon">Güçlendirme Kapsamında Enjeksiyon</a><a href="/tarihi-eser-guclendirme">Tarihi ve Yığma Yapı Güçlendirme</a><a href="/karot-delim">Güçlendirme Amaçlı Karot İşlemleri</a></div></details><a href="/hakkimizda">Kurumsal</a><a href="/referans-projeler">Referanslarımız</a><a href="/blog/">Blog ve Makaleler</a><a href="/iller/">Hizmet Bölgeleri</a><a href="/iletisim">İletişim</a></nav><a class="yg-button" href="/teklif-al">İletişim Talebi <span aria-hidden="true">↗</span></a><button class="yg-menu-button" type="button" aria-label="Menüyü aç" aria-expanded="false" aria-controls="yg-navigation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button></div></header>
+<main id="yg-main" tabindex="-1"><article class="growth-article technical-service"><img src="/assets/yapiguc-logo-transparent.png" alt="YAPIGÜÇ" width="280" style="display:block;max-width:100%;height:auto"><p class="yg-eyebrow">MÜŞAVİRLİK MÜHENDİSLİK A.Ş.</p><h1>YAPIGÜÇ Site Haritası</h1><p class="growth-lead">Türkiye genelinde proje, onarım ve yapısal güçlendirme hizmetlerimizi; teknik rehberlerimizi, referanslarımızı ve iletişim bilgilerimizi bu sayfadan keşfedin.</p><nav class="service-sections" aria-label="Site haritasının bölümleri"><a href="#hizmetler">Hizmetlerimiz</a><a href="#bilgi">Blog ve teknik makaleler</a><a href="#referanslar">Referanslarımız</a><a href="#iletisim">İletişim</a></nav><section id="hizmetler"><h2>Hizmetlerimiz</h2><div class="service-links"><a href="/yapi-guclendirme"><strong>Yapısal Güçlendirme: Proje, Onarım ve Uygulama</strong><span>Taşıyıcı sistemin ihtiyacını belirleyen mühendislik değerlendirmesinden uygulama detaylarına ve saha imalatına uzanan güçlendirme hizmetleri.</span></a><a href="/betonarme-guclendirme"><strong>Betonarme Güçlendirme</strong><span>Kolon, kiriş, perde ve döşemelerde projeye göre betonarme kesit büyütme, sargılama ve yeni taşıyıcı eleman uygulamaları.</span></a><a href="/celik-guclendirme"><strong>Çelik Güçlendirme</strong><span>Çelik elemanlar, çaprazlar ve birleşim detaylarıyla mevcut taşıyıcı sistemin güçlendirilmesi.</span></a><a href="/kolon-guclendirme"><strong>Karbon Fiber ve FRP Güçlendirme</strong><span>Betonarme elemanlarda lifli polimer sistemlerle projeye uygun sargılama ve yapıştırma uygulamaları.</span></a><a href="/temel-guclendirme"><strong>Temel Güçlendirme</strong><span>Üst yapıdan zemine aktarılan yüklerin, mevcut temel ve zemin koşullarıyla birlikte değerlendirildiği güçlendirme uygulamaları.</span></a><a href="/kiris-doseme-guclendirme"><strong>Kiriş ve Döşeme Güçlendirme</strong><span>Kiriş ve döşemelerde eğilme, kesme, mesnet ve yük aktarımı ihtiyaçlarına göre seçilen güçlendirme uygulamaları.</span></a><a href="/perde-duvar-guclendirme"><strong>Perde ve Taşıyıcı Duvar Güçlendirme</strong><span>Betonarme perdeler ve yığma taşıyıcı duvarlarda, sisteme ve malzemeye uygun güçlendirme müdahaleleri.</span></a><a href="/ankraj-guclendirme"><strong>Ankraj ve Güçlendirme Bağlantıları</strong><span>Yeni güçlendirme elemanlarından mevcut taşıyıcı sisteme kuvvet aktarımını sağlayan bağlantı imalatları.</span></a><a href="/epoksi-enjeksiyon"><strong>Yapısal Onarım ve Enjeksiyon</strong><span>Güçlendirme projesi kapsamında, çatlak ve boşlukların niteliğine uygun onarım ve enjeksiyon uygulamaları.</span></a><a href="/tarihi-eser-guclendirme"><strong>Tarihi ve Yığma Yapı Güçlendirme</strong><span>Tarihi taşıyıcı sistemlerde özgün malzeme, yapı davranışı ve koruma koşullarına uygun proje ve güçlendirme uygulamaları.</span></a><a href="/karot-delim"><strong>Güçlendirme Kapsamında Karot ve Delgi</strong><span>Güçlendirme bağlantıları, ankraj ve gergi detaylarında gerekli karot ve delgi işlemleri.</span></a><a href="/guclendirme-projesi-cizimi"><strong>Güçlendirme Projesi Hazırlama</strong><span>Mevcut yapı bilgileri, mühendislik analizleri ve uygulanabilir detaylarla yapıya özgü güçlendirme projesi hazırlanması.</span></a><a href="/deprem-performans-analizi"><strong>Deprem Performans Analizi</strong><span>Belirlenen deprem etkisi altında mevcut taşıyıcı sistemin davranışının, veri ve yöntem kabulleriyle birlikte değerlendirilmesi.</span></a><a href="/universite-onay-sureci"><strong>Üniversite Değerlendirme ve Onay Koordinasyonu</strong><span>Proje özelinde talep edilen üniversite incelemesi için teknik dosya hazırlığı, görüş takibi ve revizyon koordinasyonu.</span></a><a href="/tasarim-gozetmenligi"><strong>Tasarım Gözetimi ve Kontrolü</strong><span>Projenin gerektirdiği özel uzmanlık alanlarında model, yöntem, hesap ve tasarım belgelerinin teknik gözetimi.</span></a><a href="/riskli-yapi-tespiti"><strong>Riskli Yapı Tespiti ve Teknik Süreç</strong><span>Riskli yapı tespiti çalışmalarına ilişkin başvuru, veri, değerlendirme ve kayıt kapsamının açıklanması.</span></a></div></section><section id="bilgi"><h2>Blog ve teknik makaleler</h2><div class="service-links"><a href="/blog/"><strong>Blog ve Makaleler</strong><span>Güçlendirme yöntemleri, proje hazırlığı ve uygulama süreçleri hakkında kaynaklı rehberler.</span></a><a href="/teknik-kutuphane"><strong>Teknik Kütüphane</strong><span>STA4CAD, ideCAD, SAP2000, model kabulleri ve performans raporlarının değerlendirilmesine ilişkin açıklamalar.</span></a><a href="/guclendirme-talep-hazirligi"><strong>İlk Görüşme Hazırlığı</strong><span>Mevcut belge ve ihtiyaçlarınızı görüşmeden önce düzenleyin.</span></a><a href="/sss"><strong>Sık Sorulan Sorular</strong><span>Güçlendirme süreciyle ilgili temel soruların yanıtları.</span></a></div></section><section id="referanslar"><h2>Kurumsal bilgiler ve referanslarımız</h2><div class="service-links"><a href="/hakkimizda"><strong>YAPIGÜÇ Hakkında</strong><span>Kurumsal yaklaşımımız ve hizmet kapsamımız.</span></a><a href="/referans-projeler"><strong>Referanslarımız ve Proje Arşivimiz</strong><span>Güçlendirme, riskli yapı tespiti ve durumları belirtilen mimari proje kayıtları.</span></a><a href="/uygulama-fotograflari"><strong>Uygulama Fotoğrafları</strong><span>Şantiye çalışmalarından görseller.</span></a><a href="/santiye-videolari"><strong>Şantiye Videoları</strong><span>Uygulama çalışmalarını gösteren video kayıtları.</span></a></div></section><section id="iletisim"><h2>İletişim ve adreslerimiz</h2><p><strong>YAPIGÜÇ MÜŞ. MÜH. SAN. VE TİC. A.Ş.</strong></p><address>İvedikköy Mahallesi, Melih Gökçek Bulvarı, BETEM OSB Türk Plaza, No: 140, İç Kapı No: 33, Yenimahalle / Ankara</address><p>Proje ve uygulama talepleri: <a href="tel:+905405163636">0540 516 36 36</a> · <a href="https://wa.me/905405163636">WhatsApp</a></p><p>Merkez ofis: <a href="tel:+905322510043">0532 251 00 43</a> · <a href="tel:+905323746945">0532 374 69 45</a></p><p><a href="mailto:info@yapiguc.net">info@yapiguc.net</a></p><div class="growth-actions"><a class="yg-button" href="/iletisim#branch-contact-addresses">Şubelerimiz ve yol tarifleri</a><a class="yg-button growth-secondary" href="/teklif-al">İletişim talebi hazırlayın</a></div><p>İletişim talebi formunu gönderdiğinizde bilgileriniz YAPIGÜÇ’e iletilir. WhatsApp bağlantısı ayrı bir kanaldır; mesajı WhatsApp içinde siz gönderirsiniz.</p></section><section><h2>Gizlilik</h2><p><a href="/kvk-aydinlatma-metni">KVKK aydınlatma metni ve gizlilik tercihleri</a></p></section></article><section class="eq-section"><h2>Deprem gündemi ve mühendislik kaynakları</h2><p><a href="/deprem-gundemi">AFAD, USGS ve teknik değerlendirme kaynaklarını inceleyin →</a></p></section><section class="eq-section"><span class="eq-kicker">YAPIGÜÇ · SAHA KAPASİTESİ</span><h2>Ekip ve ekipman parkımız</h2><p>Beton uygulama ekipmanları, iş makineleri, delme ve kesme sistemleri, taşıma ve saha araçlarımızı inceleyin.</p><a href="/ekip-ekipman">Makine parkı ve adet bilgileri →</a></section><section class="eq-section"><span class="eq-kicker">YAPIGÜÇ · ÇALIŞMA SÜRECİ</span><h2>İlk görüşmeden teslime</h2><p>Belge hazırlığını, saha değerlendirmesini, proje ve uygulama adımlarını birlikte inceleyin.</p><a href="/calisma-sureci">Bizimle çalışma süreci →</a></section><section class="eq-section"><h2>Proje kapsamından teknik kayda</h2><p>Malzeme belgeleri, uygulama kontrolleri, saha revizyonları ve teslim dosyası için hangi başlıkları görüşeceğinizi inceleyin.</p><div class="eq-actions"><a href="/kalite-ve-teknik-kayitlar">Kalite ve teknik kayıtlar →</a><a href="/akademik-yayinlar">Akademik kaynaklar →</a><a href="/en/" lang="en">English company profile →</a></div></section><section class="eq-section"><span class="eq-kicker">YAPIGÜÇ · TEKNİK KADRO</span><h2>Mühendislik, mimarlık ve akademik danışmanlık</h2><p>Mühendislik, mimarlık ve teknik saha kadromuzun mesleki yapısını; profesör düzeyindeki akademik danışmanlık alanlarımızı inceleyin.</p><div class="eq-actions"><a href="/teknik-kadro">Teknik kadromuz ve danışmanlarımız →</a></div></section><section class="eq-section expertise-home"><span class="eq-kicker">YAPIGÜÇ · MÜHENDİSLİK VE UYGULAMA</span><h2>Uzmanlık alanlarımız: analiz, proje ve saha uygulaması</h2><p>Sismik izolasyon, ileri güçlendirme çözümleri, endüstriyel tesisler, yüksek yapılar, tarihi/yığma yapılar, yapısal olmayan elemanlar, yapısal yangın mühendisliği, danışmanlık ve yapı sağlığı izleme hizmetlerini uygulama kapasitemizle birlikte sunuyoruz.</p><div class="eq-actions"><a href="/uzmanlik-alanlarimiz">Dokuz uzmanlık alanımızı inceleyin →</a><a href="/teknik-kadro">Teknik kadromuz →</a><a href="/ekip-ekipman">Saha ekipmanlarımız →</a></div></section><section class="eq-section"><span class="eq-kicker">YAPIGÜÇ · SAHA ARŞİVİ</span><h2>Çalışmalarımızı sahadan görüntülerle inceleyin</h2><p>Uzun delgi, karbon elyaf, peribacaları, tarihi eser güçlendirme ve kaya tutucu bariyer işlerine ait fotoğraf ve videolar.</p><div class="eq-actions"><a href="/saha-galerileri">Saha galerileri →</a></div></section><section class="eq-section"><h2>Güçlendirme kararını doğru bilgiyle verin</h2><p>Güvenlik değerlendirmesi, doğru ekip seçimi ve bütüncül yenileme için kaynaklarla hazırlanan rehberler.</p><div class="eq-grid"><article class="eq-card"><h3>Güçlendirilmiş yapı güvenliği nasıl değerlendirilir?</h3><p>Güçlendirme ile yeni yapıyı yaşına göre değil; inceleme, performans hedefi, proje ve uygulama kontrolleriyle karşılaştırmak.</p><a href="/blog/guclendirme-guvenligi-yeni-yapi-karsilastirmasi">İnceleyin →</a></article><article class="eq-card"><h3>Güçlendirmede doğru ekip, doğru proje ve kontrollü uygulama</h3><p>Teknik ekipten uygulama kontrollerine: bir güçlendirme işinde yetkinliği ve iş kapsamını değerlendirmek için sorular.</p><a href="/blog/guclendirmede-dogru-ekip-proje-uygulama">İnceleyin →</a></article><article class="eq-card"><h3>Bütüncül güçlendirme: taşıyıcı sistem, kullanım ve enerji</h3><p>Deprem performansını yapısal olmayan elemanlar, kullanım koşulları ve enerji iyileştirme ihtiyaçlarıyla birlikte ele almak.</p><a href="/blog/butuncul-guclendirme-yapi-kullanim-enerji">İnceleyin →</a></article></div></section><section class="service-depth entry-guide" id="hizmet-baslangici"><h2>İhtiyacınız için doğru başlangıç</h2><p>Projeniz yoksa değerlendirme ve proje hazırlığını, hazırsa saha uygulamasını birlikte planlayalım. Yapınıza veya saha ihtiyacınıza uygun hizmet başlıklarına başlangıç rehberinden ulaşın.</p><a href="/hizmet-baslangic-rehberi">Yapınız için nereden başlamalı? →</a></section><section class="fs-home" id="sahada-guclendirme"><div><span class="fs-label">YAPIGÜÇ · SAHADA UYGULAMA</span><h2>Projedeki çözümü sahada hayata geçiriyoruz.</h2><p>Kendi saha görüntülerimizle güçlendirme uygulamalarını inceleyin; hazırlık, uygulama ve imalat kontrollerini nasıl birlikte ele aldığımızı görün.</p></div><a class="fs-button" href="/sahada-guclendirme">Sahadaki çalışmalarımız →</a></section><section class="growth-page"><h2>İlgili başlangıç noktaları</h2><p><a href="/teknik-rehberler">Teknik rehber araması</a> · <a href="/isveren-rehberi">İşveren başlangıç rehberi</a> · <a href="/kurumsal-dosyalar">Kurumsal dosyalar</a> · <a href="/en/">English</a></p></section></main>
+
+<!-- HEADER -->
+
+
+<!-- HERO -->
+
+
+<!-- HIZLI İLETİŞİM -->
+
+
+<!-- ŞUBELER -->
+
+
+<!-- CTA -->
+
+
+<!-- FOOTER -->
+
+
+
+<footer class="yg-footer"><div class="yg-footer-inner"><a class="yg-brand" href="/" aria-label="YAPIGÜÇ ana sayfa"><img class="growth-brand-logo" src="/assets/yapiguc-logo-transparent.png" alt="YAPIGÜÇ" width="2172" height="724"><small class="scope-brand-subtitle">Müşavirlik Mühendislik A.Ş.</small></a><nav class="yg-footer-links" aria-label="Alt menü"><a href="/cerez-politikasi">Çerez Politikası</a><a href="/referanslar/">Referans Koleksiyonları</a><a href="/uygulama-fotograflari">Uygulama Fotoğrafları</a><a href="/iletisim">Kurumsal İletişim</a><a href="/kvkk">Gizlilik ve KVKK</a><a href="/teklif-al">İletişim Talebi</a><button type="button" data-consent-open="">Çerez tercihleri</button><a href="/site-haritasi">Site Haritası</a></nav><div class="yg-footer-contact"><span>İLETİŞİM</span><a href="tel:+905405163636">0540 516 36 36</a><a href="mailto:info@yapiguc.net">info@yapiguc.net</a><small>© YAPIGÜÇ · Tüm hakları saklıdır.</small></div></div></footer><section class="audit-consent" aria-label="Çerez tercihleri" hidden=""><h2>İsteğe bağlı ziyaretçi ölçümü</h2><p>İzin verirseniz Google Analytics ile sayfa ziyaretlerini ve telefon/WhatsApp bağlantısı tıklamalarını ölçeriz. Formdaki ad, telefon ve açıklamalar bu ölçüme gönderilmez. İzin vermeden de siteyi ve iletişim seçeneklerini kullanabilirsiniz. <a href="/kvk-aydinlatma-metni">Gizlilik ve KVKK metni</a></p><a href="/kvkk">Veri işleme bilgileri</a><div class="audit-consent-actions"><button type="button" data-consent="reject">Ölçümü reddet</button><button type="button" data-consent="accept">Ölçümü kabul et</button><button type="button" data-consent-close="">Tercihleri kapat</button></div><p role="status" data-consent-status=""></p></section><script src="/assets/yapiguc.js" defer=""></script><nav class="quick-contact" aria-label="Hızlı iletişim"><a href="tel:+905405163636">Hemen arayın</a><a href="https://wa.me/905405163636" target="_blank" rel="noopener noreferrer">WhatsApp</a></nav><script defer src="/assets/accessibility-ee4de8d13d.js"></script><script src="/assets/site-guide-20261015.js" defer></script></body></html>

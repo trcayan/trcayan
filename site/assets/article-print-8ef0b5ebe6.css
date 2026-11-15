@@ -1,0 +1,7 @@
+/* Article content remains available on screen and to search crawlers. */
+@media print {
+  html, html body { display:block!important; visibility:visible!important; overflow:visible!important; height:auto!important; min-height:0!important; margin:0!important; background:#fff!important; }
+  html body > * { display:none!important; }
+  html body::before { content:none!important; display:none!important; }
+  html body::after { content:"YAPIGÜÇ · Bu sayfanın yazdırılması kapalıdır.\Aİçeriği www.yapiguc.net üzerinden okuyabilirsiniz."!important; display:block!important; visibility:visible!important; position:static!important; inset:auto!important; transform:none!important; width:auto!important; height:auto!important; padding:24pt!important; margin:0!important; color:#172638!important; background:#fff!important; opacity:1!important; font:12pt/1.6 Arial,sans-serif!important; letter-spacing:normal!important; white-space:pre-line!important; text-align:left!important; z-index:auto!important; }
+}

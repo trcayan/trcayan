@@ -1,0 +1,343 @@
+<!DOCTYPE html><html lang="tr"><head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Pushover Analizi Adım Adım — SAP2000 ile Performans Noktası Belirleme | YAPIGÜÇ</title>
+<meta name="description" content="Pushover (itme) analizi, yapıya artan yatay yük uygulayarak doğrusal olmayan davranışını inceleyen statik bir yöntemdir. TBDY 2018 Bölüm 5'te tanımlanan bu">
+<meta name="keywords" content="pushover analizi SAP2000, kapasite eğrisi, performans noktası, plastik mafsal, TBDY 2018 pushover">
+
+<link rel="canonical" href="https://www.yapiguc.net/blog/pushover-analizi-adim-adim-sap2000">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Segoe UI",Arial,sans-serif;background:#f5f6fa;color:#222;line-height:1.8;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+::selection{background:transparent!important}
+header{background:linear-gradient(135deg,#1a237e,#283593);color:#fff}
+.header-top{display:flex;align-items:center;justify-content:space-between;padding:15px 40px;max-width:1200px;margin:0 auto}
+.logo-area{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+.logo-area img{height:50px}
+nav{background:rgba(0,0,0,.2);padding:10px 40px}
+nav a{color:#fff;text-decoration:none;margin-right:18px;font-size:14px;opacity:.9}
+.breadcrumb{background:#fff;padding:12px 40px;font-size:13px;color:#666;border-bottom:1px solid #eee}
+.breadcrumb a{color:#1a237e;text-decoration:none}
+.article-wrap{max-width:960px;margin:40px auto;padding:0 20px}
+.article-header{background:#fff;border-radius:16px;padding:35px;margin-bottom:20px;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.article-meta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:15px}
+.meta-tag{background:#e8eaf6;color:#1a237e;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.meta-tag.red{background:#ffebee;color:#b71c1c}
+.meta-tag.green{background:#e8f5e9;color:#1b5e20}
+.meta-tag.purple{background:#f3e5f5;color:#4a148c}
+h1{font-size:26px;color:#1a237e;line-height:1.3;margin-bottom:12px}
+.article-intro{font-size:16px;color:#444;border-left:4px solid #1a237e;padding-left:18px;margin-top:15px}
+.article-body{background:#fff;border-radius:16px;padding:35px;box-shadow:0 4px 20px rgba(0,0,0,.08);margin-bottom:20px}
+h2{font-size:20px;color:#1a237e;margin:28px 0 13px;padding-bottom:8px;border-bottom:2px solid #e8eaf6}
+h2:first-child{margin-top:0}
+h3{font-size:16px;color:#283593;margin:18px 0 9px;font-weight:700}
+h4{font-size:14px;color:#1565c0;margin:14px 0 7px;font-weight:700}
+p{font-size:14px;line-height:1.85;color:#333;margin-bottom:12px}
+ul,ol{margin:8px 0 14px 22px}
+li{font-size:14px;color:#333;margin-bottom:7px;line-height:1.7}
+.code-block{background:#1a1a2e;border-radius:12px;padding:20px 22px;margin:14px 0;overflow-x:auto;border-left:4px solid #64b5f6}
+.code-block pre{font-family:"Courier New",Consolas,monospace;font-size:13px;color:#e0e0e0;line-height:1.7;white-space:pre;margin:0}
+.code-block .comment{color:#90caf9}
+.code-block .value{color:#a5d6a7}
+.code-label{font-size:10px;color:#64b5f6;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.formula-box{background:#e8eaf6;border:2px solid #c5cae9;border-radius:12px;padding:18px 22px;margin:14px 0;font-family:"Courier New",monospace;font-size:13px;color:#1a237e;line-height:1.8}
+.formula-box .f-title{font-family:"Segoe UI",Arial,sans-serif;font-size:12px;font-weight:700;color:#283593;margin-bottom:10px;letter-spacing:.5px;text-transform:uppercase}
+.info-box{border-radius:12px;padding:18px 22px;margin:16px 0}
+.info-box.blue{background:#e3f2fd;border-left:4px solid #1565c0}
+.info-box.green{background:#e8f5e9;border-left:4px solid #2e7d32}
+.info-box.orange{background:#fff3e0;border-left:4px solid #e65100}
+.info-box.red{background:#ffebee;border-left:4px solid #c62828}
+.info-box.gold{background:#fff8e1;border-left:4px solid #f9a825}
+.info-box.purple{background:#f3e5f5;border-left:4px solid #4a148c}
+.info-box h4{font-size:13px;font-weight:700;margin-bottom:8px}
+.info-box.blue h4{color:#1565c0}.info-box.green h4{color:#1b5e20}
+.info-box.orange h4{color:#e65100}.info-box.red h4{color:#b71c1c}
+.info-box.gold h4{color:#f57f17}.info-box.purple h4{color:#4a148c}
+.info-box p{font-size:13px;margin:0;line-height:1.7}
+.data-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px}
+.data-table th{background:#1a237e;color:#fff;padding:10px 13px;text-align:left}
+.data-table td{padding:9px 13px;border-bottom:1px solid #f0f0f0}
+.data-table tr:nth-child(even) td{background:#f8f9ff}
+.data-table .yes{color:#2e7d32;font-weight:700}
+.data-table .no{color:#c62828;font-weight:700}
+.data-table .warn{color:#e65100;font-weight:700}
+.steps{margin:14px 0}
+.step{display:flex;gap:16px;padding:13px 0;border-bottom:1px solid #f0f0f0}
+.step:last-child{border-bottom:none}
+.step-n{width:32px;height:32px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,#1a237e,#283593);color:#fff;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.step h5{font-size:13px;font-weight:700;color:#1a237e;margin-bottom:4px}
+.step p{font-size:13px;color:#555;line-height:1.6;margin:0}
+.cta-box{background:linear-gradient(135deg,#1a237e,#283593);color:#fff;border-radius:14px;padding:25px;text-align:center;margin:25px 0}
+.cta-box h3{font-size:18px;margin-bottom:8px;color:#c9a84c!important}
+.cta-box p{opacity:.85;margin-bottom:16px;font-size:14px;color:rgba(255,255,255,.9)!important}
+.cta-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.cta-btn{padding:11px 22px;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none}
+.cta-btn.white{background:#fff;color:#1a237e}
+.cta-btn.wa{background:#25D366;color:#fff}
+.cta-btn.red{background:#b71c1c;color:#fff}
+.share-bar{background:#fff;border-radius:12px;padding:16px 22px;box-shadow:0 4px 20px rgba(0,0,0,.08);margin-bottom:20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.share-bar span{font-weight:700;color:#1a237e;font-size:13px}
+.share-btn{padding:7px 16px;border-radius:18px;font-size:12px;font-weight:700;text-decoration:none;display:inline-block}
+.share-btn.tw{background:#1da1f2;color:#fff}
+.share-btn.li{background:#0077b5;color:#fff}
+.share-btn.wa{background:#25D366;color:#fff}
+footer{background:#1a237e;color:#fff;text-align:center;padding:25px;margin-top:50px;font-size:13px}
+footer a{color:#90caf9;text-decoration:none}
+@media(max-width:768px){.header-top{padding:15px 20px}.article-wrap{padding:0 15px}.article-body,.article-header{padding:22px}h1{font-size:20px}.code-block pre{font-size:11px}}
+</style>
+<meta property="og:title" content="Pushover Analizi Adım Adım — SAP2000 ile Performans Noktası Belirleme | YAPIGÜÇ">
+<meta property="og:description" content="Pushover (itme) analizi, yapıya artan yatay yük uygulayarak doğrusal olmayan davranışını inceleyen statik bir yöntemdir. TBDY 2018 Bölüm 5'te tanımlanan bu">
+<meta property="og:url" content="https://www.yapiguc.net/blog/pushover-analizi-adim-adim-sap2000">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://res.cloudinary.com/ncyhx0qo/image/upload/yapiguc/logo.png">
+
+
+<style>*{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}</style>
+
+
+<link rel="alternate" hreflang="tr" href="https://www.yapiguc.net/blog/pushover-analizi-adim-adim-sap2000">
+<link rel="alternate" hreflang="tr-TR" href="https://www.yapiguc.net/blog/pushover-analizi-adim-adim-sap2000">
+<link rel="alternate" hreflang="x-default" href="https://www.yapiguc.net/blog/pushover-analizi-adim-adim-sap2000">
+
+<meta name="bingbot" content="index,follow,max-snippet:-1,max-image-preview:large">
+<style id="color-fix">
+[style*="background:#1c2331"] p:not([style*="color"]),
+[style*="background:#1c2331"] li:not([style*="color"]),
+[style*="background:#1c2331"] span:not([style*="color"]),
+[style*="background:#2d3a4a"] p:not([style*="color"]),
+[style*="background:#2d3a4a"] li:not([style*="color"]),
+[style*="background:#0d1b5e"] p:not([style*="color"]),
+[style*="background:#1a237e"] p:not([style*="color"]) {
+  color: #e0e0e0 !important;
+}
+</style>
+
+<style id="cta-color-fix">
+/* CTA Kutusu Renk Düzeltmesi */
+div[style*="background:linear-gradient(135deg,#1c2331"] h3,
+div[style*="background:linear-gradient(135deg,#1c2331"] h2,
+div[style*="background: linear-gradient(135deg, #1c2331"] h3 {
+  color: #c9a84c !important;
+}
+div[style*="background:linear-gradient(135deg,#1c2331"] p,
+div[style*="background:linear-gradient(135deg,#1c2331"] span,
+div[style*="background: linear-gradient(135deg, #1c2331"] p {
+  color: rgba(255,255,255,0.85) !important;
+}
+div[style*="background:#1c2331"] h3,
+div[style*="background:#1c2331"] h2 {
+  color: #c9a84c !important;
+}
+div[style*="background:#1c2331"] p,
+div[style*="background:#1c2331"] span:not(.btn):not(a) {
+  color: rgba(255,255,255,0.85) !important;
+}
+/* Buton yazıları dokunma */
+div[style*="background:#1c2331"] a[style*="background:#c9a84c"],
+div[style*="background:#1c2331"] a[style*="background:#25D366"] {
+  color: #1c2331 !important;
+}
+</style>
+<link rel="stylesheet" href="/assets/yapiguc.css"><noscript><style>@media(max-width:900px){.yg-navigation{display:flex!important;position:static!important;flex-direction:column!important;max-height:none!important}.yg-header-main{flex-wrap:wrap!important}.yg-menu-button{display:none!important}.yg-header{position:static!important}}</style></noscript><meta name="robots" content="index,follow,max-image-preview:large"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://www.yapiguc.net/#organization","name":"YAPIGÜÇ MÜŞ. MÜH. SAN. VE TİC. A.Ş.","url":"https://www.yapiguc.net","telephone":"+905405163636","email":"info@yapiguc.net","logo":"https://www.yapiguc.net/assets/yapiguc-logo-transparent.png"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://www.yapiguc.net/blog/pushover-analizi-adim-adim-sap2000.html#webpage","url":"https://www.yapiguc.net/blog/pushover-analizi-adim-adim-sap2000.html","name":"Pushover Analizi Adım Adım — SAP2000 ile Performans Noktası Belirleme | YAPIGÜÇ","inLanguage":"tr","publisher":{"@id":"https://www.yapiguc.net/#organization"}}</script><link rel="stylesheet" href="/assets/audit.css"><link rel="stylesheet" href="/assets/growth.css"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Pushover Analizi Adım Adım — SAP2000 ile Performans Noktası Belirleme","description":"Pushover (itme) analizi, yapıya artan yatay yük uygulayarak doğrusal olmayan davranışını inceleyen statik bir yöntemdir. TBDY 2018 Bölüm 5'te tanımlanan bu","url":"https://www.yapiguc.net/blog/pushover-analizi-adim-adim-sap2000","mainEntityOfPage":"https://www.yapiguc.net/blog/pushover-analizi-adim-adim-sap2000","inLanguage":"tr","publisher":{"@type":"Organization","name":"YAPIGÜÇ","url":"https://www.yapiguc.net","logo":"https://www.yapiguc.net/assets/yapiguc-logo-transparent.png"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://www.yapiguc.net/"},{"@type":"ListItem","position":2,"name":"Blog ve Makaleler","item":"https://www.yapiguc.net/blog/"},{"@type":"ListItem","position":3,"name":"Pushover Analizi Adım Adım — SAP2000 ile Performans Noktası Belirleme","item":"https://www.yapiguc.net/blog/pushover-analizi-adim-adim-sap2000"}]}</script><link rel="stylesheet" href="/assets/refinement.css"><link rel="icon" href="/favicon.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180"><link rel="stylesheet" href="/assets/visitor-growth.css"><link rel="stylesheet" href="/assets/content-protection-6154b6995f.css"><script defer="" src="/assets/content-protection-9371381351.js"></script><script defer="" src="/assets/contact-metrics-39a5a7e808.js"></script><link rel="stylesheet" href="/assets/article-print-07590967b8.css"><link rel="stylesheet" href="/assets/cookie-panel-0cd7f09d2b.css"><link rel="stylesheet" href="/assets/accessibility-0ccdd9c109.css"><link rel="stylesheet" href="/assets/layout-repair-03eb26008a.css"><link rel="stylesheet" href="/assets/home-modern-20261014.css?v=18abe02549"></head>
+<body class="yg-site yg-article"><a class="yg-skip" href="#yg-main">İçeriğe geç</a><header class="yg-header"><div class="yg-utility"><p>Türkiye Genelinde Proje · Onarım · Güçlendirme</p><div class="yg-utility-links"><a href="tel:+905405163636">0540 516 36 36</a><a href="https://wa.me/905405163636" target="_blank" rel="noopener noreferrer">WhatsApp</a></div></div><div class="yg-header-main"><a class="yg-brand" href="/" aria-label="YAPIGÜÇ ana sayfa"><img class="growth-brand-logo" src="/assets/yapiguc-logo-transparent.png" alt="YAPIGÜÇ" width="2172" height="724"><small class="scope-brand-subtitle">Müşavirlik Mühendislik A.Ş.</small></a><nav class="yg-navigation" id="yg-navigation" aria-label="Ana menü"><details class="yg-mega"><summary>Hizmetler</summary><div class="yg-mega-links"><a href="/tasarim-gozetmenligi">Tasarım Gözetmenliği</a><a href="/universite-onay-sureci">Üniversite Değerlendirme ve Onay Süreci</a><a href="/guclendirme-projesi-cizimi">Güçlendirme Projesi Hazırlama</a><a href="/yapi-guclendirme">Yapısal Güçlendirme İmalatları</a><a href="/betonarme-guclendirme">Betonarme Güçlendirme</a><a href="/celik-guclendirme">Çelik Güçlendirme</a><a href="/kolon-guclendirme">Karbon Fiber / FRP Güçlendirme</a><a href="/temel-guclendirme">Temel Güçlendirme</a><a href="/kiris-doseme-guclendirme">Kiriş ve Döşeme Güçlendirme</a><a href="/perde-duvar-guclendirme">Perde ve Duvar Güçlendirme</a><a href="/ankraj-guclendirme">Ankraj ve Bağlantı İmalatları</a><a href="/epoksi-enjeksiyon">Güçlendirme Kapsamında Enjeksiyon</a><a href="/tarihi-eser-guclendirme">Tarihi ve Yığma Yapı Güçlendirme</a><a href="/karot-delim">Güçlendirme Amaçlı Karot İşlemleri</a></div></details><a href="/hakkimizda">Kurumsal</a><a href="/referans-projeler">Referanslarımız</a><a href="/blog/">Blog ve Makaleler</a><a href="/iller/">Hizmet Bölgeleri</a><a href="/iletisim">İletişim</a></nav><a class="yg-button" href="/teklif-al">İletişim Talebi <span aria-hidden="true">↗</span></a><button class="yg-menu-button" type="button" aria-label="Menüyü aç" aria-expanded="false" aria-controls="yg-navigation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button></div></header>
+<main id="yg-main" tabindex="-1"><nav class="seo-breadcrumb" aria-label="İçerik yolu"><a href="/">Ana Sayfa</a> / <a href="/blog/">Blog ve Makaleler</a> / <span>Pushover Analizi Adım Adım — SAP2000 ile Performans Noktası Belirleme</span></nav><p class="audit-content-kind">Teknik makale · <a href="/blog/">Teknik bilgi koleksiyonu</a></p><div class="breadcrumb">
+  <a href="/">Ana Sayfa</a> › <a href="/blog/">Blog</a> › Pushover Analizi Adım Adım — SAP2000 ile Performan
+</div><div class="article-wrap">
+<div class="article-header">
+  <div class="article-meta"><span class="meta-tag">📈 Pushover</span><span class="meta-tag red">SAP2000</span><span class="meta-tag green">TBDY 2018</span><span class="meta-tag">⏱️ 10 dk</span></div>
+  <h1>Pushover Analizi Adım Adım — SAP2000 ile Performans Noktası Belirleme</h1><nav class="seo-toc" aria-label="Yazı içindekiler"><strong>Bu rehberde</strong><ul><li><a href="#yg-topic-1">1. Pushover Analizi Nedir?</a></li><li><a href="#yg-topic-2">2. SAP2000'de Pushover Kurulumu — Adım Adım</a></li><li><a href="#yg-topic-3">3. Hedef Deplasman Hesabı (TBDY 2018)</a></li><li><a href="#yg-topic-4">4. Performans Noktası Belirleme</a></li><li><a href="#yg-topic-5">5. Sonuç Değerlendirmesi</a></li></ul></nav>
+  <p style="font-size:13px;color:#999;margin-top:10px">📅 Ağustos 2026 | ✍️ YAPIGÜÇ Mühendislik Ekibi</p>
+  <div class="article-intro">Pushover analizi, yapının deprem altındaki doğrusal olmayan davranışını inceleyen en güçlü yöntemlerden biridir. SAP2000'de adım adım kurulum, hedef deplasman hesabı ve performans noktası belirleme rehberi.</div>
+</div>
+<div class="article-body"><details class="yg-reading-nav"><summary>Bu makalede</summary><ol><li><a href="#yg-topic-1">1. Pushover Analizi Nedir?</a></li><li><a href="#yg-topic-2">2. SAP2000'de Pushover Kurulumu — Adım Adım</a></li><li><a href="#yg-topic-3">3. Hedef Deplasman Hesabı (TBDY 2018)</a></li><li><a href="#yg-topic-4">4. Performans Noktası Belirleme</a></li><li><a href="#yg-topic-5">5. Sonuç Değerlendirmesi</a></li></ol></details>
+
+<h2 id="yg-topic-1">1. Pushover Analizi Nedir?</h2>
+<p>Pushover (itme) analizi, yapıya artan yatay yük uygulayarak doğrusal olmayan davranışını inceleyen statik bir yöntemdir. TBDY 2018 Bölüm 5'te tanımlanan bu yöntem, yapının kapasite eğrisini ve performans noktasını belirler.</p>
+<div class="info-box blue">
+  <h3>📋 TBDY 2018 Kapsamı</h3>
+  <p>Pushover analizi, TBDY 2018 Bölüm 5.6'da "Doğrusal Olmayan Statik Hesap Yöntemi" olarak tanımlanmıştır. BYS 1-3 binaları için zorunlu, diğerleri için isteğe bağlıdır.</p>
+</div>
+
+<h2 id="yg-topic-2">2. SAP2000'de Pushover Kurulumu — Adım Adım</h2>
+<div class="steps">
+  <div class="step"><div class="step-n">1</div><div><h3>Doğrusal Olmayan Malzeme Tanımı</h3><p>Beton için Mander modeli, çelik için bilineer model tanımlanır. C12 beton için εcu=0.004 kritik sınırdır.</p></div></div>
+  <div class="step"><div class="step-n">2</div><div><h4>Plastik Mafsal Atama</h4><p>Kolon uçlarına P-M2-M3, kiriş uçlarına M3 mafsalı atanır. TBDY 2018 Tablo 15.5 değerleri kullanılır.</p></div></div>
+  <div class="step"><div class="step-n">3</div><div><h5>Yük Durumu Tanımı</h5><p>Önce gravity (ölü+hareketli) yük, ardından pushover yük durumu tanımlanır.</p></div></div>
+  <div class="step"><div class="step-n">4</div><div><h5>Hedef Deplasman</h5><p>TBDY 2018'e göre hedef deplasman δt = Ct × Sa(T) × T²/(4π²) formülüyle hesaplanır.</p></div></div>
+  <div class="step"><div class="step-n">5</div><div><h5>Analiz ve Sonuç</h5><p>Kapasite eğrisi çizilir, performans noktası belirlenir, plastik mafsal renkleri incelenir.</p></div></div>
+</div>
+
+<div class="code-block">
+<div class="code-label">SAP2000 — Pushover Yük Durumu</div>
+<pre>Define → Load Cases → Add New Load Case
+  Load Case Type: <span class="value">Nonlinear Static</span>
+  
+  Initial Conditions: <span class="value">Continue from Gravity</span>
+  
+  Load Application:
+    Type: <span class="value">Displacement Control</span>
+    Monitored DOF: <span class="value">U1</span>
+    Target Displacement: <span class="value">δt</span> (hesaplanan)
+    
+  Load Pattern:
+    <span class="value">Modal</span>  <span class="comment">(1. mod — TBDY 2018 önerisi)</span>
+    veya
+    <span class="value">Uniform</span>  <span class="comment">(yükseklikle orantılı)</span></pre>
+</div>
+
+<h2 id="yg-topic-3">3. Hedef Deplasman Hesabı (TBDY 2018)</h2>
+<div class="formula-box">
+<div class="f-title">TBDY 2018 Denklem 5.1 — Hedef Deplasman</div>
+δt = C0 × C1 × C2 × Sa(T) × T²/(4π²) × g
+
+C0 = Modal katılım katsayısı (genellikle 1.2-1.5)
+C1 = Doğrusal olmayan deplasman düzeltme katsayısı
+C2 = Histeretik davranış düzeltme katsayısı
+Sa(T) = Spektral ivme (g cinsinden)
+T = Doğal periyot (sn)
+</div>
+
+<h2 id="yg-topic-4">4. Performans Noktası Belirleme</h2>
+<p>Kapasite eğrisi ile talep spektrumu kesişim noktası performans noktasını verir. SAP2000'de bu işlem otomatik yapılır:</p>
+<div class="code-block">
+<div class="code-label">SAP2000 — Performans Noktası</div>
+<pre>Display → Show Pushover Curve
+  → Capacity Spectrum Method (ATC-40)
+  veya
+  → Displacement Coefficient Method (FEMA 356)
+  
+  <span class="comment">Performans noktasında plastik mafsal durumu:</span>
+  Yeşil  → Minimum Hasar (HK) ✅
+  Sarı   → Belirgin Hasar (KH) ⚠️
+  Turuncu→ İleri Hasar (GÖ) ❌
+  Kırmızı→ Göçme (G) 🚨</pre>
+</div>
+
+<h2 id="yg-topic-5">5. Sonuç Değerlendirmesi</h2>
+<div class="yg-table-wrap" role="region" aria-label="Teknik bilgi tablosu" tabindex="0"><table class="data-table">
+  <tbody><tr><th>Performans Düzeyi</th><th>Plastik Dönme</th><th>Kabul Kriteri (DD-2)</th><th>Karar</th></tr>
+  <tr><td>Hemen Kullanım (HK)</td><td class="yes">&lt; 0.003 rad</td><td class="yes">Sağlanıyor</td><td class="yes">Güçlendirme yok</td></tr>
+  <tr><td>Kontrollü Hasar (KH)</td><td class="warn">0.003-0.007 rad</td><td class="warn">Sınırda</td><td class="warn">Değerlendirme</td></tr>
+  <tr><td>Göçme Önleme (GÖ)</td><td class="no">&gt; 0.007 rad</td><td class="no">Aşılıyor</td><td class="no">Güçlendirme zorunlu</td></tr>
+</tbody></table></div>
+
+<!-- İlgili Makaleler -->
+<div class="ilgili-makaleler" style="background:#fff;border-radius:14px;padding:24px;margin:28px 0;box-shadow:0 4px 16px rgba(0,0,0,.06);border-top:3px solid #c9a84c">
+  <h3 style="font-size:16px;font-weight:800;color:#1c2331;margin-bottom:14px">📚 İlgili Makaleler</h3>
+  <div style="display:flex;flex-direction:column;gap:8px">
+    
+      <a href="/blog/guclendirme-cesitleri-nelerdir" onmouseout="this.style.background=\" #f8f9fa\';this.style.color="\'#1c2331\''" onmouseover="this.style.background=\" #1c2331\';this.style.color="\'#c9a84c\''" style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:#f8f9fa;border-radius:10px;text-decoration:none;color:#1c2331;font-size:13px;font-weight:700;border-left:3px solid #c9a84c;transition:.2s;">
+        <span>🔗</span> Güçlendirme Çeşitleri
+      </a>
+      <a href="/blog/riskli-yapi-tespiti-nedir" onmouseout="this.style.background=\" #f8f9fa\';this.style.color="\'#1c2331\''" onmouseover="this.style.background=\" #1c2331\';this.style.color="\'#c9a84c\''" style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:#f8f9fa;border-radius:10px;text-decoration:none;color:#1c2331;font-size:13px;font-weight:700;border-left:3px solid #c9a84c;transition:.2s;">Riskli Yapı Tespiti Nedir? Yetki, Rapor Amacı ve Sonraki İşlemler</a>
+  </div>
+</div>
+
+<div id="ic-link-bolumu" style="background:#fff;border:2px solid #e8eaf6;border-radius:14px;padding:22px;margin:24px 0">
+  <h4 style="font-size:15px;font-weight:800;color:#1c2331;margin-bottom:12px">📚 İlgili Konular</h4>
+  <a href="/blog/guclendirme-cesitleri-nelerdir" onmouseout="this.style.background=\" #f8f9fa\';this.style.color="\'#1c2331\''" onmouseover="this.style.background=\" #1c2331\';this.style.color="\'#c9a84c\''" style="color:#1c2331;text-decoration:none;font-size:13px;font-weight:700;padding:8px 14px;background:#f8f9fa;border-radius:8px;border-left:3px solid #c9a84c;display:block;margin-bottom:6px;transition:.2s">🔗 Güçlendirme Çeşitleri Nelerdir?</a>
+<a href="/blog/kolon-guclendirme" onmouseout="this.style.background=\" #f8f9fa\';this.style.color="\'#1c2331\''" onmouseover="this.style.background=\" #1c2331\';this.style.color="\'#c9a84c\''" style="color:#1c2331;text-decoration:none;font-size:13px;font-weight:700;padding:8px 14px;background:#f8f9fa;border-radius:8px;border-left:3px solid #c9a84c;display:block;margin-bottom:6px;transition:.2s">🔗 Kolon Güçlendirme</a>
+<a href="/blog/bina-guclendirme-maliyeti-2026" onmouseout="this.style.background=\" #f8f9fa\';this.style.color="\'#1c2331\''" onmouseover="this.style.background=\" #1c2331\';this.style.color="\'#c9a84c\''" style="color:#1c2331;text-decoration:none;font-size:13px;font-weight:700;padding:8px 14px;background:#f8f9fa;border-radius:8px;border-left:3px solid #c9a84c;display:block;margin-bottom:6px;transition:.2s">🔗 Bina Güçlendirme Maliyeti 2026</a>
+
+  <a href="/blog/" style="color:#c9a84c;font-size:12px;font-weight:700;text-decoration:none;display:block;margin-top:8px">→ Tüm Makaleler</a>
+</div>
+<div class="cta-box">
+  <h3>🏗️ Binanız İçin Profesyonel Analiz</h3>
+  <p>YAPIGÜÇ A.Ş. — SAP2000 &amp; STA4CAD ile TBDY 2018 uyumlu deprem performans analizi</p>
+  <div class="cta-btns">
+    <a href="tel:+905405163636" class="cta-btn red">📞 Hemen Ara</a>
+    <a href="https://wa.me/905405163636" target="_blank" class="cta-btn wa" rel="noopener noreferrer">💬 WhatsApp</a>
+    <a class="cta-btn white" href="/deprem-risk-skoru">📊 Risk Skoru</a>
+  </div>
+</div>
+</div>
+<div class="share-bar">
+  <span>📤 Paylaş:</span>
+  <a href="https://twitter.com/intent/tweet?url=https://www.yapiguc.net/blog/pushover-analizi-adim-adim-sap2000.html" target="_blank" class="share-btn tw" rel="noopener noreferrer">🐦 Twitter</a>
+  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.yapiguc.net/blog/pushover-analizi-adim-adim-sap2000.html" target="_blank" class="share-btn li" rel="noopener noreferrer">💼 LinkedIn</a>
+  <a href="https://wa.me/?text=https://www.yapiguc.net/blog/pushover-analizi-adim-adim-sap2000.html" target="_blank" class="share-btn wa" rel="noopener noreferrer">💬 WhatsApp</a>
+</div>
+</div><aside class="audit-safety-note"><p>Bu içerik genel bilgilendirmedir; bir binanın güvenliğine ilişkin mühendislik değerlendirmesi değildir. Yapım yılı veya adres tek başına güvenlik sonucunu belirlemez. İnceleme, ölçüm ve projeye özgü analiz gerekir.</p></aside><aside class="audit-source-note"><h2>Mevzuat ve destek bilgileri</h2><p>AFAD'ın resmi açıklaması, Türkiye Bina Deprem Yönetmeliği'nin 18 Mart 2018'de yayımlandığını ve 1 Ocak 2019'da yürürlüğe girdiğini belirtir. Projeye uygulanacak güncel hükümler yetkili mühendis ve ilgili idare tarafından değerlendirilmelidir.</p><p>Yarısı Bizden için coğrafya, yeniden yapım/güçlendirme kapsamı, uygunluk ve destek türleri resmi program şartlarına bağlıdır. Bu sayfa ülke genelinde güçlendirme hibesi veya hak sahipliği vaat etmez. Güncel tutar ve tarihler burada doğrulanamadığından yayımlanmamıştır; başvuru öncesi resmi uygunluk bilgisini kontrol edin.</p><p>Kaynak: <a href="https://www.afad.gov.tr/turkiye-bina-deprem-yonetmeligi" target="_blank" rel="noopener noreferrer">AFAD — Türkiye Bina Deprem Yönetmeliği</a> · <a href="https://kdb.gov.tr/" target="_blank" rel="noopener noreferrer">Kentsel Dönüşüm Başkanlığı — resmi program bilgileri</a>. Son gözden geçirme: <time datetime="2026-10-01">1 Ekim 2026</time>. KDB güncel program şartları bu incelemede kesin olarak teyit edilememiştir.</p></aside><aside class="growth-cta"><span class="yg-eyebrow">YAPIGÜÇ · MÜHENDİSLİK VE SAHA UYGULAMASI</span><h2>Proje ve uygulama ihtiyacınızı görüşelim</h2><p>Bulunduğunuz yeri, hizmet ihtiyacınızı ve mevcut proje veya raporlarınızı görüşmede paylaşın.</p><div class="growth-actions"><a class="yg-button" href="/teklif-al">İletişim talebi hazırlayın</a><a class="yg-button growth-secondary" href="/uzmanlik-alanlarimiz">Uzmanlık alanlarımız</a></div></aside><section class="seo-related"><h2>İlgili rehberler</h2><div class="audit-article-grid seo-card-grid"><article class="audit-article-card"><span class="yg-eyebrow">Deprem Analizi</span><h2><a href="/blog/celik-capraz-guclendirme-deprem">Çelik Çapraz Güçlendirme: Depreme Karşı En Etkili Yöntem mi?</a></h2><p>Çelik çapraz güçlendirme, mevcut betonarme çerçevelere çelik çapraz elemanlar eklenerek yapının yanal rijitliğinin ve dayanımının artırılması yöntemidir. Ö</p><a href="/blog/celik-capraz-guclendirme-deprem">Rehberi okuyun →</a></article><article class="audit-article-card"><span class="yg-eyebrow">Deprem Analizi</span><h2><a href="/blog/deprem-bolgesi-haritasi-guclendirme-onceligi">Deprem Bölgesi Haritası ve Güçlendirme Önceliği 2026</a></h2><p>Türkiye'nin yaklaşık yüzde 70'i deprem riski taşıyan bölgelerde yer almaktadır. AFAD'ın Türkiye Deprem Tehlike Haritası, binaların güçlendirme önceliğini b</p><a href="/blog/deprem-bolgesi-haritasi-guclendirme-onceligi">Rehberi okuyun →</a></article><article class="audit-article-card"><span class="yg-eyebrow">Deprem Analizi</span><h2><a href="/blog/deprem-performans-analizi-nasil-yapilir">Deprem Performans Analizi Nasıl Yapılır? TBDY 2018 Kapsamında</a></h2><p>Deprem performans analizi, mevcut bir yapının belirli deprem düzeyleri altındaki davranışını sayısal yöntemlerle değerlendiren mühendislik çalışmasıdır. TB</p><a href="/blog/deprem-performans-analizi-nasil-yapilir">Rehberi okuyun →</a></article></div></section><aside class="vf-reading" aria-label="Teknik kaynaklar ve ilgili hizmetler"><h2>Teknik kaynakları birlikte okuyun</h2><p>Kaynakları kendi kapsamlarıyla değerlendirin. Teknik kütüphaneden resmi ve üretici yayınlarına ulaşabilir, proje ve uygulama ihtiyacınızı ekibimizle görüşebilirsiniz.</p><p><a href="/teknik-kutuphane">Teknik kaynak kütüphanesi →</a> · <a href="/teklif-al">Proje ve uygulama görüşmesi →</a></p></aside></main>
+
+
+
+
+
+
+
+<!-- ===== DİNAMİK FİLİGRAN ===== -->
+<style>
+/* Sayfa üzerinde şeffaf filigran */
+body::after {
+  content: '© YAPIGÜÇ A.Ş. — İzinsiz Kullanım Yasaktır';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-35deg);
+  font-size: clamp(18px, 3vw, 32px);
+  font-weight: 900;
+  color: rgba(28, 35, 49, 0.07);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 999999;
+  letter-spacing: 2px;
+  font-family: Arial, sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Çoklu filigran katmanı */
+.wm-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999998;
+  overflow: hidden;
+}
+.wm-overlay span {
+  position: absolute;
+  font-size: clamp(11px, 1.5vw, 16px);
+  font-weight: 800;
+  color: rgba(28, 35, 49, 0.055);
+  white-space: nowrap;
+  transform: rotate(-35deg);
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: none;
+  font-family: Arial, sans-serif;
+  letter-spacing: 1px;
+}
+
+/* Yazdırma filigranı - baskıda daha belirgin */
+@media print {
+  .wm-overlay span {
+    color: rgba(0,0,0,0.18) !important;
+    font-size: 14px !important;
+  }
+  body::after {
+    color: rgba(0,0,0,0.15) !important;
+    font-size: 28px !important;
+  }
+}
+</style>
+
+
+
+
+<!-- ===== FİLİGRAN SONU ===== -->
+
+<style id="global-cta-fix">
+.cta-box{color:#fff!important}
+.cta-box h1,.cta-box h2,.cta-box h3,.cta-box h4{color:#c9a84c!important}
+.cta-box p,.cta-box li,.cta-box span{color:rgba(255,255,255,.9)!important}
+.cta-box a[href^="tel"],.cta-box a[href*="wa.me"]{color:#1c2331!important}
+.hero h1,.hero h2{color:#fff!important}
+.hero p{color:rgba(255,255,255,.85)!important}
+[class*="dark"] h2,[class*="dark"] h3{color:#c9a84c!important}
+[class*="dark"] p{color:rgba(255,255,255,.85)!important}
+</style>
+
+<script type="application/json" id="audit-trackers">[]</script><footer class="yg-footer"><div class="yg-footer-inner"><a class="yg-brand" href="/" aria-label="YAPIGÜÇ ana sayfa"><img class="growth-brand-logo" src="/assets/yapiguc-logo-transparent.png" alt="YAPIGÜÇ" width="2172" height="724"><small class="scope-brand-subtitle">Müşavirlik Mühendislik A.Ş.</small></a><nav class="yg-footer-links" aria-label="Alt menü"><a href="/cerez-politikasi">Çerez Politikası</a><a href="/referanslar/">Referans Koleksiyonları</a><a href="/uygulama-fotograflari">Uygulama Fotoğrafları</a><a href="/iletisim">Kurumsal İletişim</a><a href="/kvkk">Gizlilik ve KVKK</a><a href="/teklif-al">İletişim Talebi</a><button type="button" data-consent-open="">Çerez tercihleri</button></nav><div class="yg-footer-contact"><span>İLETİŞİM</span><a href="tel:+905405163636">0540 516 36 36</a><a href="mailto:info@yapiguc.net">info@yapiguc.net</a><small>© YAPIGÜÇ · Tüm hakları saklıdır.</small></div></div></footer><section class="audit-consent" aria-label="Çerez tercihleri" hidden=""><h2>İsteğe bağlı ziyaretçi ölçümü</h2><p>İzin verirseniz Google Analytics ile sayfa ziyaretlerini ve telefon/WhatsApp bağlantısı tıklamalarını ölçeriz. Formdaki ad, telefon ve açıklamalar bu ölçüme gönderilmez. İzin vermeden de siteyi ve iletişim seçeneklerini kullanabilirsiniz. <a href="/kvk-aydinlatma-metni">Gizlilik ve KVKK metni</a></p><a href="/kvkk">Veri işleme bilgileri</a><div class="audit-consent-actions"><button type="button" data-consent="reject">Ölçümü reddet</button><button type="button" data-consent="accept">Ölçümü kabul et</button><button type="button" data-consent-close="">Tercihleri kapat</button></div><p role="status" data-consent-status=""></p></section><script src="/assets/yapiguc.js" defer=""></script><nav class="quick-contact" aria-label="Hızlı iletişim"><a href="tel:+905405163636">Hemen arayın</a><a href="https://wa.me/905405163636" target="_blank" rel="noopener noreferrer">WhatsApp</a></nav><script defer src="/assets/accessibility-ee4de8d13d.js"></script><script src="/assets/site-guide-20261015.js" defer></script></body></html>

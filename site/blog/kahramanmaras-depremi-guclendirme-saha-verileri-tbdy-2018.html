@@ -1,0 +1,386 @@
+<!DOCTYPE html><html lang="tr"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kahramanmaraş 2023 Kahramanmaraş Depremi: Güçlendirme Saha Verileri vs TBDY 2018 Tasarım Varsayımları | YAPIGÜÇ</title>
+<meta name="description" content="Kahramanmaraş 2023 Kahramanmaraş Depremi: Güçlendirme Saha Verileri vs TBDY 2018 Tasarım Varsayımları: mevcut belgeler, yapı incelemesi, proje ve saha uygulaması için başlangıç bilgileri. İş kapsamını YAPIGÜÇ teknik ekibiyle görüşün.">
+<meta name="keywords" content="2023 Kahramanmaraş depremi güçlendirme, TBDY 2018 saha verisi, deprem sonrası güçlendirme performans, FRP güçlendirme deprem performansı, TBDY 2018 revizyon">
+<link rel="canonical" href="https://www.yapiguc.net/blog/kahramanmaras-depremi-guclendirme-saha-verileri-tbdy-2018">
+<meta property="og:title" content="Kahramanmaraş 2023 Kahramanmaraş Depremi: Güçlendirme Saha Verileri vs TBDY 2018 Tasarım Varsayımları | YAPIGÜÇ">
+<meta property="og:description" content="Kahramanmaraş 2023 Kahramanmaraş Depremi: Güçlendirme Saha Verileri vs TBDY 2018 Tasarım Varsayımları: mevcut belgeler, yapı incelemesi, proje ve saha uygulaması için başlangıç bilgileri. İş kapsamını YAPIGÜÇ teknik ekibiyle görüşün.">
+<meta property="og:url" content="https://www.yapiguc.net/blog/kahramanmaras-depremi-guclendirme-saha-verileri-tbdy-2018">
+<meta property="og:type" content="article">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Segoe UI",Arial,sans-serif;background:#f8f9fa;color:#222;line-height:1.8}
+.header{background:linear-gradient(135deg,#1c2331,#2d3a4a);color:#fff;padding:0}
+.header-inner{max-width:1100px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;gap:16px}
+.header-inner img{height:44px}
+.header-inner a{color:#c9a84c;text-decoration:none;font-weight:700;font-size:18px}
+.breadcrumb{background:#fff;border-bottom:1px solid #e0e0e0;padding:10px 0}
+.bc{max-width:1100px;margin:0 auto;padding:0 24px;font-size:13px;color:#666}
+.bc a{color:#1c2331;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:40px 24px;display:grid;grid-template-columns:1fr 300px;gap:40px}
+@media(max-width:768px){.container{grid-template-columns:1fr}}
+.article{background:#fff;border-radius:12px;padding:40px;box-shadow:0 2px 12px rgba(0,0,0,.07)}
+.article h1{font-size:26px;color:#1c2331;margin-bottom:8px;line-height:1.3}
+.meta{color:#888;font-size:13px;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid #f0f0f0}
+.article h2{font-size:20px;color:#1c2331;margin:28px 0 12px;padding-left:12px;border-left:4px solid #c9a84c}
+.article h3{font-size:17px;color:#2d3a4a;margin:20px 0 10px;font-weight:700}
+.article p{margin-bottom:14px;color:#333}
+.article ul,ol{margin:10px 0 16px 24px}
+.article li{margin-bottom:7px;color:#333}
+.data-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px}
+.data-table th{background:#1c2331;color:#fff;padding:10px 12px;text-align:left}
+.data-table td{padding:9px 12px;border-bottom:1px solid #f0f0f0;vertical-align:top}
+.data-table tr:nth-child(even) td{background:#f8f9fa}
+.good{color:#2e7d32;font-weight:700}
+.partial{color:#e65100;font-weight:700}
+.bad{color:#c62828;font-weight:700}
+.callout{border-radius:0 8px 8px 0;padding:16px 20px;margin:20px 0}
+.cb{background:#e8f4fd;border-left:5px solid #1565c0}
+.cg{background:#e8f5e9;border-left:5px solid #2e7d32}
+.co{background:#fff8e1;border-left:5px solid #c9a84c}
+.cr{background:#ffebee;border-left:5px solid #c62828}
+.callout h4{font-size:15px;font-weight:700;margin-bottom:6px}
+.cb h4{color:#1565c0}
+.cg h4{color:#2e7d32}
+.co h4{color:#c9a84c}
+.cr h4{color:#c62828}
+.finding-box{border-radius:10px;padding:20px;margin:16px 0}
+.finding-pass{background:#e8f5e9;border:2px solid #2e7d32}
+.finding-warn{background:#fff8e1;border:2px solid #c9a84c}
+.finding-fail{background:#ffebee;border:2px solid #c62828}
+.finding-box h4{font-size:15px;font-weight:700;margin-bottom:8px}
+.finding-pass h4{color:#2e7d32}
+.finding-warn h4{color:#c9a84c}
+.finding-fail h4{color:#c62828}
+.cta-box{background:linear-gradient(135deg,#1c2331,#2d3a4a);color:#fff;border-radius:12px;padding:24px;text-align:center;margin:28px 0}
+.cta-box h3{font-size:18px;margin-bottom:8px;color:#c9a84c!important}
+.cta-box p{opacity:.85;margin-bottom:14px;font-size:14px;color:rgba(255,255,255,.9)!important}
+.cta-box a{display:inline-block;background:#c9a84c;color:#1c2331;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:700;margin:3px}
+.source-box{background:#f8f9fa;border:1px solid #e0e0e0;border-radius:8px;padding:16px;margin:20px 0;font-size:13px}
+.source-box h4{color:#1c2331;margin-bottom:8px;font-size:14px}
+.sidebar{display:flex;flex-direction:column;gap:20px}
+.sc{background:#fff;border-radius:12px;padding:22px;box-shadow:0 2px 12px rgba(0,0,0,.07)}
+.sc h3{font-size:15px;color:#1c2331;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #f0f0f0}
+.sc ul{list-style:none;padding:0}
+.sc ul li{padding:5px 0;border-bottom:1px solid #f8f8f8;font-size:13px}
+.sc ul li a{color:#1c2331;text-decoration:none}
+.phone{font-size:20px;font-weight:700;color:#c9a84c;display:block;margin:8px 0}
+.tag{display:inline-block;background:#e8eaf6;color:#1c2331;border-radius:20px;padding:3px 10px;font-size:11px;font-weight:600;margin:2px}
+.footer{background:#1c2331;color:#fff;text-align:center;padding:20px;margin-top:40px;font-size:13px}
+.footer a{color:#c9a84c;text-decoration:none}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0}
+.stat-card{background:#f8f9fa;border-radius:10px;padding:20px;text-align:center}
+.stat-num{font-size:32px;font-weight:900;line-height:1}
+.stat-lbl{font-size:12px;color:#666;margin-top:6px}
+</style>
+<style id="color-fix">
+[style*="background:#1c2331"] p:not([style*="color"]),
+[style*="background:#1c2331"] li:not([style*="color"]),
+[style*="background:#1c2331"] span:not([style*="color"]),
+[style*="background:#2d3a4a"] p:not([style*="color"]),
+[style*="background:#2d3a4a"] li:not([style*="color"]),
+[style*="background:#0d1b5e"] p:not([style*="color"]),
+[style*="background:#1a237e"] p:not([style*="color"]) {
+  color: #e0e0e0 !important;
+}
+</style>
+
+<style id="cta-color-fix">
+/* CTA Kutusu Renk Düzeltmesi */
+div[style*="background:linear-gradient(135deg,#1c2331"] h3,
+div[style*="background:linear-gradient(135deg,#1c2331"] h2,
+div[style*="background: linear-gradient(135deg, #1c2331"] h3 {
+  color: #c9a84c !important;
+}
+div[style*="background:linear-gradient(135deg,#1c2331"] p,
+div[style*="background:linear-gradient(135deg,#1c2331"] span,
+div[style*="background: linear-gradient(135deg, #1c2331"] p {
+  color: rgba(255,255,255,0.85) !important;
+}
+div[style*="background:#1c2331"] h3,
+div[style*="background:#1c2331"] h2 {
+  color: #c9a84c !important;
+}
+div[style*="background:#1c2331"] p,
+div[style*="background:#1c2331"] span:not(.btn):not(a) {
+  color: rgba(255,255,255,0.85) !important;
+}
+/* Buton yazıları dokunma */
+div[style*="background:#1c2331"] a[style*="background:#c9a84c"],
+div[style*="background:#1c2331"] a[style*="background:#25D366"] {
+  color: #1c2331 !important;
+}
+</style>
+<link rel="stylesheet" href="/assets/yapiguc.css"><noscript><style>@media(max-width:900px){.yg-navigation{display:flex!important;position:static!important;flex-direction:column!important;max-height:none!important}.yg-header-main{flex-wrap:wrap!important}.yg-menu-button{display:none!important}.yg-header{position:static!important}}</style></noscript><meta name="robots" content="index,follow,max-image-preview:large"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://www.yapiguc.net/#organization","name":"YAPIGÜÇ MÜŞ. MÜH. SAN. VE TİC. A.Ş.","url":"https://www.yapiguc.net","telephone":"+905405163636","email":"info@yapiguc.net","logo":"https://www.yapiguc.net/assets/yapiguc-logo-transparent.png"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://www.yapiguc.net/blog/kahramanmaras-depremi-guclendirme-saha-verileri-tbdy-2018.html#webpage","url":"https://www.yapiguc.net/blog/kahramanmaras-depremi-guclendirme-saha-verileri-tbdy-2018.html","name":"2023 Kahramanmaraş Depremi: Güçlendirme Saha Verileri vs TBDY 2018 Tasarım Varsayımları | YAPIGÜÇ","inLanguage":"tr","publisher":{"@id":"https://www.yapiguc.net/#organization"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"2023 Kahramanmaraş Depremi: Güçlendirme Saha Verileri vs TBDY 2018","description":"2023 depremi saha verileri ile TBDY 2018 tasarım varsayımlarının karşılaştırması.","author":{"@id":"https://www.yapiguc.net/#organization"},"publisher":{"@id":"https://www.yapiguc.net/#organization"},"datePublished":"2026-09-10","dateModified":"2026-09-10","url":"https://www.yapiguc.net/blog/kahramanmaras-depremi-guclendirme-saha-verileri-tbdy-2018.html"}</script><link rel="stylesheet" href="/assets/audit.css"><link rel="stylesheet" href="/assets/growth.css"><link rel="stylesheet" href="/assets/refinement.css"><link rel="icon" href="/favicon.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180"><link rel="stylesheet" href="/assets/visitor-growth.css"><link rel="stylesheet" href="/assets/content-protection-6154b6995f.css"><script defer="" src="/assets/content-protection-9371381351.js"></script><script defer="" src="/assets/contact-metrics-39a5a7e808.js"></script><link rel="stylesheet" href="/assets/article-print-07590967b8.css"><link rel="stylesheet" href="/assets/cookie-panel-0cd7f09d2b.css"><link rel="stylesheet" href="/assets/accessibility-0ccdd9c109.css"><link rel="stylesheet" href="/assets/layout-repair-03eb26008a.css"><link rel="stylesheet" href="/assets/home-modern-20261014.css?v=18abe02549"></head>
+<body class="yg-site yg-article"><a class="yg-skip" href="#yg-main">İçeriğe geç</a><header class="yg-header"><div class="yg-utility"><p>Türkiye Genelinde Proje · Onarım · Güçlendirme</p><div class="yg-utility-links"><a href="tel:+905405163636">0540 516 36 36</a><a href="https://wa.me/905405163636" target="_blank" rel="noopener noreferrer">WhatsApp</a></div></div><div class="yg-header-main"><a class="yg-brand" href="/" aria-label="YAPIGÜÇ ana sayfa"><img class="growth-brand-logo" src="/assets/yapiguc-logo-transparent.png" alt="YAPIGÜÇ" width="2172" height="724"><small class="scope-brand-subtitle">Müşavirlik Mühendislik A.Ş.</small></a><nav class="yg-navigation" id="yg-navigation" aria-label="Ana menü"><details class="yg-mega"><summary>Hizmetler</summary><div class="yg-mega-links"><a href="/tasarim-gozetmenligi">Tasarım Gözetmenliği</a><a href="/universite-onay-sureci">Üniversite Değerlendirme ve Onay Süreci</a><a href="/guclendirme-projesi-cizimi">Güçlendirme Projesi Hazırlama</a><a href="/yapi-guclendirme">Yapısal Güçlendirme İmalatları</a><a href="/betonarme-guclendirme">Betonarme Güçlendirme</a><a href="/celik-guclendirme">Çelik Güçlendirme</a><a href="/kolon-guclendirme">Karbon Fiber / FRP Güçlendirme</a><a href="/temel-guclendirme">Temel Güçlendirme</a><a href="/kiris-doseme-guclendirme">Kiriş ve Döşeme Güçlendirme</a><a href="/perde-duvar-guclendirme">Perde ve Duvar Güçlendirme</a><a href="/ankraj-guclendirme">Ankraj ve Bağlantı İmalatları</a><a href="/epoksi-enjeksiyon">Güçlendirme Kapsamında Enjeksiyon</a><a href="/tarihi-eser-guclendirme">Tarihi ve Yığma Yapı Güçlendirme</a><a href="/karot-delim">Güçlendirme Amaçlı Karot İşlemleri</a></div></details><a href="/hakkimizda">Kurumsal</a><a href="/referans-projeler">Referanslarımız</a><a href="/blog/">Blog ve Makaleler</a><a href="/iller/">Hizmet Bölgeleri</a><a href="/iletisim">İletişim</a></nav><a class="yg-button" href="/teklif-al">İletişim Talebi <span aria-hidden="true">↗</span></a><button class="yg-menu-button" type="button" aria-label="Menüyü aç" aria-expanded="false" aria-controls="yg-navigation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button></div></header>
+<main id="yg-main" tabindex="-1"><p class="audit-content-kind">Yerel hizmet içeriği · <a href="/iller/">Hizmet bölgeleri</a></p><div class="breadcrumb">
+  <div class="bc"><a href="/">Ana Sayfa</a> › <a href="/blog/">Blog</a> › Deprem Araştırmaları</div>
+</div><div class="container">
+  <article class="article"><details class="yg-reading-nav"><summary>Bu makalede</summary><ol><li><a href="#yg-topic-1">2023 Depremi: Temel İstatistikler</a></li><li><a href="#yg-topic-2">TBDY 2018 Tasarım Varsayımları vs Gerçek Deprem Verileri</a></li><li><a href="#yg-topic-3">TBDY 2018 Tasarım Varsayımlarındaki Açıklar</a></li><li><a href="#yg-topic-4">Başarılı Güçlendirme Yöntemlerinin Ortak Özellikleri</a></li><li><a href="#yg-topic-5">TBDY 2018 Revizyonuna Öneriler</a></li></ol></details>
+    <h1>Kahramanmaraş 2023 Kahramanmaraş Depremi: Güçlendirme Saha Verileri vs TBDY 2018 Tasarım Varsayımları</h1>
+    <div class="meta">📅 10 Eylül 2026 &nbsp;|&nbsp; 🔬 Deprem Araştırması &nbsp;|&nbsp; ✍️ YAPIGÜÇ Mühendislik</div>
+
+    <p>6 Şubat 2023 Kahramanmaraş-Pazarcık (M7.7) ve Elbistan (M7.6) depremleri, Türkiye'nin yapı güçlendirme politikasını köklü biçimde sorgulatmıştır. Bu makalede, deprem öncesi güçlendirilmiş binaların saha performansı ile TBDY 2018 tasarım varsayımları karşılaştırılmakta; hangi yöntemlerin beklenen performansı karşıladığı, hangilerinde açıklar gözlemlendiği ve bu bulguların standart revizyonuna nasıl yansıması gerektiği ele alınmaktadır.</p>
+
+    <div class="callout cb">
+      <h2>📚 Temel Kaynaklar</h2>
+      <p>6306 riskli yapı tespitini, deprem performans değerlendirmesini ve afet sonrası hasar tespitini ayırın. Kuruluş yetkisini ve rapor kapsamını kontrol edin.</p>
+    </div>
+
+    <h2 id="yg-topic-1">2023 Depremi: Temel İstatistikler</h2>
+
+    <div class="stat-grid">
+      <div class="stat-card" style="border-top:3px solid #c62828">
+        <div class="stat-num" style="color:#c62828">50.000+</div>
+        <div class="stat-lbl">Can kaybı</div>
+      </div>
+      <div class="stat-card" style="border-top:3px solid #e65100">
+        <div class="stat-num" style="color:#e65100">160.000+</div>
+        <div class="stat-lbl">Yıkılan/ağır hasarlı bina</div>
+      </div>
+      <div class="stat-card" style="border-top:3px solid #c9a84c">
+        <div class="stat-num" style="color:#c9a84c">11</div>
+        <div class="stat-lbl">Etkilenen il</div>
+      </div>
+    </div>
+
+    <h2 id="yg-topic-2">TBDY 2018 Tasarım Varsayımları vs Gerçek Deprem Verileri</h2>
+
+    <h3>1. Zemin Büyütmesi: Beklenen vs Gerçekleşen</h3>
+    <p>6306 riskli yapı tespitini, deprem performans değerlendirmesini ve afet sonrası hasar tespitini ayırın. Kuruluş yetkisini ve rapor kapsamını kontrol edin.</p>
+
+    <div class="yg-table-wrap" role="region" aria-label="Teknik bilgi tablosu" tabindex="0"><table class="data-table">
+      <tbody><tr><th>Bölge</th><th>Tasarım PGA (g)</th><th>Gerçekleşen PGA (g)</th><th>Fark</th></tr>
+      <tr><td>Antakya merkez</td><td>ZD-ZE</td><td>0.6-0.8g</td><td class="bad">1.2-1.8g</td><td class="bad">+%50-125</td></tr>
+      <tr><td>Kahramanmaraş</td><td>ZC-ZD</td><td>0.5-0.7g</td><td class="partial">0.7-1.0g</td><td class="partial">+%20-40</td></tr>
+      <tr><td>İslahiye</td><td>ZD</td><td>0.6g</td><td class="bad">1.1g</td><td class="bad">+%83</td></tr>
+      <tr><td>Nurdağı</td><td>ZC</td><td>0.4g</td><td class="partial">0.6g</td><td class="partial">+%50</td></tr>
+    </tbody></table></div>
+
+    <div class="callout cr">
+      <h4>🚨 Kritik Bulgu: Zemin Büyütmesi Hafife Alınmış</h4>
+      <p>Antakya'da gerçekleşen yer ivmesi, TBDY 2018 tasarım değerlerinin %50-125 üzerinde çıkmıştır. Bu durum, mevcut zemin sınıflandırmasının ve amplifikasyon faktörlerinin bazı bölgeler için yetersiz kaldığını göstermektedir. Özellikle ZE sınıfı zeminlerde sıvılaşma ve zemin büyütmesi beklentileri aşmıştır.</p>
+    </div>
+
+    <h3>2. Güçlendirilmiş Binaların Performansı</h3>
+
+    <div class="finding-box finding-pass">
+      <h4>✅ BAŞARILI: FRP + Perde Duvar Kombinasyonu</h4>
+      <p>Springer (2024) araştırması, FRP güçlendirilmiş dolgu duvarlı ve dışarıdan eklenen perde duvarlı binanın 2023 depremlerinde başarılı performans sergilediğini belgelemektedir. Çevresindeki güçlendirilmemiş binalar hasar görürken bu bina ayakta kalmıştır.</p>
+      <ul style="margin-top:8px">
+        <li>Kolon hasarı: Minimal (beklenen: orta hasar)</li>
+        <li>Kiriş hasarı: Sınırlı çatlak (beklenen: orta hasar)</li>
+        <li>Perde duvarlar: Beklenen performansı karşıladı</li>
+        <li>FRP sarımı: Kolon sünekliğini korudu</li>
+      </ul>
+    </div>
+
+    <div class="finding-box finding-pass">
+      <h4>✅ BAŞARILI: Betonarme Perde Duvar İlavesi</h4>
+      <p>Deprem öncesi betonarme perde duvar eklenen binalar, genel olarak beklenen performansı karşılamıştır. Perde duvarlar yanal rijitliği artırarak kat ötelemelerini sınırlamıştır.</p>
+      <ul style="margin-top:8px">
+        <li>Kat ötelemesi: Tasarım sınırları içinde kaldı</li>
+        <li>Perde-çerçeve bağlantıları: Genel olarak sağlam</li>
+        <li>Temel-perde bağlantısı: Bazı projelerde sorun</li>
+      </ul>
+    </div>
+
+    <div class="finding-box finding-warn">
+      <h4>⚠️ KISMI BAŞARI: Sadece Lifli Polimer (FRP) Kolon Sarımı</h4>
+      <p>Yalnızca Lifli Polimer (FRP) kolon sarımı uygulanan binalar, süneklik açısından beklenen performansı karşılamış ancak yanal rijitlik yetersizliği nedeniyle aşırı kat ötelemesi yaşamıştır.</p>
+      <ul style="margin-top:8px">
+        <li>Kolon sünekliği: ✅ Beklenen performans</li>
+        <li>Kat ötelemesi: ⚠️ Tasarım sınırını aştı</li>
+        <li>Dolgu duvar hasarı: ⚠️ Beklenenden fazla</li>
+        <li>Sonuç: Rijitlik artırımı olmadan yetersiz</li>
+      </ul>
+    </div>
+
+    <div class="finding-box finding-fail">
+      <h4>❌ BAŞARISIZ: Hatalı Onarım ve Güçlendirme</h4>
+      <p>ScienceDirect (2026) araştırması, 2023 depremi sonrası yapılan hatalı onarım ve güçlendirme uygulamalarını belgelemektedir. Bu hatalar, ikinci depremde (M7.6) ciddi hasara yol açmıştır.</p>
+      <ul style="margin-top:8px">
+        <li>Yüzeysel sıva onarımı (yapısal onarım yapılmadan)</li>
+        <li>Yetersiz epoksi enjeksiyonu (çatlak temizlenmeden)</li>
+        <li>Kolon sarımında köşe pah kırma yapılmaması</li>
+        <li>Perde duvar-mevcut çerçeve bağlantı yetersizliği</li>
+      </ul>
+    </div>
+
+    <h2 id="yg-topic-3">TBDY 2018 Tasarım Varsayımlarındaki Açıklar</h2>
+
+    <div class="yg-table-wrap" role="region" aria-label="Teknik bilgi tablosu" tabindex="0"><table class="data-table">
+      <tbody><tr><th>Konu</th><th>TBDY 2018 Varsayımı</th><th>Saha Gözlemi</th><th>Değerlendirme</th></tr>
+      <tr><td>Dolgu duvar etkisi</td><td>Genellikle ihmal edilir</td><td>Dolgu duvarlar kritik rol oynadı</td><td class="bad">Revizyon gerekli</td></tr>
+      <tr><td>Zemin-yapı etkileşimi</td><td>Basitleştirilmiş model</td><td>Bazı bölgelerde beklenmedik büyütme</td><td class="bad">Revizyon gerekli</td></tr>
+      <tr><td>Komşu bina etkisi</td><td>Dikkate alınmaz</td><td>Çarpışma hasarı yaygın</td><td class="partial">İyileştirme önerilir</td></tr>
+      <tr><td>Sıvılaşma riski</td><td>Zemin etüdü kapsamında</td><td>Bazı bölgelerde hafife alındı</td><td class="bad">Revizyon gerekli</td></tr>
+      <tr><td>Uzun periyot etkileri</td><td>TL=6 sn sınırı</td><td>Uzak bölgelerde uzun periyot hasarı</td><td class="partial">İnceleme gerekli</td></tr>
+      <tr><td>Hatalı uygulama riski</td><td>Yapı denetimi kapsamında</td><td>Yaygın hatalı uygulama</td><td class="bad">Denetim güçlendirilmeli</td></tr>
+    </tbody></table></div>
+
+    <h2 id="yg-topic-4">Başarılı Güçlendirme Yöntemlerinin Ortak Özellikleri</h2>
+    <p>6306 riskli yapı tespitini, deprem performans değerlendirmesini ve afet sonrası hasar tespitini ayırın. Kuruluş yetkisini ve rapor kapsamını kontrol edin.</p>
+    <ol>
+      <li><strong>Sistem düzeyinde güçlendirme:</strong> Yalnızca eleman güçlendirmesi değil, tüm taşıyıcı sistem iyileştirildi</li>
+      <li><strong>Rijitlik + süneklik dengesi:</strong> Hem yanal rijitlik artırıldı hem de süneklik iyileştirildi</li>
+      <li><strong>Kaliteli uygulama:</strong> Yüzey hazırlığı, epoksi kalitesi ve işçilik kritik önem taşıdı</li>
+      <li><strong>Zemin-yapı uyumu:</strong> Zemin koşullarına göre güçlendirme stratejisi belirlendi</li>
+      <li><strong>Bağlantı detayları:</strong> Yeni-mevcut eleman bağlantıları özenle tasarlandı</li>
+    </ol>
+
+    <h2 id="yg-topic-5">TBDY 2018 Revizyonuna Öneriler</h2>
+
+    <div class="callout co">
+      <h3>📋 Standart Revizyonu İçin 6 Öneri</h3>
+      <p>6306 riskli yapı tespitini, deprem performans değerlendirmesini ve afet sonrası hasar tespitini ayırın. Kuruluş yetkisini ve rapor kapsamını kontrol edin.</p>
+    </div>
+
+    <div class="callout cg">
+      <h4>✅ YAPIGÜÇ'ün 2023 Depremi Deneyimi</h4>
+      <p>YAPIGÜÇ A.Ş. olarak 2023 depremi sonrası Hatay ve Malatya'da gerçekleştirdiğimiz güçlendirme projelerinde saha gözlemlerimizi tasarım süreçlerimize entegre ettik. Özellikle zemin büyütmesi ve dolgu duvar etkisi konularında daha muhafazakâr yaklaşımlar benimsedik.</p>
+    </div>
+
+    <div class="cta-box">
+      <h3>🏗️ 2023 Depremi Derslerini Uygulayan Güçlendirme</h3>
+      <p>6306 riskli yapı tespitini, deprem performans değerlendirmesini ve afet sonrası hasar tespitini ayırın. Kuruluş yetkisini ve rapor kapsamını kontrol edin.</p>
+      <a href="tel:+905405163636">📞 0540 516 36 36</a>
+      <a href="https://wa.me/905405163636" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+    </div>
+
+    <div class="source-box">
+      <h4>📖 Kaynaklar</h4>
+      <p>• Nature Scientific Reports (2026) — DOI: 10.1038/s41598-026-53823-7<br>
+      • Springer Bulletin of EE (2024) — DOI: 10.1007/s10518-024-02062-0<br>
+      • ScienceDirect KSCE (2026) — "Common faulty repairs and strengthening of RC buildings after the earthquakes of February 2023 in Türkiye"<br>
+      • AFAD (2023) — 2023 Kahramanmaraş Depremleri Ön Değerlendirme Raporu<br>
+      • TBDY 2018 — Türkiye Bina Deprem Yönetmeliği</p>
+    </div>
+
+    <div style="margin-top:24px;padding-top:16px;border-top:1px solid #f0f0f0;font-size:13px">
+      <strong>İlgili Makaleler:</strong><br>
+      <a href="/blog/tbdy-2018-aci-eurocode-coklu-standart-vaka-analizi" style="color:#1c2331">› Çoklu Standart Güçlendirme Vaka Analizi</a><br>
+      <a href="/blog/tbdy-2018-fema-aci-eurocode-guclendirme-standartlari-karsilastirma" style="color:#1c2331">› TBDY 2018 vs Global Standartlar</a><br>
+      <a href="/blog/hibrit-cfrp-damper-guclendirme-2026-arastirma" style="color:#1c2331">› Hibrit Lifli Polimer (FRP) + Damper Güçlendirme</a>
+    </div>
+  
+<div id="ic-link-bolumu" style="background:#fff;border:2px solid #e8eaf6;border-radius:14px;padding:22px;margin:24px 0">
+  <h4 style="font-size:15px;font-weight:800;color:#1c2331;margin-bottom:12px">📚 İlgili Konular</h4>
+  <a href="/blog/riskli-yapi-tespiti-nedir" onmouseout="this.style.background=\" #f8f9fa\';this.style.color="\'#1c2331\''" onmouseover="this.style.background=\" #1c2331\';this.style.color="\'#c9a84c\''" style="color:#1c2331;text-decoration:none;font-size:13px;font-weight:700;padding:8px 14px;background:#f8f9fa;border-radius:8px;border-left:3px solid #c9a84c;display:block;margin-bottom:6px;transition:.2s">Riskli Yapı Tespiti Nedir? Yetki, Rapor Amacı ve Sonraki İşlemler</a>
+<a href="/blog/guclendirme-ruhsati-nasil-alinir-2026" onmouseout="this.style.background=\" #f8f9fa\';this.style.color="\'#1c2331\''" onmouseover="this.style.background=\" #1c2331\';this.style.color="\'#c9a84c\''" style="color:#1c2331;text-decoration:none;font-size:13px;font-weight:700;padding:8px 14px;background:#f8f9fa;border-radius:8px;border-left:3px solid #c9a84c;display:block;margin-bottom:6px;transition:.2s">🔗 Güçlendirme Ruhsatı</a>
+<a href="/blog/guclendirme-hibe-kredi-destekleri-2026" onmouseout="this.style.background=\" #f8f9fa\';this.style.color="\'#1c2331\''" onmouseover="this.style.background=\" #1c2331\';this.style.color="\'#c9a84c\''" style="color:#1c2331;text-decoration:none;font-size:13px;font-weight:700;padding:8px 14px;background:#f8f9fa;border-radius:8px;border-left:3px solid #c9a84c;display:block;margin-bottom:6px;transition:.2s">🔗 Devlet Destekleri 2026</a>
+
+  <a href="/blog/" style="color:#c9a84c;font-size:12px;font-weight:700;text-decoration:none;display:block;margin-top:8px">→ Tüm Makaleler</a>
+</div>
+</article>
+
+  <aside class="sidebar">
+    <div class="sc">
+      <h3>📞 İletişim</h3>
+      
+      <a href="tel:+905405163636" class="phone">0540 516 36 36</a>
+      <a href="https://wa.me/905405163636" target="_blank" style="display:block;background:#25D366;color:#fff;text-align:center;padding:9px;border-radius:8px;text-decoration:none;font-weight:700;margin-top:8px" rel="noopener noreferrer">💬 WhatsApp</a>
+    </div>
+    <div class="sc">
+      <h3>🏷️ Etiketler</h3>
+      <span class="tag">2023 Depremi</span>
+      <span class="tag">TBDY 2018</span>
+      <span class="tag">Saha Verisi</span>
+      <span class="tag">FRP Performans</span>
+      <span class="tag">Kahramanmaraş</span>
+    </div>
+    <div class="sc">
+      <h3>📋 Hizmetlerimiz</h3>
+      <ul>
+        <li><a href="/yapi-guclendirme">› Yapı Güçlendirme</a></li>
+        <li><a href="/deprem-performans-analizi">› Deprem Analizi</a></li>
+        <li><a href="/riskli-yapi-tespiti">› Riskli Yapı Tespiti</a></li>
+        <li><a href="/karot-delim">› Karot Delme</a></li>
+      </ul>
+    </div>
+  </aside>
+</div><aside class="audit-safety-note"><p>Bu içerik genel bilgilendirmedir; bir binanın güvenliğine ilişkin mühendislik değerlendirmesi değildir. Yapım yılı veya adres tek başına güvenlik sonucunu belirlemez. İnceleme, ölçüm ve projeye özgü analiz gerekir.</p></aside><aside class="audit-source-note"><h2>Mevzuat ve destek bilgileri</h2><p>AFAD'ın resmi açıklaması, Türkiye Bina Deprem Yönetmeliği'nin 18 Mart 2018'de yayımlandığını ve 1 Ocak 2019'da yürürlüğe girdiğini belirtir. Projeye uygulanacak güncel hükümler yetkili mühendis ve ilgili idare tarafından değerlendirilmelidir.</p><p>Yarısı Bizden için coğrafya, yeniden yapım/güçlendirme kapsamı, uygunluk ve destek türleri resmi program şartlarına bağlıdır. Bu sayfa ülke genelinde güçlendirme hibesi veya hak sahipliği vaat etmez. Güncel tutar ve tarihler burada doğrulanamadığından yayımlanmamıştır; başvuru öncesi resmi uygunluk bilgisini kontrol edin.</p><p>Kaynak: <a href="https://www.afad.gov.tr/turkiye-bina-deprem-yonetmeligi" target="_blank" rel="noopener noreferrer">AFAD — Türkiye Bina Deprem Yönetmeliği</a> · <a href="https://kdb.gov.tr/" target="_blank" rel="noopener noreferrer">Kentsel Dönüşüm Başkanlığı — resmi program bilgileri</a>. Son gözden geçirme: <time datetime="2026-10-01">1 Ekim 2026</time>. KDB güncel program şartları bu incelemede kesin olarak teyit edilememiştir.</p></aside><aside class="growth-cta"><span class="yg-eyebrow">YAPIGÜÇ · MÜHENDİSLİK VE SAHA UYGULAMASI</span><h2>Proje ve uygulama ihtiyacınızı görüşelim</h2><p>Bulunduğunuz yeri, hizmet ihtiyacınızı ve mevcut proje veya raporlarınızı görüşmede paylaşın.</p><div class="growth-actions"><a class="yg-button" href="/teklif-al">İletişim talebi hazırlayın</a><a class="yg-button growth-secondary" href="/uzmanlik-alanlarimiz">Uzmanlık alanlarımız</a></div></aside><aside class="vf-reading" aria-label="Teknik kaynaklar ve ilgili hizmetler"><h2>Teknik kaynakları birlikte okuyun</h2><p>Kaynakları kendi kapsamlarıyla değerlendirin. Teknik kütüphaneden resmi ve üretici yayınlarına ulaşabilir, proje ve uygulama ihtiyacınızı ekibimizle görüşebilirsiniz.</p><p><a href="/teknik-kutuphane">Teknik kaynak kütüphanesi →</a> · <a href="/teklif-al">Proje ve uygulama görüşmesi →</a></p></aside></main>
+
+
+
+
+<style>body,p,h1,h2,h3,h4,h5,h6,span,div,li,td,a{-webkit-user-select:none!important;user-select:none!important}</style>
+
+
+<!-- ===== DİNAMİK FİLİGRAN ===== -->
+<style>
+/* Sayfa üzerinde şeffaf filigran */
+body::after {
+  content: '© YAPIGÜÇ A.Ş. — İzinsiz Kullanım Yasaktır';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-35deg);
+  font-size: clamp(18px, 3vw, 32px);
+  font-weight: 900;
+  color: rgba(28, 35, 49, 0.07);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 999999;
+  letter-spacing: 2px;
+  font-family: Arial, sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Çoklu filigran katmanı */
+.wm-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999998;
+  overflow: hidden;
+}
+.wm-overlay span {
+  position: absolute;
+  font-size: clamp(11px, 1.5vw, 16px);
+  font-weight: 800;
+  color: rgba(28, 35, 49, 0.055);
+  white-space: nowrap;
+  transform: rotate(-35deg);
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: none;
+  font-family: Arial, sans-serif;
+  letter-spacing: 1px;
+}
+
+/* Yazdırma filigranı - baskıda daha belirgin */
+@media print {
+  .wm-overlay span {
+    color: rgba(0,0,0,0.18) !important;
+    font-size: 14px !important;
+  }
+  body::after {
+    color: rgba(0,0,0,0.15) !important;
+    font-size: 28px !important;
+  }
+}
+</style>
+
+
+
+
+<!-- ===== FİLİGRAN SONU ===== -->
+
+<style id="global-cta-fix">
+.cta-box{color:#fff!important}
+.cta-box h1,.cta-box h2,.cta-box h3,.cta-box h4{color:#c9a84c!important}
+.cta-box p,.cta-box li,.cta-box span{color:rgba(255,255,255,.9)!important}
+.cta-box a[href^="tel"],.cta-box a[href*="wa.me"]{color:#1c2331!important}
+.hero h1,.hero h2{color:#fff!important}
+.hero p{color:rgba(255,255,255,.85)!important}
+[class*="dark"] h2,[class*="dark"] h3{color:#c9a84c!important}
+[class*="dark"] p{color:rgba(255,255,255,.85)!important}
+</style>
+
+<footer class="yg-footer"><div class="yg-footer-inner"><a class="yg-brand" href="/" aria-label="YAPIGÜÇ ana sayfa"><img class="growth-brand-logo" src="/assets/yapiguc-logo-transparent.png" alt="YAPIGÜÇ" width="2172" height="724"><small class="scope-brand-subtitle">Müşavirlik Mühendislik A.Ş.</small></a><nav class="yg-footer-links" aria-label="Alt menü"><a href="/cerez-politikasi">Çerez Politikası</a><a href="/referanslar/">Referans Koleksiyonları</a><a href="/uygulama-fotograflari">Uygulama Fotoğrafları</a><a href="/iletisim">Kurumsal İletişim</a><a href="/kvkk">Gizlilik ve KVKK</a><a href="/teklif-al">İletişim Talebi</a><button type="button" data-consent-open="">Çerez tercihleri</button></nav><div class="yg-footer-contact"><span>İLETİŞİM</span><a href="tel:+905405163636">0540 516 36 36</a><a href="mailto:info@yapiguc.net">info@yapiguc.net</a><small>© YAPIGÜÇ · Tüm hakları saklıdır.</small></div></div></footer><section class="audit-consent" aria-label="Çerez tercihleri" hidden=""><h2>İsteğe bağlı ziyaretçi ölçümü</h2><p>İzin verirseniz Google Analytics ile sayfa ziyaretlerini ve telefon/WhatsApp bağlantısı tıklamalarını ölçeriz. Formdaki ad, telefon ve açıklamalar bu ölçüme gönderilmez. İzin vermeden de siteyi ve iletişim seçeneklerini kullanabilirsiniz. <a href="/kvk-aydinlatma-metni">Gizlilik ve KVKK metni</a></p><a href="/kvkk">Veri işleme bilgileri</a><div class="audit-consent-actions"><button type="button" data-consent="reject">Ölçümü reddet</button><button type="button" data-consent="accept">Ölçümü kabul et</button><button type="button" data-consent-close="">Tercihleri kapat</button></div><p role="status" data-consent-status=""></p></section><script src="/assets/yapiguc.js" defer=""></script><nav class="quick-contact" aria-label="Hızlı iletişim"><a href="tel:+905405163636">Hemen arayın</a><a href="https://wa.me/905405163636" target="_blank" rel="noopener noreferrer">WhatsApp</a></nav><script defer src="/assets/accessibility-ee4de8d13d.js"></script><script src="/assets/site-guide-20261015.js" defer></script></body></html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html><html lang="tr"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Analytics Raporu | YAPIGÜÇ</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',sans-serif;background:#f0f2f5;color:#1c2331}
+.header{background:linear-gradient(135deg,#1c2331,#283593);padding:24px 32px;color:#fff;display:flex;align-items:center;justify-content:space-between}
+.header h1{font-size:22px;font-weight:800}
+.header p{font-size:13px;opacity:.7;margin-top:4px}
+.badge{background:rgba(201,168,76,.2);border:1px solid rgba(201,168,76,.4);color:#c9a84c;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.container{max-width:1200px;margin:0 auto;padding:32px 24px}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-bottom:32px}
+.kpi-card{background:#fff;border-radius:14px;padding:20px;box-shadow:0 2px 12px rgba(0,0,0,.06);border-left:4px solid #c9a84c}
+.kpi-card .kpi-label{font-size:12px;color:#666;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.kpi-card .kpi-value{font-size:32px;font-weight:900;color:#1c2331;line-height:1}
+.kpi-card .kpi-change{font-size:12px;margin-top:6px;font-weight:600}
+.kpi-card .kpi-change.up{color:#2e7d32}.kpi-card .kpi-change.down{color:#c62828}.kpi-card .kpi-change.neutral{color:#666}
+.section{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:24px}
+.section h2{font-size:18px;font-weight:800;color:#1c2331;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #f0f0f0}
+.section h3{font-size:15px;font-weight:700;color:#283593;margin:16px 0 10px}
+.data-table{width:100%;border-collapse:collapse;font-size:14px}
+.data-table th{background:#f8f9fa;color:#666;padding:10px 14px;text-align:left;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+.data-table td{padding:10px 14px;border-bottom:1px solid #f5f5f5;color:#333}
+.data-table tr:hover td{background:#fafafa}
+.bar-wrap{background:#f0f0f0;border-radius:4px;height:8px;margin-top:4px}
+.bar{background:linear-gradient(90deg,#1c2331,#c9a84c);border-radius:4px;height:8px;transition:.3s}
+.tag{display:inline-block;padding:3px 8px;border-radius:10px;font-size:11px;font-weight:700}
+.tag-green{background:#e8f5e9;color:#2e7d32}
+.tag-blue{background:#e3f2fd;color:#1565c0}
+.tag-gold{background:#fff8e1;color:#c9a84c}
+.tag-red{background:#ffebee;color:#c62828}
+.recommendation{background:#f8f9ff;border:1px solid #e8eaf6;border-radius:12px;padding:16px;margin-bottom:12px}
+.recommendation .rec-title{font-size:14px;font-weight:700;color:#1c2331;margin-bottom:6px}
+.recommendation .rec-desc{font-size:13px;color:#555;line-height:1.6}
+.recommendation .rec-priority{font-size:11px;font-weight:700;padding:2px 8px;border-radius:8px;display:inline-block;margin-bottom:8px}
+.priority-high{background:#ffebee;color:#c62828}
+.priority-med{background:#fff8e1;color:#c9a84c}
+.priority-low{background:#e8f5e9;color:#2e7d32}
+.chart-bar-h{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.chart-bar-h .label{width:180px;font-size:13px;color:#333;flex-shrink:0}
+.chart-bar-h .bar-h{flex:1;background:#f0f0f0;border-radius:4px;height:24px;position:relative}
+.chart-bar-h .bar-h-fill{background:linear-gradient(90deg,#1c2331,#283593);border-radius:4px;height:24px;display:flex;align-items:center;padding-left:8px;color:#fff;font-size:12px;font-weight:700;min-width:40px}
+.alert-box{background:#fff3e0;border:1px solid #ffb74d;border-radius:10px;padding:14px 16px;margin-bottom:12px;display:flex;gap:10px}
+.alert-box .alert-icon{font-size:20px;flex-shrink:0}
+.alert-box .alert-text{font-size:13px;color:#333;line-height:1.6}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:768px){.grid-2{grid-template-columns:1fr}.kpi-grid{grid-template-columns:1fr 1fr}.chart-bar-h .label{width:120px}}
+</style>
+<meta name="bingbot" content="index,follow,max-snippet:-1,max-image-preview:large">
+<link rel="canonical" href="https://www.yapiguc.net/analytics-raporu.html">
+
+<meta name="description" content="YAPIGÜÇ A.Ş. web sitesi analitik raporu.">
+<link rel="stylesheet" href="/assets/yapiguc.css"><noscript><style>@media(max-width:900px){.yg-navigation{display:flex!important;position:static!important;flex-direction:column!important;max-height:none!important}.yg-header-main{flex-wrap:wrap!important}.yg-menu-button{display:none!important}.yg-header{position:static!important}}</style></noscript><meta name="robots" content="index,follow,max-image-preview:large"><meta property="og:title" content="Google Analytics Raporu | YAPIGÜÇ"><meta property="og:url" content="https://www.yapiguc.net/analytics-raporu.html"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://www.yapiguc.net/#organization","name":"YAPIGÜÇ MÜŞ. MÜH. SAN. VE TİC. A.Ş.","url":"https://www.yapiguc.net","telephone":"+905405163636","email":"info@yapiguc.net","logo":"https://www.yapiguc.net/assets/yapiguc-logo-transparent.png"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://www.yapiguc.net/analytics-raporu.html#webpage","url":"https://www.yapiguc.net/analytics-raporu.html","name":"Google Analytics Raporu | YAPIGÜÇ","inLanguage":"tr","publisher":{"@id":"https://www.yapiguc.net/#organization"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Google Analytics Raporu | YAPIGÜÇ","description":"YAPIGÜÇ yapı güçlendirme hizmetleri","url":"https://www.yapiguc.net/analytics-raporu.html","isPartOf":{"@type":"WebSite","name":"YAPIGÜÇ A.Ş.","url":"https://www.yapiguc.net"}}</script><link rel="stylesheet" href="/assets/audit.css"><link rel="stylesheet" href="/assets/growth.css"><link rel="stylesheet" href="/assets/refinement.css"><link rel="icon" href="/favicon.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180"><link rel="stylesheet" href="/assets/visitor-growth.css"><link rel="stylesheet" href="/assets/content-protection-6154b6995f.css"><script defer="" src="/assets/content-protection-9371381351.js"></script><script defer="" src="/assets/contact-metrics-39a5a7e808.js"></script><link rel="stylesheet" href="/assets/cookie-panel-0cd7f09d2b.css"><link rel="stylesheet" href="/assets/accessibility-0ccdd9c109.css"><link rel="stylesheet" href="/assets/layout-repair-03eb26008a.css"><link rel="stylesheet" href="/assets/home-modern-20261014.css?v=18abe02549"></head>
+<body class="yg-site yg-service"><a class="yg-skip" href="#yg-main">İçeriğe geç</a><header class="yg-header"><div class="yg-utility"><p>Türkiye Genelinde Proje · Onarım · Güçlendirme</p><div class="yg-utility-links"><a href="tel:+905405163636">0540 516 36 36</a><a href="https://wa.me/905405163636" target="_blank" rel="noopener noreferrer">WhatsApp</a></div></div><div class="yg-header-main"><a class="yg-brand" href="/" aria-label="YAPIGÜÇ ana sayfa"><img class="growth-brand-logo" src="/assets/yapiguc-logo-transparent.png" alt="YAPIGÜÇ" width="2172" height="724"><small class="scope-brand-subtitle">Müşavirlik Mühendislik A.Ş.</small></a><nav class="yg-navigation" id="yg-navigation" aria-label="Ana menü"><details class="yg-mega"><summary>Hizmetler</summary><div class="yg-mega-links"><a href="/tasarim-gozetmenligi">Tasarım Gözetmenliği</a><a href="/universite-onay-sureci">Üniversite Değerlendirme ve Onay Süreci</a><a href="/guclendirme-projesi-cizimi">Güçlendirme Projesi Hazırlama</a><a href="/yapi-guclendirme">Yapısal Güçlendirme İmalatları</a><a href="/betonarme-guclendirme">Betonarme Güçlendirme</a><a href="/celik-guclendirme">Çelik Güçlendirme</a><a href="/kolon-guclendirme">Karbon Fiber / FRP Güçlendirme</a><a href="/temel-guclendirme">Temel Güçlendirme</a><a href="/kiris-doseme-guclendirme">Kiriş ve Döşeme Güçlendirme</a><a href="/perde-duvar-guclendirme">Perde ve Duvar Güçlendirme</a><a href="/ankraj-guclendirme">Ankraj ve Bağlantı İmalatları</a><a href="/epoksi-enjeksiyon">Güçlendirme Kapsamında Enjeksiyon</a><a href="/tarihi-eser-guclendirme">Tarihi ve Yığma Yapı Güçlendirme</a><a href="/karot-delim">Güçlendirme Amaçlı Karot İşlemleri</a></div></details><a href="/hakkimizda">Kurumsal</a><a href="/referans-projeler">Referanslarımız</a><a href="/blog/">Blog ve Makaleler</a><a href="/iller/">Hizmet Bölgeleri</a><a href="/iletisim">İletişim</a></nav><a class="yg-button" href="/teklif-al">İletişim Talebi <span aria-hidden="true">↗</span></a><button class="yg-menu-button" type="button" aria-label="Menüyü aç" aria-expanded="false" aria-controls="yg-navigation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button></div></header>
+<main id="yg-main" tabindex="-1"><h1>Google Analytics Raporu</h1><div class="container">
+
+  <!-- UYARI -->
+  <div class="alert-box">
+    <div class="alert-icon">⚠️</div>
+    <div class="alert-text"><strong>Önemli Not:</strong> Site Haziran 2026'da yayına girdiği için henüz yeterli veri birikimi yoktur. Aşağıdaki veriler GA4 entegrasyonu sonrası beklenen değerler ve mevcut teknik analizlere dayanmaktadır. Gerçek verileri görmek için <a href="https://analytics.google.com" target="_blank" style="color:#1565c0" rel="noopener noreferrer">analytics.google.com</a> adresini ziyaret edin.</div>
+  </div>
+
+  <!-- KPI KARTLARI -->
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">Aylık Oturum (Tahmini)</div>
+      <div class="kpi-value">850+</div>
+      <div class="kpi-change up">↑ Site yeni, büyüme bekleniyor</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Blog Makalesi</div>
+      <div class="kpi-value">293</div>
+      <div class="kpi-change up">↑ +5 bu hafta eklendi</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Sitemap URL</div>
+      <div class="kpi-value">402</div>
+      <div class="kpi-change up">↑ Yandex'e bildirildi</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Schema Türü</div>
+      <div class="kpi-value">12+</div>
+      <div class="kpi-change neutral">LocalBusiness, FAQ, Article...</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Sayfa Hızı (KB)</div>
+      <div class="kpi-value">103</div>
+      <div class="kpi-change neutral">Hedef: &lt;100KB</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">İç Link Sayısı</div>
+      <div class="kpi-value">43+</div>
+      <div class="kpi-change up">↑ Önceki: 4</div>
+    </div>
+  </div>
+
+  <!-- SEO DURUM ANALİZİ -->
+  <div class="section">
+    <h2>🔍 SEO Durum Analizi</h2>
+    <div class="grid-2">
+      <div>
+        <h3>✅ Tamamlanan SEO Çalışmaları</h3>
+        <div class="yg-table-wrap" role="region" aria-label="Teknik bilgi tablosu" tabindex="0"><table class="data-table">
+          <tbody><tr><th>Özellik</th><th>Durum</th></tr>
+          <tr><td>Meta title &amp; description</td><td><span class="tag tag-green">✅ Tüm sayfalarda</span></td></tr>
+          <tr><td>Schema markup</td><td><span class="tag tag-green">✅ 12+ tür</span></td></tr>
+          <tr><td>SiteNavigationElement</td><td><span class="tag tag-green">✅ 10 menü öğesi</span></td></tr>
+          <tr><td>BreadcrumbList</td><td><span class="tag tag-green">✅ Tüm sayfalarda</span></td></tr>
+          <tr><td>Open Graph tags</td><td><span class="tag tag-green">✅ Eksiksiz</span></td></tr>
+          <tr><td>Twitter Card</td><td><span class="tag tag-green">✅ Düzeltildi</span></td></tr>
+          <tr><td>Hreflang</td><td><span class="tag tag-green">✅ tr, tr-TR, x-default</span></td></tr>
+          <tr><td>Canonical URL</td><td><span class="tag tag-green">✅ Tüm sayfalarda</span></td></tr>
+          <tr><td>max-snippet:-1</td><td><span class="tag tag-green">✅ 293 makalede</span></td></tr>
+          <tr><td>Sitemap.xml</td><td><span class="tag tag-green">✅ 402 URL</span></td></tr>
+          <tr><td>robots.txt</td><td><span class="tag tag-green">✅ Mevcut</span></td></tr>
+          <tr><td>IndexNow (Yandex)</td><td><span class="tag tag-green">✅ 397 URL bildirildi</span></td></tr>
+        </tbody></table></div>
+      </div>
+      <div>
+        <h3>⚠️ Yapılması Gerekenler</h3>
+        <div class="yg-table-wrap" role="region" aria-label="Teknik bilgi tablosu" tabindex="0"><table class="data-table">
+          <tbody><tr><th>Görev</th><th>Öncelik</th></tr>
+          <tr><td>Google Search Console sitemap gönder</td><td><span class="tag tag-red">🔴 Acil</span></td></tr>
+          <tr><td>Google Business Profile doğrula</td><td><span class="tag tag-red">🔴 Acil</span></td></tr>
+          <tr><td>Backlink kampanyası başlat</td><td><span class="tag tag-gold">🟡 Orta</span></td></tr>
+          <tr><td>Google News başvurusu</td><td><span class="tag tag-gold">🟡 Orta</span></td></tr>
+          <tr><td>Core Web Vitals iyileştir</td><td><span class="tag tag-gold">🟡 Orta</span></td></tr>
+          <tr><td>İngilizce sayfa ekle</td><td><span class="tag tag-green">🟢 Düşük</span></td></tr>
+          <tr><td>Video schema güncelle</td><td><span class="tag tag-green">🟢 Düşük</span></td></tr>
+        </tbody></table></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ANAHTAR KELİME ANALİZİ -->
+  <div class="section">
+    <h2>🎯 Hedef Anahtar Kelimeler</h2>
+    <p style="font-size:13px;color:#666;margin-bottom:16px">Sitenizin hedeflediği anahtar kelimeler ve tahmini rekabet durumu:</p>
+    <div class="chart-bar-h">
+      <div class="label">yapı güçlendirme</div>
+      <div class="bar-h"><div class="bar-h-fill" style="width:85%">Yüksek Potansiyel</div></div>
+    </div>
+    <div class="chart-bar-h">
+      <div class="label">tarihi eser güçlendirme</div>
+      <div class="bar-h"><div class="bar-h-fill" style="width:95%">Düşük Rekabet ✅</div></div>
+    </div>
+    <div class="chart-bar-h">
+      <div class="label">karot delme</div>
+      <div class="bar-h"><div class="bar-h-fill" style="width:70%">Orta Rekabet</div></div>
+    </div>
+    <div class="chart-bar-h">
+      <div class="label">deprem performans analizi</div>
+      <div class="bar-h"><div class="bar-h-fill" style="width:80%">Yüksek Potansiyel</div></div>
+    </div>
+    <div class="chart-bar-h">
+      <div class="label">riskli yapı tespiti</div>
+      <div class="bar-h"><div class="bar-h-fill" style="width:75%">Orta Rekabet</div></div>
+    </div>
+    <div class="chart-bar-h">
+      <div class="label">güçlendirme fiyatları 2026</div>
+      <div class="bar-h"><div class="bar-h-fill" style="width:90%">Çok Düşük Rekabet ✅</div></div>
+    </div>
+    <div class="chart-bar-h">
+      <div class="label">TBDY 2018 güçlendirme</div>
+      <div class="bar-h"><div class="bar-h-fill" style="width:92%">Çok Düşük Rekabet ✅</div></div>
+    </div>
+  </div>
+
+  <!-- ÖNERİLER -->
+  <div class="section">
+    <h2>💡 Öncelikli Öneriler</h2>
+
+    <div class="recommendation">
+      <div class="rec-priority priority-high">🔴 ACİL — Bu Hafta</div>
+      <div class="rec-title">1. Google Search Console — Sitemap Gönder</div>
+      <div class="rec-desc">search.google.com/search-console → Site Haritaları → https://www.yapiguc.net/sitemap.xml → Gönder. Bu işlem Google'ın 402 URL'yi daha hızlı indekslemesini sağlar.</div>
+    </div>
+
+    <div class="recommendation">
+      <div class="rec-priority priority-high">🔴 ACİL — Bu Hafta</div>
+      <div class="rec-title">2. Google Business Profile Oluştur ve Doğrula</div>
+      <div class="rec-desc">business.google.com → İşletme ekle → YAPIGÜÇ MÜŞ.MÜH.SAN VE TİC A.Ş. → Adres, telefon, web sitesi gir → Doğrula. Knowledge Panel için zorunlu.</div>
+    </div>
+
+    <div class="recommendation">
+      <div class="rec-priority priority-med">🟡 ORTA — Bu Ay</div>
+      <div class="rec-title">3. Backlink Kampanyası</div>
+      <div class="rec-desc">Arkitera.com, insaathaberleri.com, deprem.gov.tr gibi sektör sitelerine makale gönderin. Her backlink Google sıralamasını artırır.</div>
+    </div>
+
+    <div class="recommendation">
+      <div class="rec-priority priority-med">🟡 ORTA — Bu Ay</div>
+      <div class="rec-title">4. Sayfa Hızı Optimizasyonu</div>
+      <div class="rec-desc">Ana sayfa 103KB — hedef 80KB altı. Cloudinary görselleri WebP formatına çevirin, kritik CSS'i inline yapın. PageSpeed Insights skoru artacak.</div>
+    </div>
+
+    <div class="recommendation">
+      <div class="rec-priority priority-med">🟡 ORTA — Bu Ay</div>
+      <div class="rec-title">5. Google News Başvurusu</div>
+      <div class="rec-desc">publisher.google.com → Yayın ekle → yapiguc.net. Onaylanırsa deprem haberleri için Google News'te görünürsünüz. Trafik 3-5x artabilir.</div>
+    </div>
+
+    <div class="recommendation">
+      <div class="rec-priority priority-low">🟢 DÜŞÜK — Gelecek Ay</div>
+      <div class="rec-title">6. İngilizce Sayfa</div>
+      <div class="rec-desc">/en/ dizini altında İngilizce ana sayfa ekleyin. "Historical building strengthening Turkey" gibi anahtar kelimelerle Orta Doğu ve Avrupa'dan müşteri çekebilirsiniz.</div>
+    </div>
+  </div>
+
+  <!-- GA4 KURULUM KONTROL -->
+  <div class="section">
+    <h2>📈 GA4 Kurulum Durumu</h2>
+    <div class="yg-table-wrap" role="region" aria-label="Teknik bilgi tablosu" tabindex="0"><table class="data-table">
+      <tbody><tr><th>Bileşen</th><th>Durum</th><th>Açıklama</th></tr>
+      <tr><td>GA4 Ölçüm ID</td><td><span class="tag tag-green">✅ Aktif</span></td><td>G-H9CGX93T9E</td></tr>
+      <tr><td>Google Tag Manager</td><td><span class="tag tag-green">✅ Aktif</span></td><td>GTM-NFXPSKRT</td></tr>
+      <tr><td>Microsoft Clarity</td><td><span class="tag tag-green">✅ Aktif</span></td><td>xxm85my2l5 — Isı haritası</td></tr>
+      <tr><td>Sayfa görüntüleme</td><td><span class="tag tag-green">✅ Takip ediliyor</span></td><td>Otomatik</td></tr>
+      <tr><td>Olay takibi</td><td><span class="tag tag-gold">⚠️ Yapılandırılmalı</span></td><td>Telefon tıklamaları, form gönderimleri</td></tr>
+      <tr><td>Dönüşüm hedefleri</td><td><span class="tag tag-red">❌ Tanımlanmamış</span></td><td>WhatsApp tıklaması, form doldurma</td></tr>
+      <tr><td>Arama Konsolu bağlantısı</td><td><span class="tag tag-gold">⚠️ Bağlanmalı</span></td><td>GA4 → Search Console entegrasyonu</td></tr>
+    </tbody></table></div>
+  </div>
+
+  <!-- SONRAKI ADIMLAR -->
+  <div class="section">
+    <h2>🚀 Sonraki 30 Günlük Plan</h2>
+    <div class="yg-table-wrap" role="region" aria-label="Teknik bilgi tablosu" tabindex="0"><table class="data-table">
+      <tbody><tr><th>Hafta</th><th>Görev</th><th>Beklenen Etki</th></tr>
+      <tr><td>Hafta 1</td><td>Google Search Console sitemap + GBP doğrulama</td><td>İndeksleme hızlanır</td></tr>
+      <tr><td>Hafta 1</td><td>GA4 dönüşüm hedefleri tanımla</td><td>ROI ölçümü başlar</td></tr>
+      <tr><td>Hafta 2</td><td>5 backlink (Arkitera, sektör siteleri)</td><td>Domain authority artar</td></tr>
+      <tr><td>Hafta 2</td><td>Sayfa hızı optimizasyonu</td><td>Core Web Vitals iyileşir</td></tr>
+      <tr><td>Hafta 3</td><td>Google News başvurusu</td><td>Haber görünürlüğü</td></tr>
+      <tr><td>Hafta 3</td><td>5 yeni blog makalesi</td><td>Organik trafik artar</td></tr>
+      <tr><td>Hafta 4</td><td>GA4 rapor analizi ve optimizasyon</td><td>Strateji güncellenir</td></tr>
+    </tbody></table></div>
+  </div>
+
+</div><aside class="audit-source-note"><h2>Mevzuat ve destek bilgileri</h2><p>AFAD'ın resmi açıklaması, Türkiye Bina Deprem Yönetmeliği'nin 18 Mart 2018'de yayımlandığını ve 1 Ocak 2019'da yürürlüğe girdiğini belirtir. Projeye uygulanacak güncel hükümler yetkili mühendis ve ilgili idare tarafından değerlendirilmelidir.</p><p>Yarısı Bizden için coğrafya, yeniden yapım/güçlendirme kapsamı, uygunluk ve destek türleri resmi program şartlarına bağlıdır. Bu sayfa ülke genelinde güçlendirme hibesi veya hak sahipliği vaat etmez. Güncel tutar ve tarihler burada doğrulanamadığından yayımlanmamıştır; başvuru öncesi resmi uygunluk bilgisini kontrol edin.</p><p>Kaynak: <a href="https://www.afad.gov.tr/turkiye-bina-deprem-yonetmeligi" target="_blank" rel="noopener noreferrer">AFAD — Türkiye Bina Deprem Yönetmeliği</a> · <a href="https://kdb.gov.tr/" target="_blank" rel="noopener noreferrer">Kentsel Dönüşüm Başkanlığı — resmi program bilgileri</a>. Son gözden geçirme: <time datetime="2026-10-01">1 Ekim 2026</time>. KDB güncel program şartları bu incelemede kesin olarak teyit edilememiştir.</p></aside></main>
+
+
+
+
+<footer class="yg-footer"><div class="yg-footer-inner"><a class="yg-brand" href="/" aria-label="YAPIGÜÇ ana sayfa"><img class="growth-brand-logo" src="/assets/yapiguc-logo-transparent.png" alt="YAPIGÜÇ" width="2172" height="724"><small class="scope-brand-subtitle">Müşavirlik Mühendislik A.Ş.</small></a><nav class="yg-footer-links" aria-label="Alt menü"><a href="/cerez-politikasi">Çerez Politikası</a><a href="/referanslar/">Referans Koleksiyonları</a><a href="/uygulama-fotograflari">Uygulama Fotoğrafları</a><a href="/iletisim">Kurumsal İletişim</a><a href="/kvkk">Gizlilik ve KVKK</a><a href="/teklif-al">İletişim Talebi</a><button type="button" data-consent-open="">Çerez tercihleri</button></nav><div class="yg-footer-contact"><span>İLETİŞİM</span><a href="tel:+905405163636">0540 516 36 36</a><a href="mailto:info@yapiguc.net">info@yapiguc.net</a><small>© YAPIGÜÇ · Tüm hakları saklıdır.</small></div></div></footer><section class="audit-consent" aria-label="Çerez tercihleri" hidden=""><h2>İsteğe bağlı ziyaretçi ölçümü</h2><p>İzin verirseniz Google Analytics ile sayfa ziyaretlerini ve telefon/WhatsApp bağlantısı tıklamalarını ölçeriz. Formdaki ad, telefon ve açıklamalar bu ölçüme gönderilmez. İzin vermeden de siteyi ve iletişim seçeneklerini kullanabilirsiniz. <a href="/kvk-aydinlatma-metni">Gizlilik ve KVKK metni</a></p><a href="/kvkk">Veri işleme bilgileri</a><div class="audit-consent-actions"><button type="button" data-consent="reject">Ölçümü reddet</button><button type="button" data-consent="accept">Ölçümü kabul et</button><button type="button" data-consent-close="">Tercihleri kapat</button></div><p role="status" data-consent-status=""></p></section><script src="/assets/yapiguc.js" defer=""></script><nav class="quick-contact" aria-label="Hızlı iletişim"><a href="tel:+905405163636">Hemen arayın</a><a href="https://wa.me/905405163636" target="_blank" rel="noopener noreferrer">WhatsApp</a></nav><script defer src="/assets/accessibility-ee4de8d13d.js"></script><script src="/assets/site-guide-20261015.js" defer></script></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html lang="tr"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Güçlendirme amaçlı karot ve delgi · Sık sorulan sorular | YAPIGÜÇ</title>
+<meta name="description" content="Projelendirme, karot ve ankraj imalatı, ekipman seçimi ve saha kayıtları hakkında sık sorulan sorular.">
+
+<link rel="canonical" href="https://www.yapiguc.net/guclendirme-karot-sss">
+
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#222;line-height:1.8}
+.header{background:#1c2331;padding:14px 24px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:999}
+.header img{height:38px;border-radius:6px}
+.header a.brand{color:#c9a84c;text-decoration:none;font-weight:800;font-size:17px}
+.header-right{margin-left:auto;display:flex;gap:10px}
+.header-right a{color:rgba(255,255,255,.8);text-decoration:none;font-size:13px;padding:6px 14px;border-radius:20px;border:1px solid rgba(255,255,255,.2)}
+.hero{background:linear-gradient(135deg,#1c2331,#2d3a4a);padding:60px 24px;text-align:center}
+.hero h1{font-size:clamp(24px,4vw,40px);font-weight:900;color:#fff;margin-bottom:12px}
+.hero h1 span{color:#c9a84c}
+.hero p{color:rgba(255,255,255,.8);font-size:16px;margin-bottom:24px;max-width:650px;margin-left:auto;margin-right:auto}
+.btn-gold{background:#c9a84c;color:#1c2331;padding:13px 28px;border-radius:30px;text-decoration:none;font-weight:800;font-size:14px;display:inline-block}
+.container{max-width:900px;margin:0 auto;padding:48px 24px}
+.uzmanlik-kutu{background:linear-gradient(135deg,#1c2331,#2d3a4a);border-radius:16px;padding:28px;margin:32px 0;color:#fff;text-align:center}
+.uzmanlik-kutu h2{color:#c9a84c;font-size:22px;font-weight:900;margin-bottom:12px}
+.uzmanlik-kutu p{color:rgba(255,255,255,.85);font-size:15px;margin-bottom:16px}
+.uzmanlik-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.uzmanlik-item{background:rgba(255,255,255,.1);border-radius:10px;padding:14px;text-align:left}
+.uzmanlik-item.evet{border-left:4px solid #4CAF50}
+.uzmanlik-item.hayir{border-left:4px solid #f44336}
+.uzmanlik-item h4{font-size:13px;font-weight:700;margin-bottom:6px}
+.uzmanlik-item.evet h4{color:#81C784}
+.uzmanlik-item.hayir h4{color:#EF9A9A}
+.uzmanlik-item p{font-size:12px;color:rgba(255,255,255,.7);margin:0}
+.faq-section h2{font-size:24px;font-weight:900;color:#1c2331;margin:36px 0 20px;padding-bottom:10px;border-bottom:3px solid #c9a84c}
+.faq-item{border:2px solid #e0e0e0;border-radius:14px;margin-bottom:14px;overflow:hidden;transition:.2s}
+.faq-item:hover{border-color:#c9a84c}
+.faq-q{background:#f8f9fa;padding:18px 22px;font-size:15px;font-weight:700;color:#1c2331;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q .icon{font-size:20px;flex-shrink:0;transition:.3s}
+.faq-a{padding:18px 22px;font-size:14px;color:#555;line-height:1.8;border-top:1px solid #e0e0e0;display:none}
+.faq-a.open{display:block}
+.faq-a ul{margin:8px 0 0 20px}
+.faq-a ul li{margin-bottom:6px}
+.itiraz-section{background:#f8f9fa;border-radius:16px;padding:32px;margin:32px 0}
+.itiraz-section h2{font-size:22px;font-weight:900;color:#1c2331;margin-bottom:20px}
+.itiraz-item{background:#fff;border-radius:12px;padding:20px;margin-bottom:16px;border-left:4px solid #c9a84c}
+.itiraz-item .soru{font-size:14px;font-weight:700;color:#c62828;margin-bottom:10px}
+.itiraz-item .cevap{font-size:14px;color:#333;line-height:1.7}
+.neden-biz{margin:32px 0}
+.neden-biz h2{font-size:24px;font-weight:900;color:#1c2331;margin-bottom:20px;padding-bottom:10px;border-bottom:3px solid #c9a84c}
+.neden-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.neden-kart{background:#f8f9fa;border-radius:14px;padding:22px;border-top:3px solid #1c2331}
+.neden-kart .icon{font-size:32px;margin-bottom:10px;display:block}
+.neden-kart h3{font-size:15px;font-weight:800;color:#1c2331;margin-bottom:8px}
+.neden-kart p{font-size:13px;color:#555;line-height:1.7}
+.rakip-analiz{background:#fff3e0;border:2px solid #e65100;border-radius:16px;padding:28px;margin:32px 0}
+.rakip-analiz h2{font-size:20px;font-weight:900;color:#bf360c;margin-bottom:16px}
+.rakip-tablo{width:100%;border-collapse:collapse;font-size:13px}
+.rakip-tablo th{background:#1c2331;color:#c9a84c;padding:10px 14px;text-align:left}
+.rakip-tablo td{padding:10px 14px;border-bottom:1px solid #f0f0f0}
+.rakip-tablo tr:nth-child(even) td{background:#f8f9fa}
+.rakip-tablo .biz{color:#2e7d32;font-weight:700}
+.rakip-tablo .onlar{color:#c62828}
+.cta-box{background:linear-gradient(135deg,#1c2331,#2d3a4a);border-radius:16px;padding:40px;text-align:center;margin:36px 0}
+.cta-box h3{color:#c9a84c!important;font-size:24px;font-weight:900;margin-bottom:12px}
+.cta-box p{color:rgba(255,255,255,.85)!important;margin-bottom:24px}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cta-btns a{padding:13px 28px;border-radius:28px;text-decoration:none;font-weight:800;font-size:14px}
+.footer{background:#1c2331;color:rgba(255,255,255,.6);text-align:center;padding:24px;font-size:13px;margin-top:40px}
+@media(max-width:768px){.uzmanlik-grid,.neden-grid{grid-template-columns:1fr}}
+</style>
+
+<style id="sss-mobile">
+@media(max-width:600px){
+  #sticky-cta{flex-direction:column;text-align:center}
+  #sticky-cta>div:first-child{display:none}
+  #sticky-cta>div:last-child{width:100%;justify-content:center}
+  #sticky-cta a{flex:1;text-align:center}
+}
+</style>
+<link rel="stylesheet" href="/assets/yapiguc.css"><noscript><style>@media(max-width:900px){.yg-navigation{display:flex!important;position:static!important;flex-direction:column!important;max-height:none!important}.yg-header-main{flex-wrap:wrap!important}.yg-menu-button{display:none!important}.yg-header{position:static!important}}</style></noscript><meta name="robots" content="index,follow,max-image-preview:large"><meta property="og:title" content="Güçlendirme amaçlı karot ve delgi · Sık sorulan sorular | YAPIGÜÇ"><meta property="og:url" content="https://www.yapiguc.net/guclendirme-karot-sss"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://www.yapiguc.net/#organization","name":"YAPIGÜÇ MÜŞ. MÜH. SAN. VE TİC. A.Ş.","url":"https://www.yapiguc.net","telephone":"+905405163636","email":"info@yapiguc.net","logo":"https://www.yapiguc.net/assets/yapiguc-logo-transparent.png"}</script><link rel="stylesheet" href="/assets/audit.css"><link rel="stylesheet" href="/assets/growth.css"><link rel="stylesheet" href="/assets/refinement.css"><link rel="icon" href="/favicon.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180"><link rel="stylesheet" href="/assets/visitor-growth.css"><link rel="stylesheet" href="/assets/content-protection-6154b6995f.css"><script defer="" src="/assets/content-protection-9371381351.js"></script><script defer="" src="/assets/contact-metrics-39a5a7e808.js"></script><link rel="stylesheet" href="/assets/content-audit.css"><link rel="stylesheet" href="/assets/cookie-panel-0cd7f09d2b.css"><link rel="stylesheet" href="/assets/accessibility-0ccdd9c109.css"><link rel="stylesheet" href="/assets/layout-repair-03eb26008a.css"><link rel="stylesheet" href="/assets/home-modern-20261014.css?v=18abe02549"></head>
+<body class="yg-site yg-service"><a class="yg-skip" href="#yg-main">İçeriğe geç</a><header class="yg-header"><div class="yg-utility"><p>Türkiye Genelinde Proje · Onarım · Güçlendirme</p><div class="yg-utility-links"><a href="tel:+905405163636">0540 516 36 36</a><a href="https://wa.me/905405163636" target="_blank" rel="noopener noreferrer">WhatsApp</a></div></div><div class="yg-header-main"><a class="yg-brand" href="/" aria-label="YAPIGÜÇ ana sayfa"><img class="growth-brand-logo" src="/assets/yapiguc-logo-transparent.png" alt="YAPIGÜÇ" width="2172" height="724"><small class="scope-brand-subtitle">Müşavirlik Mühendislik A.Ş.</small></a><nav class="yg-navigation" id="yg-navigation" aria-label="Ana menü"><details class="yg-mega"><summary>Hizmetler</summary><div class="yg-mega-links"><a href="/tasarim-gozetmenligi">Tasarım Gözetmenliği</a><a href="/universite-onay-sureci">Üniversite Değerlendirme ve Onay Süreci</a><a href="/guclendirme-projesi-cizimi">Güçlendirme Projesi Hazırlama</a><a href="/yapi-guclendirme">Yapısal Güçlendirme İmalatları</a><a href="/betonarme-guclendirme">Betonarme Güçlendirme</a><a href="/celik-guclendirme">Çelik Güçlendirme</a><a href="/kolon-guclendirme">Karbon Fiber / FRP Güçlendirme</a><a href="/temel-guclendirme">Temel Güçlendirme</a><a href="/kiris-doseme-guclendirme">Kiriş ve Döşeme Güçlendirme</a><a href="/perde-duvar-guclendirme">Perde ve Duvar Güçlendirme</a><a href="/ankraj-guclendirme">Ankraj ve Bağlantı İmalatları</a><a href="/epoksi-enjeksiyon">Güçlendirme Kapsamında Enjeksiyon</a><a href="/tarihi-eser-guclendirme">Tarihi ve Yığma Yapı Güçlendirme</a><a href="/karot-delim">Güçlendirme Amaçlı Karot İşlemleri</a></div></details><a href="/hakkimizda">Kurumsal</a><a href="/referans-projeler">Referanslarımız</a><a href="/blog/">Blog ve Makaleler</a><a href="/iller/">Hizmet Bölgeleri</a><a href="/iletisim">İletişim</a></nav><a class="yg-button" href="/teklif-al">İletişim Talebi <span aria-hidden="true">↗</span></a><button class="yg-menu-button" type="button" aria-label="Menüyü aç" aria-expanded="false" aria-controls="yg-navigation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button></div></header>
+<main id="yg-main" tabindex="-1"><article class="growth-article"><p class="yg-eyebrow">YAPIGÜÇ · ANALİZ, PROJE VE UYGULAMA</p><h1>Güçlendirme amaçlı karot ve delgi · Sık sorulan sorular</h1><p class="growth-lead">Projelendirme, karot ve ankraj imalatı, ekipman seçimi ve saha kayıtları hakkında sık sorulan sorular.</p><section><h2>Projelendirme ve uygulamayı birlikte sunuyor musunuz?</h2><p>Evet. YAPIGÜÇ, mühendislik değerlendirmesi ve güçlendirme projesi ile saha uygulamasını birlikte sunar. Mevcut projenizin karot, delgi, ankraj ve güçlendirme imalatlarını da üstlenebiliriz.</p></section><section><h2>Güçlendirme amaçlı karot deliği ile beton numunesi aynı işlem mi?</h2><p>Hayır. Ankraj, gergi veya bağlantı için açılan delik bir imalat işlemidir. Beton dayanımının incelenmesi için numune alınması ise numune planı ve laboratuvar değerlendirmesi gerektiren farklı bir amaç taşır. Talebin amacı görüşmede netleştirilir.</p></section><section><h2>Delik çapı, konumu ve derinliği nasıl belirlenir?</h2><p>Taşıyıcı sistem, bağlantı detayı, donatı ve saha koşulları üzerinden projede belirlenir. Genel bir çap veya derinlik bütün yapılara uygulanmaz. Mevcut donatı ve tesisatla çakışma riski uygulama öncesinde değerlendirilir.</p></section><section><h2>Sirkeci Garı uygulamanızın ölçüleri neydi?</h2><p>Firma tarafından bildirilen Sirkeci kapsamımızda temel/kök bölgesinde 300 mm çaplı açıklıklar, dikey delgide 100 mm çap ve 15 metre uzunluğundaki paslanmaz gergiler için hazırlık yer alır. Bunlar o projeye ait ölçülerdir; diğer yapılara hazır uygulama detayı olarak aktarılmaz.</p></section><section><h2>Hangi ekipmanlarla çalışıyorsunuz?</h2><p>Ekipman parkımızda 6 adet Hilti DD500 ve 7 adet Hilti DD350 karot makinesi bulunur. Makine, uç ve uygulama yöntemi; çap, derinlik, malzeme ve saha erişimine göre seçilir.</p></section><section><h2>Sahada hangi kayıtlar tutulur?</h2><p>İş kapsamına göre delik konumu, çapı, derinliği, uygulama koşulları, ankraj veya bağlantı malzemesi ve kontrol sonuçları takip edilir. Revizyonlar proje ekibiyle değerlendirilir.</p></section><section><h2>Teklif için ne paylaşmalıyım?</h2><p>Şehir, yapı türü, talebin amacı, mevcut proje detayları ve erişim koşulları ilk görüşme için yeterli başlangıç sağlar. İmalat miktarı ve çalışma koşulları netleştirildikten sonra kapsam ve teklif hazırlanır.</p></section><p><a href="/projeler/sirkeci-gari-guclendirme">Sirkeci proje dosyası</a> · <a href="/ekip-ekipman">Ekipman parkımız</a> · <a href="/kalite-ve-teknik-kayitlar">Teknik kayıtlar</a></p><aside class="growth-cta"><span class="yg-eyebrow">YAPIGÜÇ · MÜHENDİSLİK VE SAHA UYGULAMASI</span><h2>Proje ve uygulama ihtiyacınızı görüşelim</h2><p>Bulunduğunuz yeri, hizmet ihtiyacınızı ve mevcut proje veya raporlarınızı görüşmede paylaşın.</p><div class="growth-actions"><a class="yg-button" href="/teklif-al">İletişim talebi hazırlayın</a><a class="yg-button growth-secondary" href="/uzmanlik-alanlarimiz">Uzmanlık alanlarımız</a></div></aside></article></main>
+
+
+
+
+
+
+
+
+
+<script>
+function toggleFaq(el){
+  var a=el.nextElementSibling;
+  var icon=el.querySelector('.icon');
+  var isOpen=a.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(function(x){x.classList.remove('open')});
+  document.querySelectorAll('.faq-q .icon').forEach(function(x){x.textContent='▼'});
+  if(!isOpen){a.classList.add('open');icon.textContent='▲';}
+}
+</script>
+
+<!-- STICKY CTA BARI -->
+
+<script>
+window.addEventListener('scroll',function(){
+  var sticky=document.getElementById('sticky-cta');
+  if(window.scrollY>400){
+    sticky.style.transform='translateY(0)';
+  } else {
+    sticky.style.transform='translateY(100%)';
+  }
+});
+</script>
+
+<footer class="yg-footer"><div class="yg-footer-inner"><a class="yg-brand" href="/" aria-label="YAPIGÜÇ ana sayfa"><img class="growth-brand-logo" src="/assets/yapiguc-logo-transparent.png" alt="YAPIGÜÇ" width="2172" height="724"><small class="scope-brand-subtitle">Müşavirlik Mühendislik A.Ş.</small></a><nav class="yg-footer-links" aria-label="Alt menü"><a href="/cerez-politikasi">Çerez Politikası</a><a href="/referanslar/">Referans Koleksiyonları</a><a href="/uygulama-fotograflari">Uygulama Fotoğrafları</a><a href="/iletisim">Kurumsal İletişim</a><a href="/kvkk">Gizlilik ve KVKK</a><a href="/teklif-al">İletişim Talebi</a><button type="button" data-consent-open="">Çerez tercihleri</button></nav><div class="yg-footer-contact"><span>İLETİŞİM</span><a href="tel:+905405163636">0540 516 36 36</a><a href="mailto:info@yapiguc.net">info@yapiguc.net</a><small>© YAPIGÜÇ · Tüm hakları saklıdır.</small></div></div></footer><section class="audit-consent" aria-label="Çerez tercihleri" hidden=""><h2>İsteğe bağlı ziyaretçi ölçümü</h2><p>İzin verirseniz Google Analytics ile sayfa ziyaretlerini ve telefon/WhatsApp bağlantısı tıklamalarını ölçeriz. Formdaki ad, telefon ve açıklamalar bu ölçüme gönderilmez. İzin vermeden de siteyi ve iletişim seçeneklerini kullanabilirsiniz. <a href="/kvk-aydinlatma-metni">Gizlilik ve KVKK metni</a></p><a href="/kvkk">Veri işleme bilgileri</a><div class="audit-consent-actions"><button type="button" data-consent="reject">Ölçümü reddet</button><button type="button" data-consent="accept">Ölçümü kabul et</button><button type="button" data-consent-close="">Tercihleri kapat</button></div><p role="status" data-consent-status=""></p></section><script src="/assets/yapiguc.js" defer=""></script><nav class="quick-contact" aria-label="Hızlı iletişim"><a href="tel:+905405163636">Hemen arayın</a><a href="https://wa.me/905405163636" target="_blank" rel="noopener noreferrer">WhatsApp</a></nav><script defer src="/assets/accessibility-ee4de8d13d.js"></script><script src="/assets/site-guide-20261015.js" defer></script></body></html>

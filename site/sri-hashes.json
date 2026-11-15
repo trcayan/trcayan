@@ -1,0 +1,8 @@
+{
+  "Cloudflare Beacon": {
+    "hash": "sha384-RPC48PglHYv6iOCN3mmnZnP3gNOZVwfDZ7lX5wedb4S/ZijsfoDPi/hoEMk+9Nyw",
+    "url": "https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496",
+    "size": 31612,
+    "last_checked": "2026-09-05T00:00:00"
+  }
+}
