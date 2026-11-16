@@ -1,0 +1,3032 @@
+plugins = []
+
+[functions]
+
+  [functions."*"]
+
+[build]
+command = "node tools/build.mjs"
+publish = "dist"
+
+  [build.environment]
+
+  [build.processing]
+
+    [build.processing.css]
+
+    [build.processing.html]
+
+    [build.processing.images]
+
+    [build.processing.js]
+
+  [build.services]
+
+[[headers]]
+for = "/*"
+
+  [headers.values]
+  X-Content-Type-Options = "nosniff"
+  Referrer-Policy = "strict-origin-when-cross-origin"
+  X-Frame-Options = "DENY"
+  Content-Security-Policy = "frame-ancestors 'none'; base-uri 'self'; object-src 'none'; form-action 'self'"
+  Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+
+[[headers]]
+for = "/404"
+
+  [headers.values]
+  X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+for = "/admin*"
+
+  [headers.values]
+  X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+for = "/musteri-portali*"
+
+  [headers.values]
+  X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+for = "/portal*"
+
+  [headers.values]
+  X-Robots-Tag = "noindex, nofollow"
+
+[[redirects]]
+from = "/blog/acil-karot-hizmeti"
+to = "/blog/karot-numunesi-alma"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/acil-karot-hizmeti.html"
+to = "/blog/karot-numunesi-alma"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/asfalt-karot-numunesi"
+to = "/blog/karot-numunesi-alma"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/asfalt-karot-numunesi.html"
+to = "/blog/karot-numunesi-alma"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/beton-delme-fiyatlari"
+to = "/blog/karot-numunesi-alma"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/beton-delme-fiyatlari.html"
+to = "/blog/karot-numunesi-alma"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/beton-kesme-hizmetleri"
+to = "/blog/karot-numunesi-alma"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/beton-kesme-hizmetleri.html"
+to = "/blog/karot-numunesi-alma"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/beton-kesme-nedir"
+to = "/blog/karot-numunesi-alma"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/beton-kesme-nedir.html"
+to = "/blog/karot-numunesi-alma"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/guclendirme-oncesi-karot-testi-neden-zorunlu"
+to = "/blog/karot-numunesi-alma"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/guclendirme-oncesi-karot-testi-neden-zorunlu.html"
+to = "/blog/karot-numunesi-alma"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/karot-fiyatlari-2026"
+to = "/blog/karot-numunesi-alma"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/karot-fiyatlari-2026.html"
+to = "/blog/karot-numunesi-alma"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/karot-testi-fiyatlari-2026-sehir-bazli"
+to = "/blog/karot-numunesi-alma"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/karot-testi-fiyatlari-2026-sehir-bazli.html"
+to = "/blog/karot-numunesi-alma"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/beton-delme-suresi-ne-kadar"
+to = "/blog/karot-nedir-nasil-yapilir"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/beton-delme-suresi-ne-kadar.html"
+to = "/blog/karot-nedir-nasil-yapilir"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/deprem-performans-analizinde-karot"
+to = "/blog/karot-nedir-nasil-yapilir"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/deprem-performans-analizinde-karot.html"
+to = "/blog/karot-nedir-nasil-yapilir"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/elmas-uclu-karot-teknolojisi"
+to = "/blog/karot-nedir-nasil-yapilir"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/elmas-uclu-karot-teknolojisi.html"
+to = "/blog/karot-nedir-nasil-yapilir"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/karot-delme-nasil-yapilir"
+to = "/blog/karot-nedir-nasil-yapilir"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/karot-delme-nasil-yapilir.html"
+to = "/blog/karot-nedir-nasil-yapilir"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/karot-hizmeti-alirken-dikkat"
+to = "/blog/karot-nedir-nasil-yapilir"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/karot-hizmeti-alirken-dikkat.html"
+to = "/blog/karot-nedir-nasil-yapilir"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/karot-makinesi-cesitleri"
+to = "/blog/karot-nedir-nasil-yapilir"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/karot-makinesi-cesitleri.html"
+to = "/blog/karot-nedir-nasil-yapilir"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/guclendirme-kredisi-2026-bankalar-faiz"
+to = "/blog/yarisi-bizden-programi"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/guclendirme-kredisi-2026-bankalar-faiz.html"
+to = "/blog/yarisi-bizden-programi"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/orta-hasarli-bina-kredisi-hibe-2026"
+to = "/blog/yarisi-bizden-programi"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/orta-hasarli-bina-kredisi-hibe-2026.html"
+to = "/blog/yarisi-bizden-programi"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/yarisi-bizden-kampanyasi"
+to = "/blog/yarisi-bizden-programi"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/yarisi-bizden-kampanyasi.html"
+to = "/blog/yarisi-bizden-programi"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/veri-merkezi-guclendirme"
+to = "/blog/guclendirme-veri-merkezi"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/veri-merkezi-guclendirme.html"
+to = "/blog/guclendirme-veri-merkezi"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/kolon-guclendirme-fiyatlari-detayli-2026"
+to = "/blog/kolon-guclendirme-fiyatlari-2026"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/kolon-guclendirme-fiyatlari-detayli-2026.html"
+to = "/blog/kolon-guclendirme-fiyatlari-2026"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/guclendirme-sirasinda-evde-oturulur-mu.html"
+to = "/blog/guclendirme-sirasinda-binada-oturulabilir-mi"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/guclendirme-sirasinda-evde-oturulur-mu"
+to = "/blog/guclendirme-sirasinda-binada-oturulabilir-mi"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/beton-kesme-kapı-pencere-acma"
+to = "/blog/beton-kesme-hizmetleri"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/beton-kesme-kap%C4%B1-pencere-acma"
+to = "/blog/beton-kesme-hizmetleri"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/beton-kesme-kapı-pencere-acma.html"
+to = "/blog/beton-kesme-hizmetleri"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/beton-kesme-kap%C4%B1-pencere-acma.html"
+to = "/blog/beton-kesme-hizmetleri"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/acil-eylem-plani"
+to = "/blog/deprem-sonrasi-bina-ne-yapilmali"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/acil-eylem-plani.html"
+to = "/blog/deprem-sonrasi-bina-ne-yapilmali"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/cozum-ortaklari"
+to = "/calisma-sureci"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/cozum-ortaklari.html"
+to = "/calisma-sureci"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/yapi-sagligi-izleme"
+to = "/blog/yapi-sagligi-izleme-sistemi"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/yapi-sagligi-izleme.html"
+to = "/blog/yapi-sagligi-izleme-sistemi"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/guclendirme-proje-asamalari-detayli-rehber"
+to = "/blog/guclendirme-projesi-nasil-hazirlanir"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/guclendirme-proje-asamalari-detayli-rehber.html"
+to = "/blog/guclendirme-projesi-nasil-hazirlanir"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/guclendirme-teknolojileri-2026-yenilikler"
+to = "/blog/guclendirme-yontemleri-kapsamli-rehber-2026"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/guclendirme-teknolojileri-2026-yenilikler.html"
+to = "/blog/guclendirme-yontemleri-kapsamli-rehber-2026"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/guclendirme-deprem-sonrasi-acil-mudahale"
+to = "/blog/deprem-sonrasi-yapi-stabilizasyonu"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/guclendirme-deprem-sonrasi-acil-mudahale.html"
+to = "/blog/deprem-sonrasi-yapi-stabilizasyonu"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/guclendirme-yatirim-getirisi-hesaplama"
+to = "/blog/guclendirme-sonrasi-deger-artisi"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/guclendirme-yatirim-getirisi-hesaplama.html"
+to = "/blog/guclendirme-sonrasi-deger-artisi"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/guclendirme-oncesi-ve-sonrasi-bina-performansi"
+to = "/blog/deprem-performans-seviyeleri-tbdy2018"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/guclendirme-oncesi-ve-sonrasi-bina-performansi.html"
+to = "/blog/deprem-performans-seviyeleri-tbdy2018"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/deprem-guvenligi-icin-bina-kontrol-listesi-2026"
+to = "/blog/bina-deprem-guvenligi-kontrol-listesi"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/deprem-guvenligi-icin-bina-kontrol-listesi-2026.html"
+to = "/blog/bina-deprem-guvenligi-kontrol-listesi"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/guclendirme-bina-yasi-ve-risk-iliskisi"
+to = "/blog/bina-yas-guclendirme"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/guclendirme-bina-yasi-ve-risk-iliskisi.html"
+to = "/blog/bina-yas-guclendirme"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/bina-performans-analizi"
+to = "/deprem-performans-analizi.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/deprem-risk-skoru"
+to = "/ai-bina-analizi.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/fiyatlar"
+to = "/yapi-guclendirme.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/guclendirme-projesi"
+to = "/guclendirme-projesi-cizimi.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/karbon-fiber-guclendirme"
+to = "/kolon-guclendirme.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/tarihi-eser-guclendirme-nedir.html"
+to = "/tarihi-eser-guclendirme.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/yapi-guclendirme-guclendirme.html"
+to = "/yapi-guclendirme.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/yapi-sagligi-izleme"
+to = "/yapi-guclendirme.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/adana-yapi-guclendirme.html"
+to = "/iller/adana.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/adana-yapi-guclendirme"
+to = "/iller/adana.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/adiyaman-yapi-guclendirme.html"
+to = "/iller/adiyaman.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/adiyaman-yapi-guclendirme"
+to = "/iller/adiyaman.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/afyonkarahisar-yapi-guclendirme.html"
+to = "/iller/afyonkarahisar.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/afyonkarahisar-yapi-guclendirme"
+to = "/iller/afyonkarahisar.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/agri-yapi-guclendirme.html"
+to = "/iller/agri.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/agri-yapi-guclendirme"
+to = "/iller/agri.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/aksaray-yapi-guclendirme.html"
+to = "/iller/aksaray.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/aksaray-yapi-guclendirme"
+to = "/iller/aksaray.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/amasya-yapi-guclendirme.html"
+to = "/iller/amasya.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/amasya-yapi-guclendirme"
+to = "/iller/amasya.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/ankara-yapi-guclendirme.html"
+to = "/iller/ankara.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/ankara-yapi-guclendirme"
+to = "/iller/ankara.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/antalya-yapi-guclendirme.html"
+to = "/iller/antalya.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/antalya-yapi-guclendirme"
+to = "/iller/antalya.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/ardahan-yapi-guclendirme.html"
+to = "/iller/ardahan.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/ardahan-yapi-guclendirme"
+to = "/iller/ardahan.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/artvin-yapi-guclendirme.html"
+to = "/iller/artvin.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/artvin-yapi-guclendirme"
+to = "/iller/artvin.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/aydin-yapi-guclendirme.html"
+to = "/iller/aydin.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/aydin-yapi-guclendirme"
+to = "/iller/aydin.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/balikesir-yapi-guclendirme.html"
+to = "/iller/balikesir.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/balikesir-yapi-guclendirme"
+to = "/iller/balikesir.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/bartin-yapi-guclendirme.html"
+to = "/iller/bartin.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/bartin-yapi-guclendirme"
+to = "/iller/bartin.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/batman-yapi-guclendirme.html"
+to = "/iller/batman.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/batman-yapi-guclendirme"
+to = "/iller/batman.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/bayburt-yapi-guclendirme.html"
+to = "/iller/bayburt.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/bayburt-yapi-guclendirme"
+to = "/iller/bayburt.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/bilecik-yapi-guclendirme.html"
+to = "/iller/bilecik.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/bilecik-yapi-guclendirme"
+to = "/iller/bilecik.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/bingol-yapi-guclendirme.html"
+to = "/iller/bingol.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/bingol-yapi-guclendirme"
+to = "/iller/bingol.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/bitlis-yapi-guclendirme.html"
+to = "/iller/bitlis.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/bitlis-yapi-guclendirme"
+to = "/iller/bitlis.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/bolu-yapi-guclendirme.html"
+to = "/iller/bolu.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/bolu-yapi-guclendirme"
+to = "/iller/bolu.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/burdur-yapi-guclendirme.html"
+to = "/iller/burdur.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/burdur-yapi-guclendirme"
+to = "/iller/burdur.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/bursa-yapi-guclendirme.html"
+to = "/iller/bursa.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/bursa-yapi-guclendirme"
+to = "/iller/bursa.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/canakkale-yapi-guclendirme.html"
+to = "/iller/canakkale.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/canakkale-yapi-guclendirme"
+to = "/iller/canakkale.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/cankiri-yapi-guclendirme.html"
+to = "/iller/cankiri.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/cankiri-yapi-guclendirme"
+to = "/iller/cankiri.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/corum-yapi-guclendirme.html"
+to = "/iller/corum.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/corum-yapi-guclendirme"
+to = "/iller/corum.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/denizli-yapi-guclendirme.html"
+to = "/iller/denizli.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/denizli-yapi-guclendirme"
+to = "/iller/denizli.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/diyarbakir-yapi-guclendirme.html"
+to = "/iller/diyarbakir.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/diyarbakir-yapi-guclendirme"
+to = "/iller/diyarbakir.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/duzce-yapi-guclendirme.html"
+to = "/iller/duzce.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/duzce-yapi-guclendirme"
+to = "/iller/duzce.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/edirne-yapi-guclendirme.html"
+to = "/iller/edirne.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/edirne-yapi-guclendirme"
+to = "/iller/edirne.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/elazig-yapi-guclendirme.html"
+to = "/iller/elazig.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/elazig-yapi-guclendirme"
+to = "/iller/elazig.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/erzincan-yapi-guclendirme.html"
+to = "/iller/erzincan.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/erzincan-yapi-guclendirme"
+to = "/iller/erzincan.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/erzurum-yapi-guclendirme.html"
+to = "/iller/erzurum.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/erzurum-yapi-guclendirme"
+to = "/iller/erzurum.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/eskisehir-yapi-guclendirme.html"
+to = "/iller/eskisehir.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/eskisehir-yapi-guclendirme"
+to = "/iller/eskisehir.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/gaziantep-yapi-guclendirme.html"
+to = "/iller/gaziantep.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/gaziantep-yapi-guclendirme"
+to = "/iller/gaziantep.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/giresun-yapi-guclendirme.html"
+to = "/iller/giresun.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/giresun-yapi-guclendirme"
+to = "/iller/giresun.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/gumushane-yapi-guclendirme.html"
+to = "/iller/gumushane.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/gumushane-yapi-guclendirme"
+to = "/iller/gumushane.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/hakkari-yapi-guclendirme.html"
+to = "/iller/hakkari.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/hakkari-yapi-guclendirme"
+to = "/iller/hakkari.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/hatay-yapi-guclendirme.html"
+to = "/iller/hatay.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/hatay-yapi-guclendirme"
+to = "/iller/hatay.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/igdir-yapi-guclendirme.html"
+to = "/iller/igdir.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/igdir-yapi-guclendirme"
+to = "/iller/igdir.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/isparta-yapi-guclendirme.html"
+to = "/iller/isparta.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/isparta-yapi-guclendirme"
+to = "/iller/isparta.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/istanbul-yapi-guclendirme.html"
+to = "/iller/istanbul.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/istanbul-yapi-guclendirme"
+to = "/iller/istanbul.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/izmir-yapi-guclendirme.html"
+to = "/iller/izmir.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/izmir-yapi-guclendirme"
+to = "/iller/izmir.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/kahramanmaras-yapi-guclendirme.html"
+to = "/iller/kahramanmaras.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/kahramanmaras-yapi-guclendirme"
+to = "/iller/kahramanmaras.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/karabuk-yapi-guclendirme.html"
+to = "/iller/karabuk.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/karabuk-yapi-guclendirme"
+to = "/iller/karabuk.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/karaman-yapi-guclendirme.html"
+to = "/iller/karaman.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/karaman-yapi-guclendirme"
+to = "/iller/karaman.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/kars-yapi-guclendirme.html"
+to = "/iller/kars.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/kars-yapi-guclendirme"
+to = "/iller/kars.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/kastamonu-yapi-guclendirme.html"
+to = "/iller/kastamonu.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/kastamonu-yapi-guclendirme"
+to = "/iller/kastamonu.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/kayseri-yapi-guclendirme.html"
+to = "/iller/kayseri.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/kayseri-yapi-guclendirme"
+to = "/iller/kayseri.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/kirikkale-yapi-guclendirme.html"
+to = "/iller/kirikkale.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/kirikkale-yapi-guclendirme"
+to = "/iller/kirikkale.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/kirklareli-yapi-guclendirme.html"
+to = "/iller/kirklareli.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/kirklareli-yapi-guclendirme"
+to = "/iller/kirklareli.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/kirsehir-yapi-guclendirme.html"
+to = "/iller/kirsehir.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/kirsehir-yapi-guclendirme"
+to = "/iller/kirsehir.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/kilis-yapi-guclendirme.html"
+to = "/iller/kilis.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/kilis-yapi-guclendirme"
+to = "/iller/kilis.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/kocaeli-yapi-guclendirme.html"
+to = "/iller/kocaeli.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/kocaeli-yapi-guclendirme"
+to = "/iller/kocaeli.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/konya-yapi-guclendirme.html"
+to = "/iller/konya.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/konya-yapi-guclendirme"
+to = "/iller/konya.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/kutahya-yapi-guclendirme.html"
+to = "/iller/kutahya.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/kutahya-yapi-guclendirme"
+to = "/iller/kutahya.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/malatya-yapi-guclendirme.html"
+to = "/iller/malatya.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/malatya-yapi-guclendirme"
+to = "/iller/malatya.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/manisa-yapi-guclendirme.html"
+to = "/iller/manisa.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/manisa-yapi-guclendirme"
+to = "/iller/manisa.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/mardin-yapi-guclendirme.html"
+to = "/iller/mardin.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/mardin-yapi-guclendirme"
+to = "/iller/mardin.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/mersin-yapi-guclendirme.html"
+to = "/iller/mersin.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/mersin-yapi-guclendirme"
+to = "/iller/mersin.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/mugla-yapi-guclendirme.html"
+to = "/iller/mugla.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/mugla-yapi-guclendirme"
+to = "/iller/mugla.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/mus-yapi-guclendirme.html"
+to = "/iller/mus.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/mus-yapi-guclendirme"
+to = "/iller/mus.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/nevsehir-yapi-guclendirme.html"
+to = "/iller/nevsehir.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/nevsehir-yapi-guclendirme"
+to = "/iller/nevsehir.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/nigde-yapi-guclendirme.html"
+to = "/iller/nigde.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/nigde-yapi-guclendirme"
+to = "/iller/nigde.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/ordu-yapi-guclendirme.html"
+to = "/iller/ordu.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/ordu-yapi-guclendirme"
+to = "/iller/ordu.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/osmaniye-yapi-guclendirme.html"
+to = "/iller/osmaniye.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/osmaniye-yapi-guclendirme"
+to = "/iller/osmaniye.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/rize-yapi-guclendirme.html"
+to = "/iller/rize.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/rize-yapi-guclendirme"
+to = "/iller/rize.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/sakarya-yapi-guclendirme.html"
+to = "/iller/sakarya.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/sakarya-yapi-guclendirme"
+to = "/iller/sakarya.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/samsun-yapi-guclendirme.html"
+to = "/iller/samsun.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/samsun-yapi-guclendirme"
+to = "/iller/samsun.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/siirt-yapi-guclendirme.html"
+to = "/iller/siirt.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/siirt-yapi-guclendirme"
+to = "/iller/siirt.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/sinop-yapi-guclendirme.html"
+to = "/iller/sinop.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/sinop-yapi-guclendirme"
+to = "/iller/sinop.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/sivas-yapi-guclendirme.html"
+to = "/iller/sivas.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/sivas-yapi-guclendirme"
+to = "/iller/sivas.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/sanliurfa-yapi-guclendirme.html"
+to = "/iller/sanliurfa.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/sanliurfa-yapi-guclendirme"
+to = "/iller/sanliurfa.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/sirnak-yapi-guclendirme.html"
+to = "/iller/sirnak.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/sirnak-yapi-guclendirme"
+to = "/iller/sirnak.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/tekirdag-yapi-guclendirme.html"
+to = "/iller/tekirdag.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/tekirdag-yapi-guclendirme"
+to = "/iller/tekirdag.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/tokat-yapi-guclendirme.html"
+to = "/iller/tokat.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/tokat-yapi-guclendirme"
+to = "/iller/tokat.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/trabzon-yapi-guclendirme.html"
+to = "/iller/trabzon.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/trabzon-yapi-guclendirme"
+to = "/iller/trabzon.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/tunceli-yapi-guclendirme.html"
+to = "/iller/tunceli.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/tunceli-yapi-guclendirme"
+to = "/iller/tunceli.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/usak-yapi-guclendirme.html"
+to = "/iller/usak.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/usak-yapi-guclendirme"
+to = "/iller/usak.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/van-yapi-guclendirme.html"
+to = "/iller/van.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/van-yapi-guclendirme"
+to = "/iller/van.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/yalova-yapi-guclendirme.html"
+to = "/iller/yalova.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/yalova-yapi-guclendirme"
+to = "/iller/yalova.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/yozgat-yapi-guclendirme.html"
+to = "/iller/yozgat.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/yozgat-yapi-guclendirme"
+to = "/iller/yozgat.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/zonguldak-yapi-guclendirme.html"
+to = "/iller/zonguldak.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/zonguldak-yapi-guclendirme"
+to = "/iller/zonguldak.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/tasarim-gozetmeni.html"
+to = "/tasarim-gozetmenligi"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/tasarim-gozetmeni"
+to = "/tasarim-gozetmenligi"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/bina-performans-analizi.html"
+to = "/deprem-performans-analizi"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/biga-yapi-guclendirme.html"
+to = "/blog/canakkale-biga-yapi-guclendirme.html"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/cfrp-frp-frcm-farki.html"
+to = "/blog/cfrp-frp-frcm-farki-karsilastirma"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/deprem-bolgesi-haritasi-turkiye-2026.html"
+to = "/blog/deprem-bolgesi-haritasi-guclendirme-onceligi"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/deprem-sigortasi-dask-ve-guclendirme-iliskisi.html"
+to = "/blog/deprem-sigortasi-guclendirme-iliskisi"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/guclendirme-akilli-bina-iot.html"
+to = "/blog/guclendirme-akilli-bina"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/guclendirme-yapay-zeka.html"
+to = "/blog/guclendirme-yapay-zeka-analiz"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/karot-delme-kırıcı-fark.html"
+to = "/blog/karot-delme-kirici-fark"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/karot-delme-k%C4%B1r%C4%B1c%C4%B1-fark.html"
+to = "/blog/karot-delme-kirici-fark"
+status = 301
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/prof-dr-sabahattin-aykac-akademik-isbirligi"
+to = "/blog/akademik-danismanlik-ve-guclendirme"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+
+[[redirects]]
+from = "/blog/prof-dr-sabahattin-aykac-akademik-isbirligi.html"
+to = "/blog/akademik-danismanlik-ve-guclendirme"
+status = 301
+force = true
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
+[[redirects]]
+from = "/blog/karbon-fiber-kac-gun-surer"
+to = "/blog/karbon-fiber-guclendirme-kac-gun-surer"
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/karbon-fiber-kac-gun-surer.html"
+to = "/blog/karbon-fiber-guclendirme-kac-gun-surer"
+status = 301
+force = true

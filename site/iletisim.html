@@ -1,0 +1,339 @@
+<!DOCTYPE html><html lang="tr"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adres ve Kurumsal İletişim | YAPIGÜÇ</title>
+<meta name="description" content="YAPIGÜÇ Ankara merkez ofisi; İstanbul, Malatya, İskenderun ve Antakya şubeleri ile Antakya üretim tesisi adresleri, yol tarifi ve iletişim bilgileri.">
+<link rel="canonical" href="https://www.yapiguc.net/iletisim">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;color:#333;line-height:1.7}
+
+/* HEADER */
+.header{background:#1c2331;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:999;box-shadow:0 2px 20px rgba(0,0,0,.3)}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo img{height:42px;border-radius:6px}
+.logo-name{font-size:17px;font-weight:900;color:#fff}
+.logo-sub{font-size:10px;color:#c9a84c;font-weight:600;letter-spacing:.5px}
+.header-tel{color:rgba(255,255,255,.85);text-decoration:none;font-size:13px;font-weight:700;border:1px solid rgba(255,255,255,.2);padding:7px 16px;border-radius:20px;transition:.2s}
+.header-tel:hover{background:rgba(255,255,255,.1);color:#c9a84c}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#1c2331 0%,#2d3a4a 60%,#1c2331 100%);padding:56px 24px;text-align:center}
+.hero h1{font-size:clamp(26px,4vw,42px);font-weight:900;color:#fff;margin-bottom:10px}
+.hero p{font-size:16px;color:rgba(255,255,255,.75);max-width:600px;margin:0 auto}
+
+/* HIZLI İLETİŞİM */
+.quick-contact{background:#fff;padding:32px 24px;border-bottom:1px solid #eee}
+.quick-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.qc-card{background:#f8f9fa;border-radius:12px;padding:20px;text-align:center;border-top:3px solid #c9a84c;transition:.2s}
+.qc-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.1)}
+.qc-card .icon{font-size:28px;margin-bottom:10px;display:block}
+.qc-card h4{font-size:13px;font-weight:800;color:#1c2331;margin-bottom:6px}
+.qc-card a{display:block;font-size:13px;color:#1c2331;text-decoration:none;font-weight:600;margin-bottom:3px}
+.qc-card a:hover{color:#c9a84c}
+.qc-card .badge{display:inline-block;background:#1c2331;color:#c9a84c;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-top:6px}
+
+/* ŞUBELER BÖLÜMÜ */
+.subeler-section{max-width:1100px;margin:40px auto;padding:0 24px}
+.subeler-section h2{font-size:24px;font-weight:900;color:#1c2331;margin-bottom:6px}
+.subeler-section .sub-desc{font-size:14px;color:#888;margin-bottom:24px}
+.divider{width:48px;height:3px;background:linear-gradient(90deg,#c9a84c,rgba(201,168,76,.3));border-radius:2px;margin:10px 0 24px}
+
+/* ŞUBE KARTLARI */
+.subeler-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+
+.sube-kart{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.07);transition:.2s}
+.sube-kart:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,.12)}
+
+/* Harita alanı */
+.sube-harita{width:100%;height:200px;border:none;display:block}
+
+/* Bilgi alanı */
+.sube-bilgi{padding:18px 20px}
+.sube-bilgi .sube-baslik{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.sube-bilgi .sube-baslik .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.sube-bilgi .sube-baslik h3{font-size:15px;font-weight:800;color:#1c2331}
+.sube-bilgi .adres{font-size:13px;color:#555;line-height:1.7;margin-bottom:12px}
+.sube-bilgi .adres strong{color:#1c2331;font-weight:700}
+
+/* Butonlar */
+.sube-btns{display:flex;gap:8px;flex-wrap:wrap}
+.sube-btn{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;transition:.2s}
+.sube-btn:hover{opacity:.85;transform:translateY(-1px)}
+.btn-tel{background:#1c2331;color:#fff}
+.btn-wa{background:#25D366;color:#fff}
+.btn-maps{background:#f8f9fa;color:#1c2331;border:1px solid #e0e0e0}
+.btn-maps:hover{background:#1c2331;color:#c9a84c;border-color:#1c2331}
+
+/* Merkez kart — öne çıkar */
+.sube-kart.merkez{grid-column:span 1;border:2px solid #c9a84c}
+.sube-kart.merkez .sube-bilgi .sube-baslik h3{color:#1c2331}
+
+/* Geniş kart — İstanbul */
+.sube-kart.wide{grid-column:span 1}
+
+/* CTA */
+.cta-section{background:linear-gradient(135deg,#1c2331,#2d3a4a);padding:56px 24px;text-align:center;margin-top:40px}
+.cta-inner{max-width:700px;margin:0 auto}
+.cta-inner h2{font-size:clamp(22px,3vw,32px);font-weight:900;color:#fff;margin-bottom:12px}
+.cta-inner p{font-size:15px;color:rgba(255,255,255,.75);margin-bottom:28px;line-height:1.8}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta-btn-gold{background:#c9a84c;color:#1c2331;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:800;font-size:15px;transition:.2s}
+.cta-btn-gold:hover{background:#e6c96a}
+.cta-btn-outline{background:transparent;color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px;border:2px solid rgba(255,255,255,.3);transition:.2s}
+.cta-btn-outline:hover{background:rgba(255,255,255,.1)}
+
+/* FOOTER */
+.footer{background:#111827;padding:28px 24px;text-align:center}
+.footer p{font-size:12px;color:rgba(255,255,255,.4);line-height:1.8}
+.footer a{color:rgba(255,255,255,.5);text-decoration:none}
+.footer a:hover{color:#c9a84c}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .subeler-grid{grid-template-columns:1fr 1fr}
+  .quick-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .subeler-grid{grid-template-columns:1fr}
+  .quick-inner{grid-template-columns:1fr 1fr}
+  .sube-kart.merkez{grid-column:span 1}
+}
+
+/* ===== GELİŞMİŞ ANİMASYONLAR ===== */
+
+/* Kart hover efekti */
+.sube-kart {
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease;
+  cursor: default;
+}
+.sube-kart:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 16px 48px rgba(0,0,0,.15);
+}
+
+/* Harita açılış efekti */
+.sube-harita {
+  transition: height .4s ease, opacity .3s ease;
+  opacity: .85;
+}
+.sube-kart:hover .sube-harita {
+  opacity: 1;
+  height: 220px;
+}
+
+/* Buton hover */
+.sube-btn {
+  transition: all .2s cubic-bezier(.34,1.56,.64,1);
+}
+.sube-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+}
+
+/* Yol tarifi butonu */
+.btn-yol {
+  background: linear-gradient(135deg,#1565c0,#1a237e);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all .2s cubic-bezier(.34,1.56,.64,1);
+}
+.btn-yol:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 14px rgba(26,35,126,.35);
+  opacity: .9;
+}
+
+/* Kart giriş animasyonu */
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.sube-kart {
+  animation: cardFadeIn .5s ease forwards;
+}
+.sube-kart:nth-child(1) { animation-delay: .05s; }
+.sube-kart:nth-child(2) { animation-delay: .10s; }
+.sube-kart:nth-child(3) { animation-delay: .15s; }
+.sube-kart:nth-child(4) { animation-delay: .20s; }
+.sube-kart:nth-child(5) { animation-delay: .25s; }
+.sube-kart:nth-child(6) { animation-delay: .30s; }
+
+/* Harita overlay — tıkla aç */
+.harita-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.harita-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(28,35,49,.0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .3s ease;
+  cursor: pointer;
+}
+.harita-overlay span {
+  background: rgba(28,35,49,.85);
+  color: #c9a84c;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 10px 20px;
+  border-radius: 20px;
+  opacity: 0;
+  transform: scale(.8);
+  transition: all .3s ease;
+  pointer-events: none;
+}
+.sube-kart:hover .harita-overlay {
+  background: rgba(28,35,49,.15);
+}
+.sube-kart:hover .harita-overlay span {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Şube başlık renk çizgisi */
+.sube-bilgi {
+  position: relative;
+}
+.sube-bilgi::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--sube-renk, #c9a84c), transparent);
+}
+
+/* Hızlı iletişim hover */
+.qc-card {
+  transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s ease;
+}
+.qc-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.1);
+}
+
+/* Pulse animasyonu — telefon */
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,.4); }
+  50% { box-shadow: 0 0 0 8px rgba(201,168,76,.0); }
+}
+.qc-card:first-child {
+  animation: pulse 2.5s infinite;
+}
+
+
+/* ===== ŞUBE DETAY ÖZELLİKLERİ ===== */
+.sube-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 10px 0 12px;
+  padding: 10px 12px;
+  background: rgba(0,0,0,.03);
+  border-radius: 8px;
+  font-size: 12px;
+}
+.sube-meta-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: #555;
+  line-height: 1.5;
+}
+.sube-meta-row .meta-icon {
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.sube-meta-row .meta-label {
+  font-weight: 700;
+  color: #1c2331;
+  min-width: 70px;
+  flex-shrink: 0;
+}
+.sube-meta-row .meta-val {
+  color: #555;
+}
+.sube-cta {
+  display: block;
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 12px;
+  transition: all .25s cubic-bezier(.34,1.56,.64,1);
+  letter-spacing: .3px;
+}
+.sube-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,.2);
+}
+.sube-cta-ankara  { background: linear-gradient(135deg,#1a237e,#283593); color: #c9a84c; }
+.sube-cta-istanbul{ background: linear-gradient(135deg,#b71c1c,#c62828); color: #fff; }
+.sube-cta-malatya { background: linear-gradient(135deg,#6a1b9a,#7b1fa2); color: #fff; }
+.sube-cta-iskenderun { background: linear-gradient(135deg,#1b5e20,#2e7d32); color: #fff; }
+.sube-cta-antakya { background: linear-gradient(135deg,#bf360c,#e65100); color: #fff; }
+.sube-cta-uretim  { background: linear-gradient(135deg,#263238,#37474f); color: #c9a84c; }
+
+.acik-badge {
+  display: inline-block;
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.kapali-badge {
+  display: inline-block;
+  background: #ffebee;
+  color: #c62828;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+</style>
+<link rel="stylesheet" href="/assets/yapiguc.css"><noscript><style>@media(max-width:900px){.yg-navigation{display:flex!important;position:static!important;flex-direction:column!important;max-height:none!important}.yg-header-main{flex-wrap:wrap!important}.yg-menu-button{display:none!important}.yg-header{position:static!important}}</style></noscript><meta name="robots" content="index,follow,max-image-preview:large"><meta property="og:title" content="Yapısal Güçlendirme İçin İletişim | YAPIGÜÇ"><meta property="og:url" content="https://www.yapiguc.net/iletisim"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://www.yapiguc.net/iletisim.html#webpage","url":"https://www.yapiguc.net/iletisim","name":"Yapısal Güçlendirme İçin İletişim","inLanguage":"tr","publisher":{"@id":"https://www.yapiguc.net/#organization"},"description":"YAPIGÜÇ, Türkiye genelinde güçlendirme projesi hazırlama, üniversite değerlendirme ve onay sürecinin takibi, tasarım gözetmenliği ve yapısal güçlendirme uygulamaları sunar. Karot ve delgi işlemleri güçlendirme işlerinin kapsamındadır."}</script><link rel="stylesheet" href="/assets/audit.css"><link rel="stylesheet" href="/assets/growth.css"><link rel="stylesheet" href="/assets/refinement.css"><link rel="icon" href="/favicon.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180"><link rel="stylesheet" href="/assets/visitor-growth.css"><link rel="stylesheet" href="/assets/content-protection-6154b6995f.css"><script defer="" src="/assets/content-protection-9371381351.js"></script><link rel="stylesheet" href="/assets/service-details.e7c23b1ca5.css"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://www.yapiguc.net/#organization","name":"YAPIGÜÇ MÜŞ. MÜH. SAN. VE TİC. A.Ş.","url":"https://www.yapiguc.net","telephone":"+905405163636","email":"info@yapiguc.net","address":{"@type":"PostalAddress","streetAddress":"İvedikköy Mahallesi, Melih Gökçek Bulvarı, BETEM OSB Türk Plaza, No: 140, İç Kapı No: 33","addressLocality":"Yenimahalle","addressRegion":"Ankara","addressCountry":"TR"}}</script><script defer="" src="/assets/contact-metrics-39a5a7e808.js"></script><link rel="stylesheet" href="/assets/cookie-panel-0cd7f09d2b.css"><link rel="stylesheet" href="/assets/accessibility-0ccdd9c109.css"><link rel="stylesheet" href="/assets/layout-repair-03eb26008a.css"><link rel="stylesheet" href="/assets/home-modern-20261014.css?v=18abe02549"></head>
+<body class="yg-site yg-contact"><a class="yg-skip" href="#yg-main">İçeriğe geç</a><header class="yg-header"><div class="yg-utility"><p>Türkiye Genelinde Proje · Onarım · Güçlendirme</p><div class="yg-utility-links"><a href="tel:+905405163636">0540 516 36 36</a><a href="https://wa.me/905405163636" target="_blank" rel="noopener noreferrer">WhatsApp</a></div></div><div class="yg-header-main"><a class="yg-brand" href="/" aria-label="YAPIGÜÇ ana sayfa"><img class="growth-brand-logo" src="/assets/yapiguc-logo-transparent.png" alt="YAPIGÜÇ" width="2172" height="724"><small class="scope-brand-subtitle">Müşavirlik Mühendislik A.Ş.</small></a><nav class="yg-navigation" id="yg-navigation" aria-label="Ana menü"><details class="yg-mega"><summary>Hizmetler</summary><div class="yg-mega-links"><a href="/tasarim-gozetmenligi">Tasarım Gözetmenliği</a><a href="/universite-onay-sureci">Üniversite Değerlendirme ve Onay Süreci</a><a href="/guclendirme-projesi-cizimi">Güçlendirme Projesi Hazırlama</a><a href="/yapi-guclendirme">Yapısal Güçlendirme İmalatları</a><a href="/betonarme-guclendirme">Betonarme Güçlendirme</a><a href="/celik-guclendirme">Çelik Güçlendirme</a><a href="/kolon-guclendirme">Karbon Fiber / FRP Güçlendirme</a><a href="/temel-guclendirme">Temel Güçlendirme</a><a href="/kiris-doseme-guclendirme">Kiriş ve Döşeme Güçlendirme</a><a href="/perde-duvar-guclendirme">Perde ve Duvar Güçlendirme</a><a href="/ankraj-guclendirme">Ankraj ve Bağlantı İmalatları</a><a href="/epoksi-enjeksiyon">Güçlendirme Kapsamında Enjeksiyon</a><a href="/tarihi-eser-guclendirme">Tarihi ve Yığma Yapı Güçlendirme</a><a href="/karot-delim">Güçlendirme Amaçlı Karot İşlemleri</a></div></details><a href="/hakkimizda">Kurumsal</a><a href="/referans-projeler">Referanslarımız</a><a href="/blog/">Blog ve Makaleler</a><a href="/iller/">Hizmet Bölgeleri</a><a href="/iletisim">İletişim</a></nav><a class="yg-button" href="/teklif-al">İletişim Talebi <span aria-hidden="true">↗</span></a><button class="yg-menu-button" type="button" aria-label="Menüyü aç" aria-expanded="false" aria-controls="yg-navigation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button></div></header>
+<main id="yg-main" tabindex="-1"><article class="growth-article"><p class="yg-eyebrow">YAPISAL GÜÇLENDİRME İMALATLARI</p><h1>YAPIGÜÇ Kurumsal İletişim</h1><section class="reference-list technical-service" id="confirmed-contact-address"><p class="yg-eyebrow">ANKARA MERKEZ OFİS</p><h2>Merkez ofis adresimiz</h2><p><strong>YAPIGÜÇ MÜŞ. MÜH. SAN. VE TİC. A.Ş.</strong></p><address>İvedikköy Mahallesi, Melih Gökçek Bulvarı, BETEM OSB Türk Plaza, No: 140, İç Kapı No: 33, Yenimahalle / Ankara</address><p><a class="yg-button" href="https://www.google.com/maps/search/?api=1&amp;query=%C4%B0vedikk%C3%B6y%20Mahallesi%2C%20Melih%20G%C3%B6k%C3%A7ek%20Bulvar%C4%B1%2C%20BETEM%20OSB%20T%C3%BCrk%20Plaza%2C%20No%3A%20140%2C%20%C4%B0%C3%A7%20Kap%C4%B1%20No%3A%2033%2C%20Yenimahalle%20%2F%20Ankara" target="_blank" rel="noopener noreferrer">Yol tarifi al</a></p><p>Merkez ofis: <a href="tel:+905322510043">0532 251 00 43</a> · <a href="tel:+905323746945">0532 374 69 45</a></p><p>Proje ve uygulama talepleri: <a href="tel:+905405163636">0540 516 36 36</a> · <a href="https://wa.me/905405163636">WhatsApp</a></p><p>E-posta: <a href="mailto:info@yapiguc.net">info@yapiguc.net</a></p></section><section class="technical-service" id="branch-contact-addresses"><p class="yg-eyebrow">OFİSLERİMİZ VE TESİSİMİZ</p><h2>Şubelerimiz ve üretim tesisimiz</h2><p>Şubelerimizle ilgili görüşme ve ziyaret planlaması için merkezi iletişim hattımızdan bize ulaşabilirsiniz.</p><div class="service-glossary"><div class="branch-contact-card"><h3>İstanbul Şube</h3><address>Abdurrahman Gazi Mah. Bedir Cad. Samyeli Sok. No:1, Sancaktepe / İstanbul</address><p><a href="https://www.google.com/maps/search/?api=1&amp;query=Abdurrahman%20Gazi%20Mah.%20Bedir%20Cad.%20Samyeli%20Sok.%20No%3A1%2C%20Sancaktepe%20%2F%20%C4%B0stanbul" target="_blank" rel="noopener noreferrer">Yol tarifi al →</a></p></div><div class="branch-contact-card"><h3>Malatya Şube</h3><address>Şifa Mah. Teket Sok. No:31/5, Battalgazi / Malatya</address><p><a href="https://www.google.com/maps/search/?api=1&amp;query=%C5%9Eifa%20Mah.%20Teket%20Sok.%20No%3A31%2F5%2C%20Battalgazi%20%2F%20Malatya" target="_blank" rel="noopener noreferrer">Yol tarifi al →</a></p></div><div class="branch-contact-card"><h3>İskenderun Şube</h3><address>Savaş Mah. Mareşal Çakmak Cad. Hacı Zerri İş Merkezi No:57 Kat:3, İskenderun / Hatay</address><p><a href="https://www.google.com/maps/search/?api=1&amp;query=Sava%C5%9F%20Mah.%20Mare%C5%9Fal%20%C3%87akmak%20Cad.%20Hac%C4%B1%20Zerri%20%C4%B0%C5%9F%20Merkezi%20No%3A57%20Kat%3A3%2C%20%C4%B0skenderun%20%2F%20Hatay" target="_blank" rel="noopener noreferrer">Yol tarifi al →</a></p></div><div class="branch-contact-card"><h3>Antakya Şube</h3><address>Akasya Mah. A Plaza Kat:11 No:1102, Antakya / Hatay</address><p><a href="https://www.google.com/maps/search/?api=1&amp;query=Akasya%20Mah.%20A%20Plaza%20Kat%3A11%20No%3A1102%2C%20Antakya%20%2F%20Hatay" target="_blank" rel="noopener noreferrer">Yol tarifi al →</a></p></div><div class="branch-contact-card"><h3>Antakya Üretim Tesisi</h3><address>Anayazı Mah. Paymar Sokak No:1, Coca Cola Arkası, Antakya / Hatay</address><p><a href="https://www.google.com/maps/search/?api=1&amp;query=Anayaz%C4%B1%20Mah.%20Paymar%20Sokak%20No%3A1%2C%20Coca%20Cola%20Arkas%C4%B1%2C%20Antakya%20%2F%20Hatay" target="_blank" rel="noopener noreferrer">Yol tarifi al →</a></p></div></div><p>Şube iletişimi: <a href="tel:+905405163636">0540 516 36 36</a> · <a href="https://wa.me/905405163636">WhatsApp</a></p></section><p class="growth-lead">YAPIGÜÇ, Türkiye genelinde güçlendirme projesi hazırlama, üniversite değerlendirme ve onay sürecinin takibi, tasarım gözetmenliği ve yapısal güçlendirme uygulamaları sunar. Karot ve delgi işlemleri güçlendirme işlerinin kapsamındadır.</p><h2>İmalat kapsamını görüşelim</h2><p>Türkiye genelindeki güçlendirme talebiniz için şehir, yapı kullanımı, mevcut güçlendirme projesi ve istediğiniz imalatı belirtin.</p><div class="growth-actions"><a class="yg-button" href="tel:+905405163636">Telefon: 0540 516 36 36</a><a class="yg-button growth-secondary" href="https://wa.me/905405163636">WhatsApp ile görüşün</a></div><h2>Yapı ve iletişim bilgilerinizi gönderin</h2><p><a href="/guclendirme-talep-hazirligi">İlk görüşme için hazırlık listesi oluşturun</a> veya <a href="/teklif-al">imalat talebinizi yazın</a>. İletişim formunda zorunlu bilgileri doldurup gönderdiğinizde talebiniz YAPIGÜÇ’e iletilir. Bu gönderim fiyat teklifi veya randevu onayı değildir.</p><h2>Kurumsal iletişim</h2><p><a href="mailto:info@yapiguc.net">info@yapiguc.net</a></p><aside class="growth-cta"><span class="yg-eyebrow">YAPIGÜÇ · MÜHENDİSLİK VE SAHA UYGULAMASI</span><h2>Proje ve uygulama ihtiyacınızı görüşelim</h2><p>Bulunduğunuz yeri, hizmet ihtiyacınızı ve mevcut proje veya raporlarınızı görüşmede paylaşın.</p><div class="growth-actions"><a class="yg-button" href="/teklif-al">İletişim talebi hazırlayın</a><a class="yg-button growth-secondary" href="/uzmanlik-alanlarimiz">Uzmanlık alanlarımız</a></div></aside></article></main>
+
+<!-- HEADER -->
+
+
+<!-- HERO -->
+
+
+<!-- HIZLI İLETİŞİM -->
+
+
+<!-- ŞUBELER -->
+
+
+<!-- CTA -->
+
+
+<!-- FOOTER -->
+
+
+
+<footer class="yg-footer"><div class="yg-footer-inner"><a class="yg-brand" href="/" aria-label="YAPIGÜÇ ana sayfa"><img class="growth-brand-logo" src="/assets/yapiguc-logo-transparent.png" alt="YAPIGÜÇ" width="2172" height="724"><small class="scope-brand-subtitle">Müşavirlik Mühendislik A.Ş.</small></a><nav class="yg-footer-links" aria-label="Alt menü"><a href="/cerez-politikasi">Çerez Politikası</a><a href="/referanslar/">Referans Koleksiyonları</a><a href="/uygulama-fotograflari">Uygulama Fotoğrafları</a><a href="/iletisim">Kurumsal İletişim</a><a href="/kvkk">Gizlilik ve KVKK</a><a href="/teklif-al">İletişim Talebi</a><button type="button" data-consent-open="">Çerez tercihleri</button><a href="/site-haritasi">Site Haritası</a></nav><div class="yg-footer-contact"><span>İLETİŞİM</span><a href="tel:+905405163636">0540 516 36 36</a><a href="mailto:info@yapiguc.net">info@yapiguc.net</a><small>© YAPIGÜÇ · Tüm hakları saklıdır.</small></div></div></footer><section class="audit-consent" aria-label="Çerez tercihleri" hidden=""><h2>İsteğe bağlı ziyaretçi ölçümü</h2><p>İzin verirseniz Google Analytics ile sayfa ziyaretlerini ve telefon/WhatsApp bağlantısı tıklamalarını ölçeriz. Formdaki ad, telefon ve açıklamalar bu ölçüme gönderilmez. İzin vermeden de siteyi ve iletişim seçeneklerini kullanabilirsiniz. <a href="/kvk-aydinlatma-metni">Gizlilik ve KVKK metni</a></p><a href="/kvkk">Veri işleme bilgileri</a><div class="audit-consent-actions"><button type="button" data-consent="reject">Ölçümü reddet</button><button type="button" data-consent="accept">Ölçümü kabul et</button><button type="button" data-consent-close="">Tercihleri kapat</button></div><p role="status" data-consent-status=""></p></section><script src="/assets/yapiguc.js" defer=""></script><nav class="quick-contact" aria-label="Hızlı iletişim"><a href="tel:+905405163636">Hemen arayın</a><a href="https://wa.me/905405163636" target="_blank" rel="noopener noreferrer">WhatsApp</a></nav><script defer src="/assets/accessibility-ee4de8d13d.js"></script><script src="/assets/site-guide-20261015.js" defer></script></body></html>

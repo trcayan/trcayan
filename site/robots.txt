@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /admin
+Disallow: /portal
+Sitemap: https://www.yapiguc.net/sitemap.xml

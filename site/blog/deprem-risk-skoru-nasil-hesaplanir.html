@@ -1,0 +1,582 @@
+<!DOCTYPE html><html lang="tr"><head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Deprem Risk Skoru Nasıl Hesaplanır?YAPIGÜÇ vs. Diğer Araçlar (2026) | YAPIGÜÇ</title>
+<meta name="description" content="Deprem risk skoru, bir binanın deprem tehlikesi karşısındaki kırılganlığını 0-100 arası sayısal bir değerle ifade eden ön değerlendirme göstergesidir. Bu s">
+<meta name="keywords" content="deprem risk skoru hesaplama, deprem risk analizi, bina deprem riski, depremtest, deprembis, yapigüç deprem analizi, bina güçlendirme, deprem güvenliği">
+
+<link rel="canonical" href="https://www.yapiguc.net/blog/deprem-risk-skoru-nasil-hesaplanir">
+
+<meta property="og:title" content="Deprem Risk Skoru Nasıl Hesaplanır?YAPIGÜÇ vs. Diğer Araçlar (2026) | YAPIGÜÇ">
+<meta property="og:description" content="Deprem risk skoru, bir binanın deprem tehlikesi karşısındaki kırılganlığını 0-100 arası sayısal bir değerle ifade eden ön değerlendirme göstergesidir. Bu s">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.yapiguc.net/blog/deprem-risk-skoru-nasil-hesaplanir">
+<meta property="og:image" content="https://www.yapiguc.net/logo-og.jpg">
+
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Segoe UI",Arial,sans-serif;background:#f5f6fa;color:#222;line-height:1.8}
+header{background:linear-gradient(135deg,#1a237e,#283593);color:#fff}
+.header-top{display:flex;align-items:center;justify-content:space-between;padding:15px 40px;max-width:1200px;margin:0 auto}
+.logo-area{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+.logo-area img{height:50px}
+nav{background:rgba(0,0,0,.2);padding:10px 40px}
+nav a{color:#fff;text-decoration:none;margin-right:18px;font-size:14px;opacity:.9}
+.breadcrumb{background:#fff;padding:12px 40px;font-size:13px;color:#666;border-bottom:1px solid #eee}
+.breadcrumb a{color:#1a237e;text-decoration:none}
+.article-wrap{max-width:860px;margin:40px auto;padding:0 20px}
+.article-header{background:#fff;border-radius:20px;padding:40px;margin-bottom:25px;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.article-meta{display:flex;gap:15px;flex-wrap:wrap;margin-bottom:18px}
+.meta-tag{background:#e8eaf6;color:#1a237e;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.meta-tag.red{background:#ffebee;color:#b71c1c}
+h1{font-size:30px;color:#1a237e;line-height:1.3;margin-bottom:15px}
+.article-intro{font-size:17px;color:#444;border-left:4px solid #1a237e;padding-left:18px;margin-top:15px}
+.article-body{background:#fff;border-radius:20px;padding:40px;box-shadow:0 4px 20px rgba(0,0,0,.08);margin-bottom:25px}
+h2{font-size:22px;color:#1a237e;margin:35px 0 15px;padding-bottom:8px;border-bottom:2px solid #e8eaf6}
+h2:first-child{margin-top:0}
+h3{font-size:17px;color:#283593;margin:20px 0 10px}
+p{margin-bottom:15px;color:#333}
+ul,ol{margin:10px 0 15px 25px}
+li{margin-bottom:8px;color:#333}
+.comparison-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+.comparison-table th{background:#1a237e;color:#fff;padding:12px 15px;text-align:left}
+.comparison-table td{padding:11px 15px;border-bottom:1px solid #f0f0f0}
+.comparison-table tr:nth-child(even){background:#f8f9ff}
+.comparison-table tr.highlight{background:#e8f5e9;font-weight:700}
+.check{color:#4caf50;font-weight:700}
+.cross{color:#f44336;font-weight:700}
+.partial{color:#ff9800;font-weight:700}
+.info-box{border-radius:14px;padding:20px 25px;margin:20px 0}
+.info-box.blue{background:#e3f2fd;border-left:4px solid #1565c0}
+.info-box.green{background:#e8f5e9;border-left:4px solid #2e7d32}
+.info-box.orange{background:#fff3e0;border-left:4px solid #e65100}
+.info-box.red{background:#ffebee;border-left:4px solid #b71c1c}
+.info-box h4{font-size:15px;margin-bottom:8px}
+.score-example{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:15px;margin:20px 0}
+.score-card{border-radius:12px;padding:18px;text-align:center}
+.score-card.green{background:#e8f5e9;border:2px solid #4caf50}
+.score-card.yellow{background:#fff8e1;border:2px solid #ffc107}
+.score-card.orange{background:#fff3e0;border:2px solid #ff9800}
+.score-card.red{background:#ffebee;border:2px solid #f44336}
+.score-card .num{font-size:36px;font-weight:900;margin-bottom:5px}
+.score-card .lbl{font-size:13px;font-weight:700}
+.score-card .desc{font-size:12px;color:#666;margin-top:5px}
+.cta-box{background:linear-gradient(135deg,#1a237e,#283593);color:#fff;border-radius:16px;padding:30px;text-align:center;margin:30px 0}
+.cta-box h3{font-size:20px;margin-bottom:10px;color:#c9a84c!important}
+.cta-box p{opacity:.9;margin-bottom:20px;font-size:15px;color:rgba(255,255,255,.9)!important}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cta-btn{padding:13px 25px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;display:inline-block}
+.cta-btn.white{background:#fff;color:#1a237e}
+.cta-btn.wa{background:#25D366;color:#fff}
+.cta-btn.outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6)}
+.method-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0}
+.method-card{border-radius:12px;padding:20px;border:2px solid #e0e0e0}
+.method-card h4{font-size:15px;color:#1a237e;margin-bottom:10px}
+.method-card ul{margin-left:18px}
+.method-card ul li{font-size:13px;margin-bottom:5px}
+.verdict{display:flex;align-items:center;gap:10px;background:#f8f9fa;border-radius:10px;padding:12px 15px;margin-top:12px;font-size:13px;font-weight:700}
+.share-bar{background:#fff;border-radius:14px;padding:20px 25px;box-shadow:0 4px 20px rgba(0,0,0,.08);margin-bottom:25px;display:flex;align-items:center;gap:15px;flex-wrap:wrap}
+.share-bar span{font-weight:700;color:#1a237e;font-size:14px}
+.share-btn{padding:8px 18px;border-radius:20px;font-size:13px;font-weight:700;text-decoration:none;display:inline-block}
+.share-btn.tw{background:#1da1f2;color:#fff}
+.share-btn.li{background:#0077b5;color:#fff}
+.share-btn.wa{background:#25D366;color:#fff}
+.toc{background:#f8f9ff;border:2px solid #e8eaf6;border-radius:14px;padding:20px 25px;margin-bottom:25px}
+.toc h4{color:#1a237e;font-size:15px;margin-bottom:12px}
+.toc ol{margin-left:20px}
+.toc ol li{margin-bottom:6px}
+.toc ol li a{color:#1a237e;text-decoration:none;font-size:14px}
+.toc ol li a:hover{text-decoration:underline}
+.author-box{background:#fff;border-radius:14px;padding:20px 25px;box-shadow:0 4px 20px rgba(0,0,0,.08);margin-bottom:25px;display:flex;gap:15px;align-items:flex-start}
+.author-avatar{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#1a237e,#283593);display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;flex-shrink:0}
+.related-posts{background:#fff;border-radius:20px;padding:30px;box-shadow:0 4px 20px rgba(0,0,0,.08);margin-bottom:25px}
+.related-posts h3{font-size:18px;color:#1a237e;margin-bottom:18px}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:15px}
+.related-card{border:2px solid #e8eaf6;border-radius:12px;padding:15px;text-decoration:none;color:#222;transition:.2s}
+.related-card:hover{border-color:#1a237e;background:#f8f9ff}
+.related-card .icon{font-size:24px;margin-bottom:8px}
+.related-card h4{font-size:14px;color:#1a237e;margin-bottom:5px}
+.related-card p{font-size:12px;color:#666}
+footer{background:#1a237e;color:#fff;text-align:center;padding:30px;font-size:14px}
+footer a{color:#90caf9;text-decoration:none}
+@media(max-width:768px){
+  .header-top{padding:15px 20px}
+  nav{padding:10px 20px}
+  .breadcrumb{padding:10px 20px}
+  .article-wrap{padding:0 15px}
+  .article-header,.article-body{padding:25px}
+  h1{font-size:22px}
+  .method-grid{grid-template-columns:1fr}
+  .comparison-table{font-size:12px}
+  .comparison-table th,.comparison-table td{padding:8px 10px}
+}
+</style>
+
+
+<style>*{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}</style>
+
+
+<link rel="alternate" hreflang="tr" href="https://www.yapiguc.net/blog/deprem-risk-skoru-nasil-hesaplanir">
+<link rel="alternate" hreflang="tr-TR" href="https://www.yapiguc.net/blog/deprem-risk-skoru-nasil-hesaplanir">
+<link rel="alternate" hreflang="x-default" href="https://www.yapiguc.net/blog/deprem-risk-skoru-nasil-hesaplanir">
+<meta name="bingbot" content="index,follow,max-snippet:-1,max-image-preview:large">
+<style id="color-fix">
+[style*="background:#1c2331"] p:not([style*="color"]),
+[style*="background:#1c2331"] li:not([style*="color"]),
+[style*="background:#1c2331"] span:not([style*="color"]),
+[style*="background:#2d3a4a"] p:not([style*="color"]),
+[style*="background:#2d3a4a"] li:not([style*="color"]),
+[style*="background:#0d1b5e"] p:not([style*="color"]),
+[style*="background:#1a237e"] p:not([style*="color"]) {
+  color: #e0e0e0 !important;
+}
+</style>
+
+<style id="cta-color-fix">
+/* CTA Kutusu Renk Düzeltmesi */
+div[style*="background:linear-gradient(135deg,#1c2331"] h3,
+div[style*="background:linear-gradient(135deg,#1c2331"] h2,
+div[style*="background: linear-gradient(135deg, #1c2331"] h3 {
+  color: #c9a84c !important;
+}
+div[style*="background:linear-gradient(135deg,#1c2331"] p,
+div[style*="background:linear-gradient(135deg,#1c2331"] span,
+div[style*="background: linear-gradient(135deg, #1c2331"] p {
+  color: rgba(255,255,255,0.85) !important;
+}
+div[style*="background:#1c2331"] h3,
+div[style*="background:#1c2331"] h2 {
+  color: #c9a84c !important;
+}
+div[style*="background:#1c2331"] p,
+div[style*="background:#1c2331"] span:not(.btn):not(a) {
+  color: rgba(255,255,255,0.85) !important;
+}
+/* Buton yazıları dokunma */
+div[style*="background:#1c2331"] a[style*="background:#c9a84c"],
+div[style*="background:#1c2331"] a[style*="background:#25D366"] {
+  color: #1c2331 !important;
+}
+</style>
+<link rel="stylesheet" href="/assets/yapiguc.css"><noscript><style>@media(max-width:900px){.yg-navigation{display:flex!important;position:static!important;flex-direction:column!important;max-height:none!important}.yg-header-main{flex-wrap:wrap!important}.yg-menu-button{display:none!important}.yg-header{position:static!important}}</style></noscript><meta name="robots" content="index,follow,max-image-preview:large"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://www.yapiguc.net/#organization","name":"YAPIGÜÇ MÜŞ. MÜH. SAN. VE TİC. A.Ş.","url":"https://www.yapiguc.net","telephone":"+905405163636","email":"info@yapiguc.net","logo":"https://www.yapiguc.net/assets/yapiguc-logo-transparent.png"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://www.yapiguc.net/blog/deprem-risk-skoru-nasil-hesaplanir.html#webpage","url":"https://www.yapiguc.net/blog/deprem-risk-skoru-nasil-hesaplanir.html","name":"Deprem Risk Skoru Nasıl Hesaplanır?YAPIGÜÇ vs. Diğer Araçlar (2026) | YAPIGÜÇ","inLanguage":"tr","publisher":{"@id":"https://www.yapiguc.net/#organization"}}</script><link rel="stylesheet" href="/assets/audit.css"><link rel="stylesheet" href="/assets/growth.css"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Deprem Risk Skoru Nasıl Hesaplanır?YAPIGÜÇ vs. Diğer Araçlar (2026)","description":"Deprem risk skoru, bir binanın deprem tehlikesi karşısındaki kırılganlığını 0-100 arası sayısal bir değerle ifade eden ön değerlendirme göstergesidir. Bu s","url":"https://www.yapiguc.net/blog/deprem-risk-skoru-nasil-hesaplanir","mainEntityOfPage":"https://www.yapiguc.net/blog/deprem-risk-skoru-nasil-hesaplanir","inLanguage":"tr","publisher":{"@type":"Organization","name":"YAPIGÜÇ","url":"https://www.yapiguc.net","logo":"https://www.yapiguc.net/assets/yapiguc-logo-transparent.png"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://www.yapiguc.net/"},{"@type":"ListItem","position":2,"name":"Blog ve Makaleler","item":"https://www.yapiguc.net/blog/"},{"@type":"ListItem","position":3,"name":"Deprem Risk Skoru Nasıl Hesaplanır?YAPIGÜÇ vs. Diğer Araçlar (2026)","item":"https://www.yapiguc.net/blog/deprem-risk-skoru-nasil-hesaplanir"}]}</script><link rel="stylesheet" href="/assets/refinement.css"><link rel="icon" href="/favicon.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180"><link rel="stylesheet" href="/assets/visitor-growth.css"><link rel="stylesheet" href="/assets/content-protection-6154b6995f.css"><script defer="" src="/assets/content-protection-9371381351.js"></script><script defer="" src="/assets/contact-metrics-39a5a7e808.js"></script><link rel="stylesheet" href="/assets/article-print-07590967b8.css"><link rel="stylesheet" href="/assets/cookie-panel-0cd7f09d2b.css"><link rel="stylesheet" href="/assets/accessibility-0ccdd9c109.css"><link rel="stylesheet" href="/assets/layout-repair-03eb26008a.css"><link rel="stylesheet" href="/assets/home-modern-20261014.css?v=18abe02549"></head>
+<body class="yg-site yg-article"><a class="yg-skip" href="#yg-main">İçeriğe geç</a><header class="yg-header"><div class="yg-utility"><p>Türkiye Genelinde Proje · Onarım · Güçlendirme</p><div class="yg-utility-links"><a href="tel:+905405163636">0540 516 36 36</a><a href="https://wa.me/905405163636" target="_blank" rel="noopener noreferrer">WhatsApp</a></div></div><div class="yg-header-main"><a class="yg-brand" href="/" aria-label="YAPIGÜÇ ana sayfa"><img class="growth-brand-logo" src="/assets/yapiguc-logo-transparent.png" alt="YAPIGÜÇ" width="2172" height="724"><small class="scope-brand-subtitle">Müşavirlik Mühendislik A.Ş.</small></a><nav class="yg-navigation" id="yg-navigation" aria-label="Ana menü"><details class="yg-mega"><summary>Hizmetler</summary><div class="yg-mega-links"><a href="/tasarim-gozetmenligi">Tasarım Gözetmenliği</a><a href="/universite-onay-sureci">Üniversite Değerlendirme ve Onay Süreci</a><a href="/guclendirme-projesi-cizimi">Güçlendirme Projesi Hazırlama</a><a href="/yapi-guclendirme">Yapısal Güçlendirme İmalatları</a><a href="/betonarme-guclendirme">Betonarme Güçlendirme</a><a href="/celik-guclendirme">Çelik Güçlendirme</a><a href="/kolon-guclendirme">Karbon Fiber / FRP Güçlendirme</a><a href="/temel-guclendirme">Temel Güçlendirme</a><a href="/kiris-doseme-guclendirme">Kiriş ve Döşeme Güçlendirme</a><a href="/perde-duvar-guclendirme">Perde ve Duvar Güçlendirme</a><a href="/ankraj-guclendirme">Ankraj ve Bağlantı İmalatları</a><a href="/epoksi-enjeksiyon">Güçlendirme Kapsamında Enjeksiyon</a><a href="/tarihi-eser-guclendirme">Tarihi ve Yığma Yapı Güçlendirme</a><a href="/karot-delim">Güçlendirme Amaçlı Karot İşlemleri</a></div></details><a href="/hakkimizda">Kurumsal</a><a href="/referans-projeler">Referanslarımız</a><a href="/blog/">Blog ve Makaleler</a><a href="/iller/">Hizmet Bölgeleri</a><a href="/iletisim">İletişim</a></nav><a class="yg-button" href="/teklif-al">İletişim Talebi <span aria-hidden="true">↗</span></a><button class="yg-menu-button" type="button" aria-label="Menüyü aç" aria-expanded="false" aria-controls="yg-navigation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button></div></header>
+<main id="yg-main" tabindex="-1"><nav class="seo-breadcrumb" aria-label="İçerik yolu"><a href="/">Ana Sayfa</a> / <a href="/blog/">Blog ve Makaleler</a> / <span>Deprem Risk Skoru Nasıl Hesaplanır?YAPIGÜÇ vs. Diğer Araçlar (2026)</span></nav><p class="audit-content-kind">Teknik makale · <a href="/blog/">Teknik bilgi koleksiyonu</a></p><div class="breadcrumb">
+  <a href="/">Ana Sayfa</a> › <a href="/blog/">Blog</a> › Deprem Risk Skoru Nasıl Hesaplanır?
+</div><div class="article-wrap">
+
+<!-- İçindekiler -->
+<div class="toc">
+  <h4>📋 İçindekiler</h4>
+  <ol>
+    <li><a href="#nedir">Deprem Risk Skoru Nedir?</a></li>
+    <li><a href="#nasil-hesaplanir">Nasıl Hesaplanır? Parametreler</a></li>
+    <li><a href="#araclar">Türkiye'deki Araçlar Karşılaştırması</a></li>
+    <li><a href="#depremtest">DepremTest.com Analizi</a></li>
+    <li><a href="#deprembis">DepremBİS.com Analizi</a></li>
+    <li><a href="#yapiguc">YAPIGÜÇ Aracı — Farkı Ne?</a></li>
+    <li><a href="#ai-analiz">AI Bina Analizi: Yeni Nesil Yaklaşım</a></li>
+    <li><a href="#sonuc">Sonuç: Hangi Aracı Kullanmalısınız?</a></li>
+    <li><a href="#sss">Sık Sorulan Sorular</a></li>
+  </ol>
+</div>
+
+<!-- Makale Başlığı -->
+<div class="article-header">
+  <div class="article-meta">
+    <span class="meta-tag">📊 Deprem Analizi</span>
+    <span class="meta-tag">🔍 Karşılaştırma</span>
+    <span class="meta-tag red">🆕 2026 Güncel</span>
+    <span class="meta-tag">⏱️ 8 dk okuma</span>
+  </div>
+  <h1>Deprem Risk Skoru Nasıl Hesaplanır?<br>YAPIGÜÇ vs. Diğer Araçlar (2026)</h1><nav class="seo-toc" aria-label="Yazı içindekiler"><strong>Bu rehberde</strong><ul><li><a href="#nedir">1. Deprem Risk Skoru Nedir?</a></li><li><a href="#nasil-hesaplanir">2. Deprem Risk Skoru Nasıl Hesaplanır?</a></li><li><a href="#araclar">3. Türkiye'deki Deprem Risk Skoru Araçları — Karşılaştırma Tablosu</a></li><li><a href="#depremtest">4. DepremTest.com — Güçlü Ama Hizmet Yok</a></li><li><a href="#deprembis">5. DepremBİS.com — Harita Güçlü, Bina Analizi Zayıf</a></li><li><a href="#yapiguc">6. YAPIGÜÇ Deprem Risk Skoru — Farkı Ne?</a></li><li><a href="#ai-analiz">7. AI Bina Analizi: Türkiye'de Bir İlk</a></li><li><a href="#sonuc">8. Sonuç: Hangi Aracı Kullanmalısınız?</a></li><li><a href="#sss">9. Sık Sorulan Sorular</a></li></ul></nav>
+  <p style="font-size:13px;color:#999;margin-top:10px">📅 30 July 2026 | ✍️ YAPIGÜÇ Mühendislik Ekibi</p>
+  <div class="article-intro">
+    Türkiye'de deprem risk skoru hesaplayan onlarca online araç var. Peki hangisi gerçekten doğru? Hangisi sadece bilgi veriyor, hangisi gerçek hizmet sunuyor? Bu yazıda DepremTest, DepremBİS, DepremRiski.com ve YAPIGÜÇ araçlarını karşılaştırıyor, aralarındaki kritik farkları açıklıyoruz.
+  </div>
+</div>
+
+<!-- Makale Gövdesi -->
+<div class="article-body"><details class="yg-reading-nav"><summary>Bu makalede</summary><ol><li><a href="#nedir">1. Deprem Risk Skoru Nedir?</a></li><li><a href="#nasil-hesaplanir">2. Deprem Risk Skoru Nasıl Hesaplanır?</a></li><li><a href="#araclar">3. Türkiye'deki Deprem Risk Skoru Araçları — Karşılaştırma Tablosu</a></li><li><a href="#depremtest">4. DepremTest.com — Güçlü Ama Hizmet Yok</a></li><li><a href="#deprembis">5. DepremBİS.com — Harita Güçlü, Bina Analizi Zayıf</a></li><li><a href="#yapiguc">6. YAPIGÜÇ Deprem Risk Skoru — Farkı Ne?</a></li><li><a href="#ai-analiz">7. AI Bina Analizi: Türkiye'de Bir İlk</a></li><li><a href="#sonuc">8. Sonuç: Hangi Aracı Kullanmalısınız?</a></li><li><a href="#sss">9. Sık Sorulan Sorular</a></li></ol></details>
+
+  <h2 id="nedir">1. Deprem Risk Skoru Nedir?</h2>
+  <p>Deprem risk skoru, bir binanın deprem tehlikesi karşısındaki kırılganlığını <strong>0-100 arası sayısal bir değerle</strong> ifade eden ön değerlendirme göstergesidir. Bu skor iki temel bileşenden oluşur:</p>
+  <ul>
+    <li><strong>Bölgesel Tehlike Bileşeni (%55):</strong> İl/ilçe bazlı deprem tehlikesi, fay hatlarına yakınlık, zemin büyütme etkisi</li>
+    <li><strong>Yapısal Kırılganlık Bileşeni (%45):</strong> Yapım yılı, kat sayısı, taşıyıcı sistem türü, görünür hasar durumu</li>
+  </ul>
+
+  <div class="info-box orange">
+    <h3>⚠️ Önemli Uyarı</h3>
+    <p>Hiçbir online araç, lisanslı mühendisler tarafından yapılan <strong>karot testi + donatı tespiti + statik analiz</strong> içeren mühendislik raporunun yerini tutamaz. Risk skoru araçları yalnızca <strong>ön değerlendirme</strong> amacıyla kullanılmalıdır.</p>
+  </div>
+
+  <div class="score-example">
+    <div class="score-card green"><div class="num" style="color:#2e7d32">0-30</div><div class="lbl">🟢 Düşük Risk</div><div class="desc">Periyodik kontrol önerilir</div></div>
+    <div class="score-card yellow"><div class="num" style="color:#f9a825">31-54</div><div class="lbl">🟡 Orta Risk</div><div class="desc">Performans analizi önerilir</div></div>
+    <div class="score-card orange"><div class="num" style="color:#e65100">55-74</div><div class="lbl">🟠 Yüksek Risk</div><div class="desc">Güçlendirme değerlendirmesi</div></div>
+    <div class="score-card red"><div class="num" style="color:#b71c1c">75-100</div><div class="lbl">🔴 Çok Yüksek</div><div class="desc">Acil mühendislik müdahalesi</div></div>
+  </div>
+
+  <h2 id="nasil-hesaplanir">2. Deprem Risk Skoru Nasıl Hesaplanır?</h2>
+  <p>Bilimsel temelli bir deprem risk skoru hesaplaması şu parametreleri dikkate almalıdır:</p>
+
+  <div class="method-grid">
+    <div class="method-card">
+      <h3>🌍 Bölgesel Parametreler</h3>
+      <ul>
+        <li>AFAD Deprem Tehlike Haritası verileri</li>
+        <li>İl/ilçe bazlı PGA (Peak Ground Acceleration)</li>
+        <li>Fay hatlarına mesafe</li>
+        
+        <li>Zemin büyütme katsayısı</li>
+        <li>Sıvılaşma riski</li>
+      </ul>
+    </div>
+    <div class="method-card">
+      <h4>🏠 Yapısal Parametreler</h4>
+      <ul>
+        <li>Yapım yılı (yönetmelik dönemi)</li>
+        <li>Kat sayısı ve bina yüksekliği</li>
+        <li>Taşıyıcı sistem türü</li>
+        <li>Zayıf kat varlığı</li>
+        <li>Daha önce güçlendirme yapılıp yapılmadığı</li>
+        <li>Görünür hasar durumu</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="info-box blue">
+    <h4>📌 Neden Yapım Yılı Bu Kadar Önemli?</h4>
+    <p>Türkiye'de deprem yönetmelikleri 1975, 1998, 2007 ve 2018 yıllarında köklü biçimde değişti. <strong>1975 öncesi</strong> yapılar nervürsüz demir ve düşük kaliteli beton kullandığından en yüksek risk grubundadır. <strong>2018 sonrası</strong> TBDY kapsamında inşa edilen yapılar ise en güncel standartlara sahiptir.</p>
+  </div>
+
+  <h2 id="araclar">3. Türkiye'deki Deprem Risk Skoru Araçları — Karşılaştırma Tablosu</h2>
+  <p>2026 itibarıyla Türkiye'de kullanılabilecek başlıca deprem risk skoru araçlarını kapsamlı biçimde karşılaştırdık:</p>
+
+  <div style="overflow-x:auto">
+  <div class="yg-table-wrap" role="region" aria-label="Teknik bilgi tablosu" tabindex="0"><table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Özellik</th>
+        <th>DepremTest.com</th>
+        <th>DepremBİS.com</th>
+        <th>DepremRiski.com</th>
+        <th style="background:#283593">YAPIGÜÇ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Risk Skoru Hesaplama</strong></td>
+        <td class="check">✅ Var</td>
+        <td class="check">✅ Harita bazlı</td>
+        <td class="check">✅ Simülasyon</td>
+        <td class="check" style="background:#e8f5e9">✅ Var</td>
+      </tr>
+      <tr>
+        <td><strong>AI Fotoğraf Analizi</strong></td>
+        <td class="cross">❌ Yok</td>
+        <td class="cross">❌ Yok</td>
+        <td class="cross">❌ Yok</td>
+        <td class="check" style="background:#e8f5e9">✅ Türkiye'de İlk</td>
+      </tr>
+      <tr>
+        <td><strong>Güçlendirme Hizmeti</strong></td>
+        <td class="cross">❌ Yok</td>
+        <td class="cross">❌ Yok</td>
+        <td class="cross">❌ Yok</td>
+        <td class="check" style="background:#e8f5e9">✅ Lisanslı Firma</td>
+      </tr>
+      <tr>
+        <td><strong>Tarihi Eser Uzmanlığı</strong></td>
+        <td class="cross">❌ Yok</td>
+        <td class="cross">❌ Yok</td>
+        <td class="cross">❌ Yok</td>
+        <td class="check" style="background:#e8f5e9">✅ Var</td>
+      </tr>
+      <tr>
+        <td><strong>Karot Delme Hizmeti</strong></td>
+        <td class="cross">❌ Yok</td>
+        <td class="cross">❌ Yok</td>
+        <td class="cross">❌ Yok</td>
+        <td class="check" style="background:#e8f5e9">✅ Var</td>
+      </tr>
+      <tr>
+        
+        <td class="cross">❌ Yok</td>
+        <td class="cross">❌ Yok</td>
+        <td class="cross">❌ Yok</td>
+        <td class="check" style="background:#e8f5e9">✅ Var</td>
+      </tr>
+      <tr>
+        <td><strong>Çevre Şehircilik Lisansı</strong></td>
+        <td class="cross">❌ Yok</td>
+        <td class="cross">❌ Yok</td>
+        <td class="cross">❌ Yok</td>
+        <td class="check" style="background:#e8f5e9">✅ Lisanslı</td>
+      </tr>
+      <tr>
+        <td><strong>Şube Ağı</strong></td>
+        <td class="cross">❌ Yok</td>
+        <td class="cross">❌ Yok</td>
+        <td class="cross">❌ Yok</td>
+        <td class="check" style="background:#e8f5e9">✅ 4 Şehir</td>
+      </tr>
+      <tr>
+        <td><strong>Metodoloji Şeffaflığı</strong></td>
+        <td class="check">✅ Detaylı</td>
+        <td class="partial">⚠️ Kısmi</td>
+        <td class="partial">⚠️ Kısmi</td>
+        <td class="partial" style="background:#e8f5e9">⚠️ Geliştiriliyor</td>
+      </tr>
+      <tr>
+        <td><strong>Adres Bazlı Sorgulama</strong></td>
+        <td class="partial">⚠️ İl/İlçe</td>
+        <td class="check">✅ Harita</td>
+        <td class="partial">⚠️ Senaryo</td>
+        <td class="partial" style="background:#e8f5e9">⚠️ İl bazlı</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>Sonuç Sonrası Hizmet</strong></td>
+        <td class="cross">❌ Sadece bilgi</td>
+        <td class="cross">❌ Sadece bilgi</td>
+        <td class="cross">❌ Sadece bilgi</td>
+        <td class="check" style="background:#c8e6c9">✅ Tam Hizmet</td>
+      </tr>
+    </tbody>
+  </table></div>
+  </div>
+
+  <h2 id="depremtest">4. DepremTest.com — Güçlü Ama Hizmet Yok</h2>
+  <p>DepremTest.com, Türkiye'nin en gelişmiş deprem risk skoru platformlarından biridir. <strong>5 soruluk hızlı test</strong>, interaktif simülasyon ve bilimsel metodoloji açıklamasıyla öne çıkmaktadır.</p>
+
+  <h3>Güçlü Yönleri:</h3>
+  <ul>
+    <li>AFAD ve DASK verilerine dayalı metodoloji</li>
+    <li>Bölgesel tehlike (%55) + yapısal kırılganlık (%45) ağırlıklı hesaplama</li>
+    <li>Sismik izolatör simülasyonu</li>
+    <li>Mobil uyumlu arayüz</li>
+  </ul>
+
+  <h3>Kritik Eksikliği:</h3>
+  <div class="info-box red">
+    <h4>🚫 DepremTest Hizmet Sunmuyor</h4>
+    <p>DepremTest.com yalnızca bilgi platformudur. Risk skoru yüksek çıktığında kullanıcıyı <strong>başka firmalara yönlendirmek zorunda kalır</strong>. Güçlendirme, karot testi veya mühendislik raporu hizmeti sunmamaktadır.</p>
+  </div>
+
+  <div class="verdict">
+    <span>📊 Karar:</span>
+    <span>Bilgi almak için iyi, ama sonrasında ne yapacağınızı bilmiyorsanız yetersiz kalır.</span>
+  </div>
+
+  <h2 id="deprembis">5. DepremBİS.com — Harita Güçlü, Bina Analizi Zayıf</h2>
+  <p>DepremBİS, Türkiye'nin <strong>fay hattı ve zemin bilgi sistemi</strong> olarak öne çıkmaktadır. GIS tabanlı harita üzerinden adres bazlı sorgulama yapılabilmektedir.</p>
+
+  <h3>Güçlü Yönleri:</h3>
+  <ul>
+    <li>Fay hatlarına mesafe hesaplama</li>
+    
+    <li>Harita üzerinde görsel analiz</li>
+    <li>Kurumsal paket seçenekleri</li>
+  </ul>
+
+  <h3>Kritik Eksikliği:</h3>
+  <p>DepremBİS <strong>bölgesel tehlikeyi</strong> iyi ölçmektedir ancak binanın kendisine ait yapısal parametreleri (yapım yılı, kat sayısı, taşıyıcı sistem) değerlendirememektedir. Yani zemin riskini bilirsiniz ama binanızın bu riske karşı ne kadar dayanıklı olduğunu bilemezsiniz.</p>
+
+  <div class="verdict">
+    <span>🗺️ Karar:</span>
+    <span>Zemin ve fay analizi için değerli, bina güvenliği için tek başına yetersiz.</span>
+  </div>
+
+  <h2 id="yapiguc">6. YAPIGÜÇ Deprem Risk Skoru — Farkı Ne?</h2>
+  <p>YAPIGÜÇ'ün deprem risk skoru aracı, diğer platformlardan <strong>temel bir farkla</strong> ayrılmaktadır: <em>Sonuç sonrası gerçek hizmet.</em></p>
+
+  <div class="info-box green">
+    <h3>✅ YAPIGÜÇ'ün Benzersiz Avantajı: Hesapla → Güçlendir</h3>
+    <p>Diğer platformlar risk skoru hesapladıktan sonra sizi başka firmalara yönlendirmek zorunda kalır. Tek adımda çözüm.</p>
+  </div>
+
+  <h3>YAPIGÜÇ Risk Skoru Parametreleri:</h3>
+  <ul>
+    <li><strong>İl bazlı tehlike skoru:</strong> Tüm 81 il için AFAD verilerine dayalı baz puan</li>
+    <li><strong>Yapım yılı faktörü:</strong> 1975 öncesi (+30), 1975-1989 (+25), 1990-1999 (+20), 2000-2007 (+10), 2008-2018 (+5), 2019+ (0)</li>
+    <li><strong>Kat sayısı:</strong> Her kat grubu için ek puan</li>
+    <li><strong>Zemin tipi:</strong> ZA-ZF sınıflandırmasına göre -10 ile +30 arası düzeltme</li>
+    <li><strong>Yapı türü:</strong> Betonarme, yığma, prefabrik, çelik, ahşap</li>
+    <li><strong>Güçlendirme geçmişi:</strong> Daha önce güçlendirme yapıldıysa puan düşürme</li>
+  </ul>
+
+  <h2 id="ai-analiz">7. AI Bina Analizi: Türkiye'de Bir İlk</h2>
+  <p>YAPIGÜÇ'ün <strong>AI Bina Fotoğraf Analizi</strong> aracı, Türkiye'deki yapı güçlendirme firmalarının web sitelerinde bulunmayan tamamen yeni bir özelliktir.</p>
+
+  <h3>Nasıl Çalışır?</h3>
+  <ol>
+    <li>Binanızın dış cephe, kolon veya hasar fotoğrafını yükleyin</li>
+    <li>Yapay zeka görüntüyü analiz eder</li>
+    <li>Çatlak, korozyon, yapısal sorun tespiti yapılır</li>
+    <li>0-100 arası risk skoru ve bulgular raporlanır</li>
+    <li>Uzman görüşü için doğrudan WhatsApp bağlantısı sunulur</li>
+  </ol>
+
+  <div class="info-box blue">
+    <h4>🤖 AI Analizi Mühendislik Raporu Yerine Geçer mi?</h4>
+    <p><strong>Hayır.</strong> AI analizi tahmini ön değerlendirme sunar. Kesin sonuç için karot testi, donatı tespiti ve statik analiz içeren mühendislik raporu gereklidir. Ancak AI analizi, <strong>hangi binaların öncelikli incelenmesi gerektiğini</strong> belirlemede çok değerli bir araçtır.</p>
+  </div>
+
+  
+<div id="ic-link-bolumu" style="background:#fff;border:2px solid #e8eaf6;border-radius:14px;padding:22px;margin:24px 0">
+  <h4 style="font-size:15px;font-weight:800;color:#1c2331;margin-bottom:12px">📚 İlgili Konular</h4>
+  <a href="/blog/riskli-yapi-tespiti-nedir" onmouseout="this.style.background=\" #f8f9fa\';this.style.color="\'#1c2331\''" onmouseover="this.style.background=\" #1c2331\';this.style.color="\'#c9a84c\''" style="color:#1c2331;text-decoration:none;font-size:13px;font-weight:700;padding:8px 14px;background:#f8f9fa;border-radius:8px;border-left:3px solid #c9a84c;display:block;margin-bottom:6px;transition:.2s">Riskli Yapı Tespiti Nedir? Yetki, Rapor Amacı ve Sonraki İşlemler</a>
+<a href="/blog/guclendirme-ruhsati-nasil-alinir-2026" onmouseout="this.style.background=\" #f8f9fa\';this.style.color="\'#1c2331\''" onmouseover="this.style.background=\" #1c2331\';this.style.color="\'#c9a84c\''" style="color:#1c2331;text-decoration:none;font-size:13px;font-weight:700;padding:8px 14px;background:#f8f9fa;border-radius:8px;border-left:3px solid #c9a84c;display:block;margin-bottom:6px;transition:.2s">🔗 Güçlendirme Ruhsatı</a>
+<a href="/blog/guclendirme-hibe-kredi-destekleri-2026" onmouseout="this.style.background=\" #f8f9fa\';this.style.color="\'#1c2331\''" onmouseover="this.style.background=\" #1c2331\';this.style.color="\'#c9a84c\''" style="color:#1c2331;text-decoration:none;font-size:13px;font-weight:700;padding:8px 14px;background:#f8f9fa;border-radius:8px;border-left:3px solid #c9a84c;display:block;margin-bottom:6px;transition:.2s">🔗 Devlet Destekleri 2026</a>
+
+  <a href="/blog/" style="color:#c9a84c;font-size:12px;font-weight:700;text-decoration:none;display:block;margin-top:8px">→ Tüm Makaleler</a>
+</div>
+<div class="cta-box">
+    <h3>🤖 Binanızı Şimdi AI ile Analiz Edin</h3>
+    
+    <div class="cta-btns">
+      <a class="cta-btn white" href="/ai-bina-analizi">🤖 AI Analizi Başlat</a>
+      <a class="cta-btn outline" href="/deprem-risk-skoru">📊 Risk Skoru Hesapla</a>
+      <a href="https://wa.me/905405163636" target="_blank" class="cta-btn wa" rel="noopener noreferrer">💬 WhatsApp</a>
+    </div>
+  </div>
+
+  <h2 id="sonuc">8. Sonuç: Hangi Aracı Kullanmalısınız?</h2>
+  <p>Her aracın farklı bir amacı vardır. İşte kullanım senaryolarına göre önerilerimiz:</p>
+
+  <div class="method-grid">
+    <div class="method-card">
+      <h3>🗺️ Zemin ve Fay Analizi İçin</h3>
+      <ul>
+        <li>DepremBİS.com — harita bazlı zemin sorgusu</li>
+        <li>AFAD Deprem Tehlike Haritası — resmi kaynak</li>
+      </ul>
+    </div>
+    <div class="method-card">
+      <h4>📊 Hızlı Bina Risk Skoru İçin</h4>
+      <ul>
+        <li>YAPIGÜÇ Risk Skoru — hizmet bağlantılı</li>
+        <li>DepremTest.com — detaylı metodoloji</li>
+      </ul>
+    </div>
+    <div class="method-card">
+      <h4>🤖 Fotoğraf Bazlı Ön Analiz İçin</h4>
+      <ul>
+        <li>YAPIGÜÇ AI Bina Analizi — Türkiye'de tek</li>
+      </ul>
+    </div>
+    <div class="method-card">
+      <h4>🔧 Gerçek Güçlendirme Hizmeti İçin</h4>
+      <ul>
+        
+        
+      </ul>
+    </div>
+  </div>
+
+  <div class="info-box green">
+    <h4>💡 En Akıllı Yaklaşım</h4>
+    <p>Tüm bu adımları tek bir platformda tamamlayabilirsiniz: www.yapiguc.net</p>
+  </div>
+
+  <h2 id="sss">9. Sık Sorulan Sorular</h2>
+
+  <h3>❓ Deprem risk skoru kaç olunca tehlikeli?</h3>
+  <p>55 ve üzeri risk skoru, deprem performans analizi yaptırılması gereken "yüksek risk" bölgesine işaret eder. 75 ve üzeri ise acil mühendislik değerlendirmesi gerektiren "çok yüksek risk" kategorisidir.</p>
+
+  <h3>❓ Online risk skoru ile mühendislik raporu arasındaki fark nedir?</h3>
+  <p>Online araçlar genel parametrelerle <strong>istatistiksel ön değerlendirme</strong> yapar. Mühendislik raporu ise binanızdan alınan karot numuneleri, donatı tespiti, zemin etüdü ve statik analiz sonuçlarına dayanan <strong>bilimsel ve yasal geçerliliği olan</strong> bir belgedir.</p>
+
+  <h3></h3>
+  <p>YAPIGÜÇ A.Ş. bu süreçte başvurudan uygulamaya kadar destek vermektedir.</p>
+
+  <h3>❓ YAPIGÜÇ'ün AI analizi gerçekten yapay zeka mı kullanıyor?</h3>
+  <p>YAPIGÜÇ'ün AI Bina Analizi aracı, görüntü işleme tabanlı ön değerlendirme sistemi kullanmaktadır. Sonuçlar tahmini nitelikte olup kesin mühendislik değerlendirmesinin yerini tutmaz. Aracın temel amacı, hangi binaların öncelikli incelenmesi gerektiğini belirlemektir.</p>
+
+</div>
+
+<!-- Paylaşım -->
+<div class="share-bar">
+  <span>📤 Bu yazıyı paylaşın:</span>
+  <a href="https://twitter.com/intent/tweet?text=Deprem+Risk+Skoru+Nas%C4%B1l+Hesaplan%C4%B1r%3F+YAPIG%C3%9C%C3%87+vs.+Di%C4%9Fer+Ara%C3%A7lar&amp;url=https://www.yapiguc.net/blog/deprem-risk-skoru-nasil-hesaplanir.html" target="_blank" class="share-btn tw" rel="noopener noreferrer">🐦 Twitter</a>
+  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.yapiguc.net/blog/deprem-risk-skoru-nasil-hesaplanir.html" target="_blank" class="share-btn li" rel="noopener noreferrer">💼 LinkedIn</a>
+  <a href="https://wa.me/?text=Deprem+Risk+Skoru+Nas%C4%B1l+Hesaplan%C4%B1r%3F+https://www.yapiguc.net/blog/deprem-risk-skoru-nasil-hesaplanir.html" target="_blank" class="share-btn wa" rel="noopener noreferrer">💬 WhatsApp</a>
+</div>
+
+<!-- Yazar -->
+<div class="author-box">
+  <div class="author-avatar">🏗️</div>
+  <div>
+    <strong style="font-size:15px;color:#1a237e">YAPIGÜÇ Mühendislik Ekibi</strong>
+    <p style="font-size:13px;color:#666;margin-top:5px">YAPIGÜÇ MÜŞ.MÜH.SAN VE TİC A.Ş. Ankara, Malatya, İskenderun ve Antakya'da hizmet vermektedir. Sirkeci Garı, Antakya Arkeoloji Müzesi gibi tarihi eserlerde güçlendirme deneyimine sahiptir.</p>
+  </div>
+</div>
+
+<!-- İlgili Yazılar -->
+<div class="related-posts">
+  <h3>📚 İlgili Yazılar</h3>
+  <div class="related-grid">
+    <a class="related-card" href="/blog/riskli-yapi-tespiti-nedir">Riskli Yapı Tespiti Nedir? Yetki, Rapor Amacı ve Sonraki İşlemler</a>
+    <a class="related-card" href="/blog/guclendirme-nasil-yapilir-asama-asama">
+      <div class="icon">🔧</div>
+      <h4>Güçlendirme Nasıl Yapılır?</h4>
+      <p>Aşama aşama rehber</p>
+    </a>
+    <a class="related-card" href="/blog/yarisi-bizden-programi">
+      <div class="icon">💰</div>
+      <h4></h4>
+      
+    </a>
+    <a class="related-card" href="/blog/tbdy-2026-guclendirme-zorunlulugu">
+      <div class="icon">📋</div>
+      <h4>TBDY 2018 Zorunlulukları</h4>
+      <p>Yeni yönetmelik rehberi</p>
+    </a>
+  </div>
+</div>
+
+<!-- Son CTA -->
+<div class="cta-box">
+  <h3>📊 Binanızın Deprem Riskini Hemen Öğrenin</h3>
+  <p>Ücretsiz risk skoru hesaplayın veya AI ile fotoğraf analizi yapın.</p>
+  <div class="cta-btns">
+    <a class="cta-btn white" href="/deprem-risk-skoru">📊 Risk Skoru Hesapla</a>
+    <a class="cta-btn outline" href="/ai-bina-analizi">🤖 AI Analizi Yap</a>
+    <a href="tel:+905405163636" class="cta-btn wa">📞 Hemen Ara</a>
+  </div>
+</div>
+
+</div><div style="background:#e8eaf6;border-radius:12px;padding:24px;margin:32px 0;border-left:4px solid #1a237e" id="ilgili-makaleler">
+  <h3 style="color:#1a237e;font-size:16px;font-weight:800;margin-bottom:12px">📚 İlgili Makaleler</h3>
+  <ul style="list-style:none;padding:0;margin:0">
+<li><a href="/blog/bina-guclendirme-maliyeti-2026" style="color:#1a237e;text-decoration:none;font-weight:600;font-size:14px;line-height:2.2">→ Bina Güçlendirme Maliyeti 2026: Gerçekçi Fiyat Rehberi</a></li>
+<li><a href="/blog/apartman-yonetimi-guclendirme-hukuku" style="color:#1a237e;text-decoration:none;font-weight:600;font-size:14px;line-height:2.2">→ Apartman Yönetiminin Güçlendirme Sorumluluğu: Hukuki Yükümlü</a></li>
+<li><a href="/blog/guclendirme-proje-maliyeti-nasil-duser" style="color:#1a237e;text-decoration:none;font-weight:600;font-size:14px;line-height:2.2">→ Güçlendirme Proje Maliyeti Nasıl Düşürülür? 7 Pratik Yöntem</a></li>
+<li><a href="/blog/kolon-guclendirme" style="color:#1a237e;text-decoration:none;font-weight:600;font-size:14px;line-height:2.2">→ Kolon Güçlendirme Yöntemleri ve Uygulamaları</a></li>
+  </ul>
+</div><aside class="audit-safety-note"><p>Bu içerik genel bilgilendirmedir; bir binanın güvenliğine ilişkin mühendislik değerlendirmesi değildir. Yapım yılı veya adres tek başına güvenlik sonucunu belirlemez. İnceleme, ölçüm ve projeye özgü analiz gerekir.</p></aside><aside class="audit-source-note"><h2>Mevzuat ve destek bilgileri</h2><p>AFAD'ın resmi açıklaması, Türkiye Bina Deprem Yönetmeliği'nin 18 Mart 2018'de yayımlandığını ve 1 Ocak 2019'da yürürlüğe girdiğini belirtir. Projeye uygulanacak güncel hükümler yetkili mühendis ve ilgili idare tarafından değerlendirilmelidir.</p><p>Yarısı Bizden için coğrafya, yeniden yapım/güçlendirme kapsamı, uygunluk ve destek türleri resmi program şartlarına bağlıdır. Bu sayfa ülke genelinde güçlendirme hibesi veya hak sahipliği vaat etmez. Güncel tutar ve tarihler burada doğrulanamadığından yayımlanmamıştır; başvuru öncesi resmi uygunluk bilgisini kontrol edin.</p><p>Kaynak: <a href="https://www.afad.gov.tr/turkiye-bina-deprem-yonetmeligi" target="_blank" rel="noopener noreferrer">AFAD — Türkiye Bina Deprem Yönetmeliği</a> · <a href="https://kdb.gov.tr/" target="_blank" rel="noopener noreferrer">Kentsel Dönüşüm Başkanlığı — resmi program bilgileri</a>. Son gözden geçirme: <time datetime="2026-10-01">1 Ekim 2026</time>. KDB güncel program şartları bu incelemede kesin olarak teyit edilememiştir.</p></aside><aside class="growth-cta"><span class="yg-eyebrow">YAPIGÜÇ · MÜHENDİSLİK VE SAHA UYGULAMASI</span><h2>Proje ve uygulama ihtiyacınızı görüşelim</h2><p>Bulunduğunuz yeri, hizmet ihtiyacınızı ve mevcut proje veya raporlarınızı görüşmede paylaşın.</p><div class="growth-actions"><a class="yg-button" href="/teklif-al">İletişim talebi hazırlayın</a><a class="yg-button growth-secondary" href="/uzmanlik-alanlarimiz">Uzmanlık alanlarımız</a></div></aside><section class="seo-related"><h2>İlgili rehberler</h2><div class="audit-article-grid seo-card-grid"><article class="audit-article-card"><span class="yg-eyebrow">Diğer</span><h2><a href="/blog/ankraj-ekimi-nedir">Güçlendirme İçin Ankraj Ekimi Nedir? Avantajları, Uygulama Yöntemleri ve Kullanım Alanları</a></h2><p>Modern inşaat ve geoteknik mühendisliğinde, yapıların güvenliğini artırmak ve zemin stabilitesini sağlamak amacıyla kullanılan en etkili yöntemlerden biri </p><a href="/blog/ankraj-ekimi-nedir">Rehberi okuyun →</a></article><article class="audit-article-card"><span class="yg-eyebrow">Diğer</span><h2><a href="/blog/belediye-insaat-ruhsat-harci-hesaplama-2026">Belediye İnşaat Ruhsat Harcı Hesaplama 2026 | Güçlendirme Ruhsatı</a></h2><p>Yapı güçlendirme projelerinde en çok merak edilen konulardan biri, belediye inşaat ruhsat harcı miktarıdır. 2026 yılında güçlendirme ruhsatı harcı; binanın</p><a href="/blog/belediye-insaat-ruhsat-harci-hesaplama-2026">Rehberi okuyun →</a></article><article class="audit-article-card"><span class="yg-eyebrow">Diğer</span><h2><a href="/blog/beton-dayanim-testi">Beton Dayanım Testi Nedir? Karot ile Beton Testi</a></h2><p>Beton dayanım testi nedir, nasıl yapılır? Karot numunesi ile beton basınç dayanımı testi, Schmidt çekici ve ultrasonik yöntemler hakkında detaylı bilgi.</p><a href="/blog/beton-dayanim-testi">Rehberi okuyun →</a></article></div></section><aside class="vf-reading" aria-label="Teknik kaynaklar ve ilgili hizmetler"><h2>Teknik kaynakları birlikte okuyun</h2><p>Kaynakları kendi kapsamlarıyla değerlendirin. Teknik kütüphaneden resmi ve üretici yayınlarına ulaşabilir, proje ve uygulama ihtiyacınızı ekibimizle görüşebilirsiniz.</p><p><a href="/teknik-kutuphane">Teknik kaynak kütüphanesi →</a> · <a href="/teklif-al">Proje ve uygulama görüşmesi →</a></p></aside></main>
+
+
+
+
+<!-- article-wrap -->
+
+
+
+
+
+<style id="global-cta-fix">
+.cta-box{color:#fff!important}
+.cta-box h1,.cta-box h2,.cta-box h3,.cta-box h4{color:#c9a84c!important}
+.cta-box p,.cta-box li,.cta-box span{color:rgba(255,255,255,.9)!important}
+.cta-box a[href^="tel"],.cta-box a[href*="wa.me"]{color:#1c2331!important}
+.hero h1,.hero h2{color:#fff!important}
+.hero p{color:rgba(255,255,255,.85)!important}
+[class*="dark"] h2,[class*="dark"] h3{color:#c9a84c!important}
+[class*="dark"] p{color:rgba(255,255,255,.85)!important}
+</style>
+
+<script type="application/json" id="audit-trackers">[]</script><footer class="yg-footer"><div class="yg-footer-inner"><a class="yg-brand" href="/" aria-label="YAPIGÜÇ ana sayfa"><img class="growth-brand-logo" src="/assets/yapiguc-logo-transparent.png" alt="YAPIGÜÇ" width="2172" height="724"><small class="scope-brand-subtitle">Müşavirlik Mühendislik A.Ş.</small></a><nav class="yg-footer-links" aria-label="Alt menü"><a href="/cerez-politikasi">Çerez Politikası</a><a href="/referanslar/">Referans Koleksiyonları</a><a href="/uygulama-fotograflari">Uygulama Fotoğrafları</a><a href="/iletisim">Kurumsal İletişim</a><a href="/kvkk">Gizlilik ve KVKK</a><a href="/teklif-al">İletişim Talebi</a><button type="button" data-consent-open="">Çerez tercihleri</button></nav><div class="yg-footer-contact"><span>İLETİŞİM</span><a href="tel:+905405163636">0540 516 36 36</a><a href="mailto:info@yapiguc.net">info@yapiguc.net</a><small>© YAPIGÜÇ · Tüm hakları saklıdır.</small></div></div></footer><section class="audit-consent" aria-label="Çerez tercihleri" hidden=""><h2>İsteğe bağlı ziyaretçi ölçümü</h2><p>İzin verirseniz Google Analytics ile sayfa ziyaretlerini ve telefon/WhatsApp bağlantısı tıklamalarını ölçeriz. Formdaki ad, telefon ve açıklamalar bu ölçüme gönderilmez. İzin vermeden de siteyi ve iletişim seçeneklerini kullanabilirsiniz. <a href="/kvk-aydinlatma-metni">Gizlilik ve KVKK metni</a></p><a href="/kvkk">Veri işleme bilgileri</a><div class="audit-consent-actions"><button type="button" data-consent="reject">Ölçümü reddet</button><button type="button" data-consent="accept">Ölçümü kabul et</button><button type="button" data-consent-close="">Tercihleri kapat</button></div><p role="status" data-consent-status=""></p></section><script src="/assets/yapiguc.js" defer=""></script><nav class="quick-contact" aria-label="Hızlı iletişim"><a href="tel:+905405163636">Hemen arayın</a><a href="https://wa.me/905405163636" target="_blank" rel="noopener noreferrer">WhatsApp</a></nav><script defer src="/assets/accessibility-ee4de8d13d.js"></script><script src="/assets/site-guide-20261015.js" defer></script></body></html>

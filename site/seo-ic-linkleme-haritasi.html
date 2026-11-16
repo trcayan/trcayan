@@ -1,0 +1,455 @@
+<!DOCTYPE html><html lang="tr"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🔗 İç Linkleme Haritası | YAPIGÜÇ</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Segoe UI",Arial,sans-serif;background:#0f1923;color:#e0e0e0;min-height:100vh;padding:30px 20px}
+h1{text-align:center;font-size:28px;font-weight:900;color:#c9a84c;margin-bottom:8px}
+.subtitle{text-align:center;color:#888;font-size:14px;margin-bottom:40px}
+
+/* Cluster kartları */
+.clusters{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px}
+.cluster{background:#1c2a3a;border-radius:16px;padding:24px;border:2px solid #2d3a4a}
+.cluster-title{font-size:16px;font-weight:800;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid}
+.c1 .cluster-title{color:#ff6b6b;border-color:#ff6b6b}
+.c2 .cluster-title{color:#4ecdc4;border-color:#4ecdc4}
+.c3 .cluster-title{color:#c9a84c;border-color:#c9a84c}
+.c4 .cluster-title{color:#a29bfe;border-color:#a29bfe}
+
+.node{background:#0f1923;border-radius:10px;padding:12px 16px;margin-bottom:10px;border-left:3px solid;cursor:pointer;transition:.2s}
+.node:hover{transform:translateX(4px)}
+.c1 .node{border-color:#ff6b6b}
+.c2 .node{border-color:#4ecdc4}
+.c3 .node{border-color:#c9a84c}
+.c4 .node{border-color:#a29bfe}
+.node-title{font-size:13px;font-weight:700;margin-bottom:4px}
+.node-score{font-size:11px;color:#888}
+.node-badge{display:inline-block;background:#c9a84c;color:#0f1923;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:800;margin-left:6px}
+
+/* Akış diyagramı */
+.flow-section{background:#1c2a3a;border-radius:16px;padding:30px;margin-bottom:30px}
+.flow-title{font-size:18px;font-weight:800;color:#c9a84c;margin-bottom:24px;text-align:center}
+.flow-diagram{display:flex;flex-direction:column;gap:0;align-items:center}
+.flow-row{display:flex;align-items:center;justify-content:center;gap:0;width:100%;margin-bottom:0}
+.flow-node{background:#0f1923;border-radius:12px;padding:14px 18px;text-align:center;min-width:180px;max-width:220px;border:2px solid}
+.fn-hub{border-color:#c9a84c;background:linear-gradient(135deg,#1a1500,#2a2000)}
+.fn-high{border-color:#ff6b6b;background:linear-gradient(135deg,#1a0000,#2a0a0a)}
+.fn-med{border-color:#4ecdc4;background:linear-gradient(135deg,#001a1a,#002a2a)}
+.fn-low{border-color:#a29bfe;background:linear-gradient(135deg,#0a001a,#15002a)}
+.fn-title{font-size:12px;font-weight:700;margin-bottom:4px}
+.fn-score{font-size:10px;color:#888}
+.fn-kw{font-size:10px;color:#c9a84c;margin-top:4px;font-style:italic}
+.arrow{color:#c9a84c;font-size:20px;padding:0 8px;flex-shrink:0}
+.arrow-down{text-align:center;color:#c9a84c;font-size:20px;margin:4px 0}
+.arrow-label{font-size:10px;color:#888;display:block;margin-top:2px}
+
+/* Link tablosu */
+.link-table{width:100%;border-collapse:collapse;margin-top:20px}
+.link-table th{background:#0f1923;color:#c9a84c;padding:12px 16px;text-align:left;font-size:13px;border-bottom:2px solid #2d3a4a}
+.link-table td{padding:10px 16px;border-bottom:1px solid #1c2a3a;font-size:13px;vertical-align:top}
+.link-table tr:hover td{background:#1c2a3a}
+.from-cell{color:#ff6b6b;font-weight:700}
+.to-cell{color:#4ecdc4}
+.anchor-cell{color:#c9a84c;font-style:italic}
+.impact-high{color:#ff6b6b;font-weight:700}
+.impact-med{color:#c9a84c;font-weight:700}
+.impact-low{color:#4ecdc4;font-weight:700}
+
+/* Otorite akışı */
+.authority-section{background:#1c2a3a;border-radius:16px;padding:30px;margin-bottom:30px}
+.auth-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
+.auth-card{background:#0f1923;border-radius:12px;padding:20px;text-align:center;border:2px solid #2d3a4a}
+.auth-icon{font-size:32px;margin-bottom:8px}
+.auth-val{font-size:24px;font-weight:900;color:#c9a84c}
+.auth-lbl{font-size:12px;color:#888;margin-top:4px}
+
+/* Öneri kutuları */
+.tips{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.tip{background:#0f1923;border-radius:12px;padding:20px;border-left:4px solid #c9a84c}
+.tip h4{color:#c9a84c;font-size:14px;font-weight:700;margin-bottom:10px}
+.tip ul{padding-left:16px}
+.tip li{font-size:13px;color:#aaa;line-height:1.8}
+
+@media(max-width:900px){.clusters{grid-template-columns:1fr}.auth-grid{grid-template-columns:1fr 1fr}.tips{grid-template-columns:1fr}}
+</style>
+<meta name="bingbot" content="index,follow,max-snippet:-1,max-image-preview:large">
+<link rel="canonical" href="https://www.yapiguc.net/seo-ic-linkleme-haritasi.html">
+
+<meta name="description" content="YAPIGÜÇ A.Ş. SEO iç linkleme haritası.">
+<link rel="stylesheet" href="/assets/yapiguc.css"><noscript><style>@media(max-width:900px){.yg-navigation{display:flex!important;position:static!important;flex-direction:column!important;max-height:none!important}.yg-header-main{flex-wrap:wrap!important}.yg-menu-button{display:none!important}.yg-header{position:static!important}}</style></noscript><meta name="robots" content="index,follow,max-image-preview:large"><meta property="og:title" content="🔗 İç Linkleme Haritası | YAPIGÜÇ"><meta property="og:url" content="https://www.yapiguc.net/seo-ic-linkleme-haritasi.html"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://www.yapiguc.net/#organization","name":"YAPIGÜÇ MÜŞ. MÜH. SAN. VE TİC. A.Ş.","url":"https://www.yapiguc.net","telephone":"+905405163636","email":"info@yapiguc.net","logo":"https://www.yapiguc.net/assets/yapiguc-logo-transparent.png"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://www.yapiguc.net/seo-ic-linkleme-haritasi.html#webpage","url":"https://www.yapiguc.net/seo-ic-linkleme-haritasi.html","name":"🔗 İç Linkleme Haritası | YAPIGÜÇ","inLanguage":"tr","publisher":{"@id":"https://www.yapiguc.net/#organization"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"İç Linkleme Haritası | YAPIGÜÇ SEO","description":"YAPIGÜÇ yapı güçlendirme hizmetleri","url":"https://www.yapiguc.net/seo-ic-linkleme-haritasi.html","isPartOf":{"@type":"WebSite","name":"YAPIGÜÇ A.Ş.","url":"https://www.yapiguc.net"}}</script><link rel="stylesheet" href="/assets/audit.css"><link rel="stylesheet" href="/assets/growth.css"><link rel="stylesheet" href="/assets/refinement.css"><link rel="icon" href="/favicon.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180"><link rel="stylesheet" href="/assets/visitor-growth.css"><link rel="stylesheet" href="/assets/content-protection-6154b6995f.css"><script defer="" src="/assets/content-protection-9371381351.js"></script><script defer="" src="/assets/contact-metrics-39a5a7e808.js"></script><link rel="stylesheet" href="/assets/cookie-panel-0cd7f09d2b.css"><link rel="stylesheet" href="/assets/accessibility-0ccdd9c109.css"><link rel="stylesheet" href="/assets/layout-repair-03eb26008a.css"><link rel="stylesheet" href="/assets/home-modern-20261014.css?v=18abe02549"></head>
+<body class="yg-site yg-service"><a class="yg-skip" href="#yg-main">İçeriğe geç</a><header class="yg-header"><div class="yg-utility"><p>Türkiye Genelinde Proje · Onarım · Güçlendirme</p><div class="yg-utility-links"><a href="tel:+905405163636">0540 516 36 36</a><a href="https://wa.me/905405163636" target="_blank" rel="noopener noreferrer">WhatsApp</a></div></div><div class="yg-header-main"><a class="yg-brand" href="/" aria-label="YAPIGÜÇ ana sayfa"><img class="growth-brand-logo" src="/assets/yapiguc-logo-transparent.png" alt="YAPIGÜÇ" width="2172" height="724"><small class="scope-brand-subtitle">Müşavirlik Mühendislik A.Ş.</small></a><nav class="yg-navigation" id="yg-navigation" aria-label="Ana menü"><details class="yg-mega"><summary>Hizmetler</summary><div class="yg-mega-links"><a href="/tasarim-gozetmenligi">Tasarım Gözetmenliği</a><a href="/universite-onay-sureci">Üniversite Değerlendirme ve Onay Süreci</a><a href="/guclendirme-projesi-cizimi">Güçlendirme Projesi Hazırlama</a><a href="/yapi-guclendirme">Yapısal Güçlendirme İmalatları</a><a href="/betonarme-guclendirme">Betonarme Güçlendirme</a><a href="/celik-guclendirme">Çelik Güçlendirme</a><a href="/kolon-guclendirme">Karbon Fiber / FRP Güçlendirme</a><a href="/temel-guclendirme">Temel Güçlendirme</a><a href="/kiris-doseme-guclendirme">Kiriş ve Döşeme Güçlendirme</a><a href="/perde-duvar-guclendirme">Perde ve Duvar Güçlendirme</a><a href="/ankraj-guclendirme">Ankraj ve Bağlantı İmalatları</a><a href="/epoksi-enjeksiyon">Güçlendirme Kapsamında Enjeksiyon</a><a href="/tarihi-eser-guclendirme">Tarihi ve Yığma Yapı Güçlendirme</a><a href="/karot-delim">Güçlendirme Amaçlı Karot İşlemleri</a></div></details><a href="/hakkimizda">Kurumsal</a><a href="/referans-projeler">Referanslarımız</a><a href="/blog/">Blog ve Makaleler</a><a href="/iller/">Hizmet Bölgeleri</a><a href="/iletisim">İletişim</a></nav><a class="yg-button" href="/teklif-al">İletişim Talebi <span aria-hidden="true">↗</span></a><button class="yg-menu-button" type="button" aria-label="Menüyü aç" aria-expanded="false" aria-controls="yg-navigation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button></div></header>
+<main id="yg-main" tabindex="-1"><h1>🔗 İç Linkleme Haritası</h1><p class="subtitle">YAPIGÜÇ.NET — Top 10 Makale SEO Otorite Akışı | 28 Ağustos 2026</p><div class="clusters">
+  <div class="cluster c1">
+    <div class="cluster-title">🏛️ Cluster 1: Özgün Teknoloji<br><small style="font-weight:400;font-size:12px">Rakiplerde YOK — En Güçlü</small></div>
+    <div class="node">
+      <div class="node-title">Hava Soğutmalı Karot Delgi <span class="node-badge">135</span></div>
+      <div class="node-score">1.228 kelime · 4 iç link · FAQ+HowTo ✅</div>
+    </div>
+    <div class="node">
+      <div class="node-title">Sirkeci Garı Güçlendirme <span class="node-badge">135</span></div>
+      <div class="node-score">2.961 kelime · 4 iç link · Tek kaynak</div>
+    </div>
+    <div class="node">
+      <div class="node-title">Paslanmaz Çelik Gergi <span class="node-badge">122</span></div>
+      <div class="node-score">913 kelime · 4 iç link</div>
+    </div>
+    <div class="node">
+      <div class="node-title">Springer Akademik Makale <span class="node-badge">115</span></div>
+      <div class="node-score">456 kelime · 5 iç link · E-E-A-T</div>
+    </div>
+  </div>
+
+  <div class="cluster c2">
+    <div class="cluster-title">🔬 Cluster 2: Teknik Uzmanlık<br><small style="font-weight:400;font-size:12px">Mühendis Hedef Kitle</small></div>
+    <div class="node">
+      <div class="node-title">Sirkeci Garı Teknik Detaylar <span class="node-badge">117</span></div>
+      <div class="node-score">602 kelime · 4 iç link</div>
+    </div>
+    <div class="node">
+      <div class="node-title">Karot Delme Teknolojisi <span class="node-badge">115</span></div>
+      <div class="node-score">1.483 kelime · 3 iç link · FAQ+HowTo ✅</div>
+    </div>
+    <div class="node">
+      <div class="node-title">Tarihi Yapı Paslanmaz Gergi <span class="node-badge">97</span></div>
+      <div class="node-score">674 kelime · 4 iç link</div>
+    </div>
+  </div>
+
+  <div class="cluster c3">
+    <div class="cluster-title">💰 Cluster 3: Ticari Niyet<br><small style="font-weight:400;font-size:12px">Müşteri Dönüşümü</small></div>
+    <div class="node">
+      <div class="node-title">Tarihi Eser Rakiplerden Fark <span class="node-badge">100</span></div>
+      <div class="node-score">529 kelime · 5 iç link · Dönüşüm</div>
+    </div>
+    <div class="node">
+      <div class="node-title">Riskli Yapı Tespiti 6306 <span class="node-badge">100</span></div>
+      <div class="node-score">1.680 kelime · 4 iç link · FAQ ✅</div>
+    </div>
+    <div class="node">
+      <div class="node-title">Karbon Fiber Fiyatları 2026 <span class="node-badge">95</span></div>
+      <div class="node-score">1.771 kelime · 3 iç link · FAQ ✅</div>
+    </div>
+  </div>
+</div><div class="flow-section">
+  <div class="flow-title">📊 PageRank Akış Diyagramı</div>
+  
+  <!-- Hub sayfalar -->
+  <div style="display:flex;justify-content:center;gap:20px;margin-bottom:8px">
+    <div class="flow-node fn-hub" style="min-width:200px">
+      <div class="fn-title">🏠 Ana Sayfa</div>
+      <div class="fn-score">PageRank Merkezi</div>
+      <div class="fn-kw">www.yapiguc.net</div>
+    </div>
+  </div>
+  <div class="arrow-down">↓<span class="arrow-label">Link juice dağıtımı</span></div>
+  
+  <!-- Pillar sayfalar -->
+  <div style="display:flex;justify-content:center;gap:16px;margin-bottom:8px;flex-wrap:wrap">
+    <div class="flow-node fn-hub" style="min-width:160px">
+      <div class="fn-title">🏗️ Yapı Güçlendirme</div>
+      <div class="fn-score">Pillar Page</div>
+      <div class="fn-kw">220 makale bağlı</div>
+    </div>
+    <div class="flow-node fn-hub" style="min-width:160px">
+      <div class="fn-title">🏛️ Tarihi Eser</div>
+      <div class="fn-score">Pillar Page</div>
+      <div class="fn-kw">60 makale bağlı</div>
+    </div>
+    <div class="flow-node fn-hub" style="min-width:160px">
+      <div class="fn-title">🔬 Karot Delme</div>
+      <div class="fn-score">Pillar Page</div>
+      <div class="fn-kw">46 makale bağlı</div>
+    </div>
+  </div>
+  <div class="arrow-down">↓<span class="arrow-label">Cluster makalelerine dağıtım</span></div>
+  
+  <!-- Top makaleler -->
+  <div style="display:flex;justify-content:center;gap:12px;margin-bottom:8px;flex-wrap:wrap">
+    <div class="flow-node fn-high" style="min-width:150px">
+      <div class="fn-title">Hava Soğutmalı Karot</div>
+      <div class="fn-score">Skor: 135 🔥</div>
+      <div class="fn-kw">"hava soğutmalı karot"</div>
+    </div>
+    <div class="flow-node fn-high" style="min-width:150px">
+      <div class="fn-title">Sirkeci Garı</div>
+      <div class="fn-score">Skor: 135 🔥</div>
+      <div class="fn-kw">"Sirkeci Garı güçlendirme"</div>
+    </div>
+    <div class="flow-node fn-high" style="min-width:150px">
+      <div class="fn-title">Paslanmaz Gergi</div>
+      <div class="fn-score">Skor: 122 🔥</div>
+      <div class="fn-kw">"paslanmaz çelik gergi"</div>
+    </div>
+    <div class="flow-node fn-med" style="min-width:150px">
+      <div class="fn-title">Karbon Fiber Fiyat</div>
+      <div class="fn-score">Skor: 95 ⭐</div>
+      <div class="fn-kw">"karbon fiber fiyat 2026"</div>
+    </div>
+  </div>
+  <div class="arrow-down">↓<span class="arrow-label">Dönüşüm sayfalarına yönlendirme</span></div>
+  
+  <!-- Dönüşüm -->
+  <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap">
+    <div class="flow-node fn-low" style="min-width:140px">
+      <div class="fn-title">📋 Teklif Al</div>
+      <div class="fn-score">Dönüşüm Sayfası</div>
+    </div>
+    <div class="flow-node fn-low" style="min-width:140px">
+      <div class="fn-title">📞 İletişim</div>
+      <div class="fn-score">Dönüşüm Sayfası</div>
+    </div>
+    <div class="flow-node fn-low" style="min-width:140px">
+      <div class="fn-title">💬 WhatsApp</div>
+      <div class="fn-score">Anlık İletişim</div>
+    </div>
+  </div>
+</div><div class="flow-section">
+  <div class="flow-title">📋 Detaylı İç Link Haritası — Anchor Text Önerileri</div>
+  <div class="yg-table-wrap" role="region" aria-label="Teknik bilgi tablosu" tabindex="0"><table class="link-table">
+    <tbody><tr>
+      <th>Kaynak Makale</th>
+      <th>Hedef Makale</th>
+      <th>Önerilen Anchor Text</th>
+      <th>Etki</th>
+    </tr>
+    <tr>
+      <td class="from-cell">Hava Soğutmalı Karot Delgi</td>
+      <td class="to-cell">Sirkeci Garı Güçlendirme</td>
+      <td class="anchor-cell">"Sirkeci Garı'nda uyguladığımız proje"</td>
+      <td class="impact-high">Çok Yüksek</td>
+    </tr>
+    <tr>
+      <td class="from-cell">Hava Soğutmalı Karot Delgi</td>
+      <td class="to-cell">Paslanmaz Çelik Gergi Rehberi</td>
+      <td class="anchor-cell">"paslanmaz çelik gergi sistemi"</td>
+      <td class="impact-high">Çok Yüksek</td>
+    </tr>
+    <tr>
+      <td class="from-cell">Hava Soğutmalı Karot Delgi</td>
+      <td class="to-cell">Springer Akademik Makale</td>
+      <td class="anchor-cell">"Springer dergisinde yayımlanan çalışmamız"</td>
+      <td class="impact-high">Çok Yüksek</td>
+    </tr>
+    <tr>
+      <td class="from-cell">Sirkeci Garı Güçlendirme</td>
+      <td class="to-cell">Hava Soğutmalı Karot Delgi</td>
+      <td class="anchor-cell">"hava soğutmalı karot delgi teknolojisi"</td>
+      <td class="impact-high">Çok Yüksek</td>
+    </tr>
+    <tr>
+      <td class="from-cell">Sirkeci Garı Güçlendirme</td>
+      <td class="to-cell">Tarihi Eser Rakiplerden Fark</td>
+      <td class="anchor-cell">"tarihi eser güçlendirmede farkımız"</td>
+      <td class="impact-high">Çok Yüksek</td>
+    </tr>
+    <tr>
+      <td class="from-cell">Paslanmaz Çelik Gergi</td>
+      <td class="to-cell">Hava Soğutmalı Karot Delgi</td>
+      <td class="anchor-cell">"hava soğutmalı karot delgi ile açılan delikler"</td>
+      <td class="impact-high">Çok Yüksek</td>
+    </tr>
+    <tr>
+      <td class="from-cell">Paslanmaz Çelik Gergi</td>
+      <td class="to-cell">Sirkeci Garı Güçlendirme</td>
+      <td class="anchor-cell">"Sirkeci Garı referans projemiz"</td>
+      <td class="impact-high">Çok Yüksek</td>
+    </tr>
+    <tr>
+      <td class="from-cell">Springer Akademik Makale</td>
+      <td class="to-cell">Hava Soğutmalı Karot Delgi</td>
+      <td class="anchor-cell">"hava soğutmalı karot delgi yöntemi"</td>
+      <td class="impact-med">Yüksek</td>
+    </tr>
+    <tr>
+      <td class="from-cell">Springer Akademik Makale</td>
+      <td class="to-cell">Tarihi Eser Rakiplerden Fark</td>
+      <td class="anchor-cell">"tarihi eser güçlendirme uzmanlığımız"</td>
+      <td class="impact-med">Yüksek</td>
+    </tr>
+    <tr>
+      <td class="from-cell">Riskli Yapı Tespiti 6306</td>
+      <td class="to-cell">Karbon Fiber Fiyatları 2026</td>
+      <td class="anchor-cell">"güçlendirme maliyeti ve fiyatlar"</td>
+      <td class="impact-med">Yüksek</td>
+    </tr>
+    <tr>
+      <td class="from-cell">Riskli Yapı Tespiti 6306</td>
+      <td class="to-cell">Tarihi Eser Rakiplerden Fark</td>
+      <td class="anchor-cell">"tarihi yapılarda riskli yapı tespiti"</td>
+      <td class="impact-med">Yüksek</td>
+    </tr>
+    <tr>
+      <td class="from-cell">Karbon Fiber Fiyatları 2026</td>
+      <td class="to-cell">Riskli Yapı Tespiti 6306</td>
+      <td class="anchor-cell">"riskli yapı tespiti yaptırın"</td>
+      <td class="impact-med">Yüksek</td>
+    </tr>
+    <tr>
+      <td class="from-cell">Karbon Fiber Fiyatları 2026</td>
+      <td class="to-cell">Sirkeci Garı Güçlendirme</td>
+      <td class="anchor-cell">"gerçek proje örneği: Sirkeci Garı"</td>
+      <td class="impact-med">Yüksek</td>
+    </tr>
+    <tr>
+      <td class="from-cell">Tarihi Eser Rakiplerden Fark</td>
+      <td class="to-cell">Springer Akademik Makale</td>
+      <td class="anchor-cell">"Springer'da yayımlanan akademik çalışmamız"</td>
+      <td class="impact-med">Yüksek</td>
+    </tr>
+    <tr>
+      <td class="from-cell">Karot Delme Teknolojisi</td>
+      <td class="to-cell">Hava Soğutmalı Karot Delgi</td>
+      <td class="anchor-cell">"hava soğutmalı sistem detayları"</td>
+      <td class="impact-med">Yüksek</td>
+    </tr>
+  </tbody></table></div>
+</div><div class="authority-section">
+  <div class="flow-title">📈 İç Linklemenin Site Otoritesine Etkisi</div>
+  <div class="auth-grid">
+    <div class="auth-card">
+      <div class="auth-icon">🔗</div>
+      <div class="auth-val">15+</div>
+      <div class="auth-lbl">Yeni iç link bağlantısı</div>
+    </div>
+    <div class="auth-card">
+      <div class="auth-icon">📊</div>
+      <div class="auth-val">%40</div>
+      <div class="auth-lbl">Crawl bütçesi verimliliği artışı</div>
+    </div>
+    <div class="auth-card">
+      <div class="auth-icon">⏱️</div>
+      <div class="auth-val">+2dk</div>
+      <div class="auth-lbl">Ortalama oturum süresi artışı</div>
+    </div>
+    <div class="auth-card">
+      <div class="auth-icon">🎯</div>
+      <div class="auth-val">3-5x</div>
+      <div class="auth-lbl">Top 3 makale sıralama potansiyeli</div>
+    </div>
+  </div>
+  
+  <div class="tips">
+    <div class="tip">
+      <h2>✅ Doğru Anchor Text Kullanımı</h2>
+      <ul>
+        <li>Exact match: %30 — "hava soğutmalı karot delgi"</li>
+        <li>Partial match: %40 — "karot delgi teknolojisi"</li>
+        <li>Natural: %30 — "bu projemizde uyguladığımız"</li>
+        <li>Generic kullanmayın: "buraya tıklayın" ❌</li>
+      </ul>
+    </div>
+    <div class="tip">
+      <h3>🎯 Öncelikli Yapılacaklar</h3>
+      <ul>
+        <li>Sirkeci Garı ↔ Hava Soğutmalı Karot (çift yönlü)</li>
+        <li>Springer → Tüm özgün içeriklere link</li>
+        <li>Karbon Fiber Fiyat → Teklif Al sayfası</li>
+        <li>6306 Rehberi → Hibe/Kredi sayfası</li>
+      </ul>
+    </div>
+    <div class="tip">
+      <h4>📊 Cluster Stratejisi</h4>
+      <ul>
+        <li>Cluster 1 (Özgün): 4 makale birbirini destekler</li>
+        <li>Cluster 2 (Teknik): Mühendis hedef kitleye</li>
+        <li></li>
+        <li>Hub sayfalar tüm cluster'lara link verir</li>
+      </ul>
+    </div>
+    <div class="tip">
+      <h4>⚡ Hızlı Kazanımlar</h4>
+      <ul>
+        <li>"hava soğutmalı karot" → 1. sıra potansiyeli</li>
+        <li>"Sirkeci Garı güçlendirme" → Tek kaynak</li>
+        <li>"paslanmaz çelik gergi tarihi" → Lider</li>
+        <li>Springer linki → E-E-A-T güçlendirme</li>
+      </ul>
+    </div>
+  </div>
+</div><div style="text-align:center;padding:20px;color:#555;font-size:12px">
+  © 2026 YAPIGÜÇ MÜŞ.MÜH.SAN VE TİC A.Ş. — SEO İç Linkleme Haritası
+</div></main>
+
+
+
+
+<!-- CLUSTER YAPISI -->
+
+
+<!-- AKIŞ DİYAGRAMI -->
+
+
+<!-- DETAYLI LİNK TABLOSU -->
+
+
+<!-- OTORİTE ETKİSİ -->
+
+
+
+
+
+<!-- ===== DİNAMİK FİLİGRAN ===== -->
+<style>
+/* Sayfa üzerinde şeffaf filigran */
+body::after {
+  content: '© YAPIGÜÇ A.Ş. — İzinsiz Kullanım Yasaktır';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-35deg);
+  font-size: clamp(18px, 3vw, 32px);
+  font-weight: 900;
+  color: rgba(28, 35, 49, 0.07);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 999999;
+  letter-spacing: 2px;
+  font-family: Arial, sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Çoklu filigran katmanı */
+.wm-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999998;
+  overflow: hidden;
+}
+.wm-overlay span {
+  position: absolute;
+  font-size: clamp(11px, 1.5vw, 16px);
+  font-weight: 800;
+  color: rgba(28, 35, 49, 0.055);
+  white-space: nowrap;
+  transform: rotate(-35deg);
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: none;
+  font-family: Arial, sans-serif;
+  letter-spacing: 1px;
+}
+
+/* Yazdırma filigranı - baskıda daha belirgin */
+@media print {
+  .wm-overlay span {
+    color: rgba(0,0,0,0.18) !important;
+    font-size: 14px !important;
+  }
+  body::after {
+    color: rgba(0,0,0,0.15) !important;
+    font-size: 28px !important;
+  }
+}
+</style>
+
+
+
+
+<!-- ===== FİLİGRAN SONU ===== -->
+
+
+<footer class="yg-footer"><div class="yg-footer-inner"><a class="yg-brand" href="/" aria-label="YAPIGÜÇ ana sayfa"><img class="growth-brand-logo" src="/assets/yapiguc-logo-transparent.png" alt="YAPIGÜÇ" width="2172" height="724"><small class="scope-brand-subtitle">Müşavirlik Mühendislik A.Ş.</small></a><nav class="yg-footer-links" aria-label="Alt menü"><a href="/cerez-politikasi">Çerez Politikası</a><a href="/referanslar/">Referans Koleksiyonları</a><a href="/uygulama-fotograflari">Uygulama Fotoğrafları</a><a href="/iletisim">Kurumsal İletişim</a><a href="/kvkk">Gizlilik ve KVKK</a><a href="/teklif-al">İletişim Talebi</a><button type="button" data-consent-open="">Çerez tercihleri</button></nav><div class="yg-footer-contact"><span>İLETİŞİM</span><a href="tel:+905405163636">0540 516 36 36</a><a href="mailto:info@yapiguc.net">info@yapiguc.net</a><small>© YAPIGÜÇ · Tüm hakları saklıdır.</small></div></div></footer><section class="audit-consent" aria-label="Çerez tercihleri" hidden=""><h2>İsteğe bağlı ziyaretçi ölçümü</h2><p>İzin verirseniz Google Analytics ile sayfa ziyaretlerini ve telefon/WhatsApp bağlantısı tıklamalarını ölçeriz. Formdaki ad, telefon ve açıklamalar bu ölçüme gönderilmez. İzin vermeden de siteyi ve iletişim seçeneklerini kullanabilirsiniz. <a href="/kvk-aydinlatma-metni">Gizlilik ve KVKK metni</a></p><a href="/kvkk">Veri işleme bilgileri</a><div class="audit-consent-actions"><button type="button" data-consent="reject">Ölçümü reddet</button><button type="button" data-consent="accept">Ölçümü kabul et</button><button type="button" data-consent-close="">Tercihleri kapat</button></div><p role="status" data-consent-status=""></p></section><script src="/assets/yapiguc.js" defer=""></script><nav class="quick-contact" aria-label="Hızlı iletişim"><a href="tel:+905405163636">Hemen arayın</a><a href="https://wa.me/905405163636" target="_blank" rel="noopener noreferrer">WhatsApp</a></nav><script defer src="/assets/accessibility-ee4de8d13d.js"></script><script src="/assets/site-guide-20261015.js" defer></script></body></html>

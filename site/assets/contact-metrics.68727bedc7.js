@@ -1,0 +1,35 @@
+/* Only loads Google Analytics after a new, explicit analytics choice. */
+(()=>{'use strict';const id='G-26YEL72LWR',key='yapiguc-analytics-consent-v1';
+ const banner=document.querySelector('.audit-consent');let choice=null,started=false,sentPage=false;
+ try{choice=localStorage.getItem(key);}catch{}
+ if(!['accept','reject'].includes(choice))choice=null;
+ function showPreference(){
+  if(!banner)return;
+  if(!banner.dataset.cmpReady){
+   banner.dataset.cmpReady='1';
+   banner.innerHTML='<div class="cmp-heading"><img src="/assets/yapiguc-logo-transparent.png" alt="YAPIGÜÇ" width="146" height="49"><h2>Çerez ve ölçüm tercihleri</h2></div><button type="button" class="cmp-close" data-consent-close aria-label="Tercihleri değiştirmeden kapat">×</button><p>YAPIGÜÇ Müşavirlik Mühendislik A.Ş. olarak, tercihlerinizi hatırlamak için gerekli tarayıcı kayıtlarını kullanıyoruz. İzin verirseniz Google Analytics ile site ziyaretlerini ve telefon/WhatsApp bağlantılarına yapılan tıklamaları ölçüyoruz.</p><p>İsteğe bağlı ölçümü reddederek de sitemizi ve iletişim seçeneklerini kullanabilirsiniz. Tercihinizi istediğiniz zaman sayfanın altındaki “Çerez tercihleri” bölümünden değiştirebilirsiniz. Google’ın Türkiye dışındaki altyapıları devreye girebilir; ayrıntıları <a href="/kvkk#ziyaretci-olcumu">gizlilik ve ölçüm bilgilerinde</a> inceleyebilirsiniz.</p><div class="audit-consent-actions"><button type="button" data-consent="reject">Opsiyonel çerezleri reddet</button><button type="button" data-cookie-settings aria-controls="analytics-choice-details" aria-expanded="false">Ayarlar</button><button type="button" data-consent="accept">Tümünü kabul et</button></div><div class="cmp-settings" id="analytics-choice-details" hidden><h3>Çerez ayarları</h3><div class="cmp-setting-row"><strong>Gerekli tercihler</strong><span class="cmp-always">Her zaman etkin</span></div><p>Ölçüm tercihinizi tarayıcıda hatırlamak için yerel kayıt kullanılır. Bu kategori reklam veya ziyaretçi takibi yapmaz.</p><div class="cmp-setting-row"><label for="cmp-analytics-toggle"><input id="cmp-analytics-toggle" type="checkbox">Ziyaretçi ölçümü</label><span class="cmp-always">İsteğe bağlı</span></div><p>Google Analytics yalnızca izin verdiğinizde yüklenir. Sayfa ziyaretleri ve iletişim bağlantılarına yapılan tıklamalar ölçülür. Formdaki ad, telefon ve açıklamalar ölçüm kodu tarafından okunmaz. Reklam kişiselleştirmesi ve Google sinyalleri kapalıdır.</p><p class="cmp-status" id="analytics-choice-status" role="status" aria-live="polite"></p><button type="button" class="cmp-save" data-cookie-save>Tercihlerimi kaydet</button></div><div class="cmp-links"><a href="/kvkk">Çerez ve gizlilik bilgileri</a><a href="/kvk-aydinlatma-metni">KVKK aydınlatma metni</a><a href="/iletisim">Veri sorumlusu ile iletişim</a></div>';
+   const settings= banner.querySelector('[data-cookie-settings]'),details=banner.querySelector('#analytics-choice-details');
+   settings.addEventListener('click',()=>{const open=details.hidden;details.hidden=!open;settings.setAttribute('aria-expanded',String(open));if(open)banner.querySelector('#cmp-analytics-toggle').focus();});
+   banner.querySelector('[data-cookie-save]').addEventListener('click',()=>{banner.querySelector(banner.querySelector('#cmp-analytics-toggle').checked?'[data-consent="accept"]':'[data-consent="reject"]').click();});
+  }
+  banner.querySelector('#cmp-analytics-toggle').checked=choice==='accept';
+  banner.querySelector('#analytics-choice-status').textContent=choice==='accept'?'Mevcut tercihiniz: Ziyaretçi ölçümüne izin verdiniz.':choice==='reject'?'Mevcut tercihiniz: Ziyaretçi ölçümü kapalı.':'Henüz seçim yapmadınız. Ziyaretçi ölçümü kapalı.';
+ }
+
+ showPreference();document.querySelectorAll('[data-consent-open]').forEach(button=>button.addEventListener('click',showPreference));
+ const allowed=()=>choice==='accept';const cleanLocation=()=>location.origin+location.pathname;
+ const cleanReferrer=()=>{try{const u=new URL(document.referrer);return /(^|\.)(google\.(com|com\.tr|co\.uk|de)|bing\.com|yandex\.(com|com\.tr|ru)|duckduckgo\.com)$/i.test(u.hostname)?u.origin+'/':'';}catch{return '';}};
+ const denied={analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'};
+ function emit(name,params={}){if(!allowed()||!started||location.hostname==='localhost'||location.hostname==='127.0.0.1')return;window.gtag('event',name,{send_to:id,page_location:cleanLocation(),page_referrer:cleanReferrer(),...params});}
+ function start(){if(!allowed()||started||!['www.yapiguc.net','yapiguc.net'].includes(location.hostname))return;started=true;window['ga-disable-'+id]=false;window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){window.dataLayer.push(arguments);};window.gtag('consent','default',denied);window.gtag('consent','update',{...denied,analytics_storage:'granted'});window.gtag('js',new Date());window.gtag('config',id,{send_page_view:false,page_location:cleanLocation(),page_referrer:cleanReferrer(),allow_google_signals:false,allow_ad_personalization_signals:false});
+  const script=document.createElement('script');script.async=true;script.src='https://www.googletagmanager.com/gtag/js?id='+id;document.head.appendChild(script);if(!sentPage){sentPage=true;emit('page_view');}
+ }
+ function reject(){window['ga-disable-'+id]=true;if(started&&window.gtag)window.gtag('consent','update',denied);for(const entry of document.cookie.split(';')){const name=entry.split('=')[0].trim();if(!/^_ga(?:_|$)/.test(name))continue;for(const domain of ['',location.hostname,'.yapiguc.net'])document.cookie=name+'=; Max-Age=0; path=/'+(domain?'; domain='+domain:'')+'; SameSite=Lax';}}
+ if(banner&&!choice)banner.hidden=false;if(allowed())start();else reject();
+ document.querySelectorAll('[data-consent]').forEach(button=>button.addEventListener('click',()=>{choice=button.dataset.consent==='accept'?'accept':'reject';try{localStorage.setItem(key,choice);}catch{}if(allowed()){window['ga-disable-'+id]=false;if(started&&window.gtag)window.gtag('consent','update',{...denied,analytics_storage:'granted'});else start();}else reject();showPreference();if(banner)banner.hidden=true;}));
+ window.addEventListener('storage',event=>{if(event.key!==key)return;choice=['accept','reject'].includes(event.newValue)?event.newValue:null;if(allowed()){window['ga-disable-'+id]=false;if(started&&window.gtag)window.gtag('consent','update',{...denied,analytics_storage:'granted'});else start();}else reject();showPreference();});
+ document.addEventListener('click',event=>{const a=event.target.closest?.('a[href]');if(!a)return;const href=a.getAttribute('href')||'';if(/^tel:/i.test(href))emit('phone_click',{contact_channel:'telephone'});else if(/^https:\/\/(wa\.me|(?:api|web)\.whatsapp\.com)(\/|$)/i.test(href))emit('whatsapp_click',{contact_channel:'whatsapp'});else if(/^\/teklif-al(?:[?#]|$)/.test(href))emit('request_prepare',{contact_channel:'whatsapp'});});
+ /* Forms prepare WhatsApp in the browser; no form values are read by this code. */
+ document.addEventListener('yapiguc:whatsapp-draft',()=>emit('whatsapp_draft_prepare',{contact_channel:'whatsapp'}));
+})();
+

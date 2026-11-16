@@ -1,0 +1,415 @@
+<!DOCTYPE html><html lang="tr"><head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Zemin Etüdü VS30 ve TBDY 2018 Tasarım SpektrumuSAP2000'e Adım Adım Aktarım Rehberi | YAPIGÜÇ</title>
+<meta name="description" content="ZD zeminde F1=2.4 katsayısı, uzun periyotlu yapılarda deprem kuvvetini 2.4 kat artırır. İstanbul'un büyük bölümü ZD-ZE zemin üzerindedir. Bu nedenle zemin ">
+<meta name="keywords" content="VS30 zemin sınıfı TBDY 2018, tasarım spektrumu SAP2000, SDS SD1 hesabı, zemin katsayısı Fs F1, deprem spektrumu SAP2000 girişi">
+
+<link rel="canonical" href="https://www.yapiguc.net/blog/zemin-vs30-tbdy2018-spektrum-sap2000">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Segoe UI",Arial,sans-serif;background:#f5f6fa;color:#222;line-height:1.8;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+::selection{background:transparent!important}
+header{background:linear-gradient(135deg,#1a237e,#283593);color:#fff}
+.header-top{display:flex;align-items:center;justify-content:space-between;padding:15px 40px;max-width:1200px;margin:0 auto}
+.logo-area{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+.logo-area img{height:50px}
+nav{background:rgba(0,0,0,.2);padding:10px 40px}
+nav a{color:#fff;text-decoration:none;margin-right:18px;font-size:14px;opacity:.9}
+.breadcrumb{background:#fff;padding:12px 40px;font-size:13px;color:#666;border-bottom:1px solid #eee}
+.breadcrumb a{color:#1a237e;text-decoration:none}
+.article-wrap{max-width:960px;margin:40px auto;padding:0 20px}
+.article-header{background:#fff;border-radius:16px;padding:35px;margin-bottom:20px;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.article-meta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:15px}
+.meta-tag{background:#e8eaf6;color:#1a237e;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.meta-tag.red{background:#ffebee;color:#b71c1c}
+.meta-tag.green{background:#e8f5e9;color:#1b5e20}
+h1{font-size:26px;color:#1a237e;line-height:1.3;margin-bottom:12px}
+.article-intro{font-size:16px;color:#444;border-left:4px solid #1a237e;padding-left:18px;margin-top:15px}
+.article-body{background:#fff;border-radius:16px;padding:35px;box-shadow:0 4px 20px rgba(0,0,0,.08);margin-bottom:20px}
+h2{font-size:20px;color:#1a237e;margin:28px 0 13px;padding-bottom:8px;border-bottom:2px solid #e8eaf6}
+h2:first-child{margin-top:0}
+h3{font-size:16px;color:#283593;margin:18px 0 9px;font-weight:700}
+p{font-size:14px;line-height:1.85;color:#333;margin-bottom:12px}
+ul,ol{margin:8px 0 14px 22px}
+li{font-size:14px;color:#333;margin-bottom:7px;line-height:1.7}
+.code-block{background:#1a1a2e;border-radius:12px;padding:20px 22px;margin:14px 0;overflow-x:auto;border-left:4px solid #64b5f6}
+.code-block pre{font-family:"Courier New",Consolas,monospace;font-size:13px;color:#e0e0e0;line-height:1.7;white-space:pre;margin:0}
+.code-block .comment{color:#90caf9}
+.code-block .value{color:#a5d6a7}
+.code-label{font-size:10px;color:#64b5f6;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.formula-box{background:#e8eaf6;border:2px solid #c5cae9;border-radius:12px;padding:18px 22px;margin:14px 0;font-family:"Courier New",monospace;font-size:13px;color:#1a237e;line-height:1.8}
+.formula-box .f-title{font-family:"Segoe UI",Arial,sans-serif;font-size:12px;font-weight:700;color:#283593;margin-bottom:10px;letter-spacing:.5px;text-transform:uppercase}
+.info-box{border-radius:12px;padding:18px 22px;margin:16px 0}
+.info-box.blue{background:#e3f2fd;border-left:4px solid #1565c0}
+.info-box.green{background:#e8f5e9;border-left:4px solid #2e7d32}
+.info-box.orange{background:#fff3e0;border-left:4px solid #e65100}
+.info-box.red{background:#ffebee;border-left:4px solid #c62828}
+.info-box.gold{background:#fff8e1;border-left:4px solid #f9a825}
+.info-box h4{font-size:13px;font-weight:700;margin-bottom:8px}
+.info-box.blue h4{color:#1565c0}.info-box.green h4{color:#1b5e20}
+.info-box.orange h4{color:#e65100}.info-box.red h4{color:#b71c1c}.info-box.gold h4{color:#f57f17}
+.info-box p{font-size:13px;margin:0;line-height:1.7}
+.data-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px}
+.data-table th{background:#1a237e;color:#fff;padding:10px 13px;text-align:left}
+.data-table td{padding:9px 13px;border-bottom:1px solid #f0f0f0}
+.data-table tr:nth-child(even) td{background:#f8f9ff}
+.data-table .yes{color:#2e7d32;font-weight:700}
+.data-table .no{color:#c62828;font-weight:700}
+.data-table .warn{color:#e65100;font-weight:700}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+.compare-card{border-radius:12px;padding:18px}
+.compare-card.blue{background:#e3f2fd;border:2px solid #1565c0}
+.compare-card.red{background:#ffebee;border:2px solid #b71c1c}
+.compare-card h4{font-size:14px;font-weight:700;margin-bottom:10px}
+.compare-card.blue h4{color:#1565c0}
+.compare-card.red h4{color:#b71c1c}
+.compare-card p{font-size:13px;color:#333;margin-bottom:6px}
+.cta-box{background:linear-gradient(135deg,#1a237e,#283593);color:#fff;border-radius:14px;padding:25px;text-align:center;margin:25px 0}
+.cta-box h3{font-size:18px;margin-bottom:8px;color:#c9a84c!important}
+.cta-box p{opacity:.85;margin-bottom:16px;font-size:14px;color:rgba(255,255,255,.9)!important}
+.cta-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.cta-btn{padding:11px 22px;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none}
+.cta-btn.white{background:#fff;color:#1a237e}
+.cta-btn.wa{background:#25D366;color:#fff}
+.cta-btn.red{background:#b71c1c;color:#fff}
+.share-bar{background:#fff;border-radius:12px;padding:16px 22px;box-shadow:0 4px 20px rgba(0,0,0,.08);margin-bottom:20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.share-bar span{font-weight:700;color:#1a237e;font-size:13px}
+.share-btn{padding:7px 16px;border-radius:18px;font-size:12px;font-weight:700;text-decoration:none;display:inline-block}
+.share-btn.tw{background:#1da1f2;color:#fff}
+.share-btn.li{background:#0077b5;color:#fff}
+.share-btn.wa{background:#25D366;color:#fff}
+footer{background:#1a237e;color:#fff;text-align:center;padding:25px;margin-top:50px;font-size:13px}
+footer a{color:#90caf9;text-decoration:none}
+@media(max-width:768px){.header-top{padding:15px 20px}.article-wrap{padding:0 15px}.article-body,.article-header{padding:22px}h1{font-size:20px}.code-block pre{font-size:11px}.compare-grid{grid-template-columns:1fr}}
+</style>
+<meta property="og:title" content="Zemin Etüdü VS30 ve TBDY 2018 Tasarım SpektrumuSAP2000'e Adım Adım Aktarım Rehberi | YAPIGÜÇ">
+<meta property="og:description" content="ZD zeminde F1=2.4 katsayısı, uzun periyotlu yapılarda deprem kuvvetini 2.4 kat artırır. İstanbul'un büyük bölümü ZD-ZE zemin üzerindedir. Bu nedenle zemin ">
+<meta property="og:url" content="https://www.yapiguc.net/blog/zemin-vs30-tbdy2018-spektrum-sap2000">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://res.cloudinary.com/ncyhx0qo/image/upload/yapiguc/logo.png">
+
+
+<style>*{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}</style>
+
+
+<link rel="alternate" hreflang="tr" href="https://www.yapiguc.net/blog/zemin-vs30-tbdy2018-spektrum-sap2000">
+<link rel="alternate" hreflang="tr-TR" href="https://www.yapiguc.net/blog/zemin-vs30-tbdy2018-spektrum-sap2000">
+<link rel="alternate" hreflang="x-default" href="https://www.yapiguc.net/blog/zemin-vs30-tbdy2018-spektrum-sap2000">
+
+<meta name="bingbot" content="index,follow,max-snippet:-1,max-image-preview:large">
+
+<style id="color-fix">
+[style*="background:#1c2331"] p:not([style*="color"]),
+[style*="background:#1c2331"] li:not([style*="color"]),
+[style*="background:#1c2331"] span:not([style*="color"]),
+[style*="background:#2d3a4a"] p:not([style*="color"]),
+[style*="background:#2d3a4a"] li:not([style*="color"]),
+[style*="background:#0d1b5e"] p:not([style*="color"]),
+[style*="background:#1a237e"] p:not([style*="color"]) {
+  color: #e0e0e0 !important;
+}
+</style>
+
+<style id="cta-color-fix">
+/* CTA Kutusu Renk Düzeltmesi */
+div[style*="background:linear-gradient(135deg,#1c2331"] h3,
+div[style*="background:linear-gradient(135deg,#1c2331"] h2,
+div[style*="background: linear-gradient(135deg, #1c2331"] h3 {
+  color: #c9a84c !important;
+}
+div[style*="background:linear-gradient(135deg,#1c2331"] p,
+div[style*="background:linear-gradient(135deg,#1c2331"] span,
+div[style*="background: linear-gradient(135deg, #1c2331"] p {
+  color: rgba(255,255,255,0.85) !important;
+}
+div[style*="background:#1c2331"] h3,
+div[style*="background:#1c2331"] h2 {
+  color: #c9a84c !important;
+}
+div[style*="background:#1c2331"] p,
+div[style*="background:#1c2331"] span:not(.btn):not(a) {
+  color: rgba(255,255,255,0.85) !important;
+}
+/* Buton yazıları dokunma */
+div[style*="background:#1c2331"] a[style*="background:#c9a84c"],
+div[style*="background:#1c2331"] a[style*="background:#25D366"] {
+  color: #1c2331 !important;
+}
+</style>
+<link rel="stylesheet" href="/assets/yapiguc.css"><noscript><style>@media(max-width:900px){.yg-navigation{display:flex!important;position:static!important;flex-direction:column!important;max-height:none!important}.yg-header-main{flex-wrap:wrap!important}.yg-menu-button{display:none!important}.yg-header{position:static!important}}</style></noscript><meta name="robots" content="index,follow,max-image-preview:large"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://www.yapiguc.net/#organization","name":"YAPIGÜÇ MÜŞ. MÜH. SAN. VE TİC. A.Ş.","url":"https://www.yapiguc.net","telephone":"+905405163636","email":"info@yapiguc.net","logo":"https://www.yapiguc.net/assets/yapiguc-logo-transparent.png"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://www.yapiguc.net/blog/zemin-vs30-tbdy2018-spektrum-sap2000.html#webpage","url":"https://www.yapiguc.net/blog/zemin-vs30-tbdy2018-spektrum-sap2000.html","name":"Zemin Etüdü VS30 ve TBDY 2018 Tasarım SpektrumuSAP2000'e Adım Adım Aktarım Rehberi | YAPIGÜÇ","inLanguage":"tr","publisher":{"@id":"https://www.yapiguc.net/#organization"}}</script><link rel="stylesheet" href="/assets/audit.css"><link rel="stylesheet" href="/assets/growth.css"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Zemin Etüdü VS30 ve TBDY 2018 Tasarım SpektrumuSAP2000'e Adım Adım Aktarım Rehberi","description":"ZD zeminde F1=2.4 katsayısı, uzun periyotlu yapılarda deprem kuvvetini 2.4 kat artırır. İstanbul'un büyük bölümü ZD-ZE zemin üzerindedir. Bu nedenle zemin ","url":"https://www.yapiguc.net/blog/zemin-vs30-tbdy2018-spektrum-sap2000","mainEntityOfPage":"https://www.yapiguc.net/blog/zemin-vs30-tbdy2018-spektrum-sap2000","inLanguage":"tr","publisher":{"@type":"Organization","name":"YAPIGÜÇ","url":"https://www.yapiguc.net","logo":"https://www.yapiguc.net/assets/yapiguc-logo-transparent.png"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://www.yapiguc.net/"},{"@type":"ListItem","position":2,"name":"Blog ve Makaleler","item":"https://www.yapiguc.net/blog/"},{"@type":"ListItem","position":3,"name":"Zemin Etüdü VS30 ve TBDY 2018 Tasarım SpektrumuSAP2000'e Adım Adım Aktarım Rehberi","item":"https://www.yapiguc.net/blog/zemin-vs30-tbdy2018-spektrum-sap2000"}]}</script><link rel="stylesheet" href="/assets/refinement.css"><link rel="icon" href="/favicon.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180"><link rel="stylesheet" href="/assets/visitor-growth.css"><link rel="stylesheet" href="/assets/content-protection-6154b6995f.css"><script defer="" src="/assets/content-protection-9371381351.js"></script><script defer="" src="/assets/contact-metrics-39a5a7e808.js"></script><link rel="stylesheet" href="/assets/article-print-07590967b8.css"><link rel="stylesheet" href="/assets/cookie-panel-0cd7f09d2b.css"><link rel="stylesheet" href="/assets/accessibility-0ccdd9c109.css"><link rel="stylesheet" href="/assets/layout-repair-03eb26008a.css"><link rel="stylesheet" href="/assets/home-modern-20261014.css?v=18abe02549"></head>
+<body class="yg-site yg-article"><a class="yg-skip" href="#yg-main">İçeriğe geç</a><header class="yg-header"><div class="yg-utility"><p>Türkiye Genelinde Proje · Onarım · Güçlendirme</p><div class="yg-utility-links"><a href="tel:+905405163636">0540 516 36 36</a><a href="https://wa.me/905405163636" target="_blank" rel="noopener noreferrer">WhatsApp</a></div></div><div class="yg-header-main"><a class="yg-brand" href="/" aria-label="YAPIGÜÇ ana sayfa"><img class="growth-brand-logo" src="/assets/yapiguc-logo-transparent.png" alt="YAPIGÜÇ" width="2172" height="724"><small class="scope-brand-subtitle">Müşavirlik Mühendislik A.Ş.</small></a><nav class="yg-navigation" id="yg-navigation" aria-label="Ana menü"><details class="yg-mega"><summary>Hizmetler</summary><div class="yg-mega-links"><a href="/tasarim-gozetmenligi">Tasarım Gözetmenliği</a><a href="/universite-onay-sureci">Üniversite Değerlendirme ve Onay Süreci</a><a href="/guclendirme-projesi-cizimi">Güçlendirme Projesi Hazırlama</a><a href="/yapi-guclendirme">Yapısal Güçlendirme İmalatları</a><a href="/betonarme-guclendirme">Betonarme Güçlendirme</a><a href="/celik-guclendirme">Çelik Güçlendirme</a><a href="/kolon-guclendirme">Karbon Fiber / FRP Güçlendirme</a><a href="/temel-guclendirme">Temel Güçlendirme</a><a href="/kiris-doseme-guclendirme">Kiriş ve Döşeme Güçlendirme</a><a href="/perde-duvar-guclendirme">Perde ve Duvar Güçlendirme</a><a href="/ankraj-guclendirme">Ankraj ve Bağlantı İmalatları</a><a href="/epoksi-enjeksiyon">Güçlendirme Kapsamında Enjeksiyon</a><a href="/tarihi-eser-guclendirme">Tarihi ve Yığma Yapı Güçlendirme</a><a href="/karot-delim">Güçlendirme Amaçlı Karot İşlemleri</a></div></details><a href="/hakkimizda">Kurumsal</a><a href="/referans-projeler">Referanslarımız</a><a href="/blog/">Blog ve Makaleler</a><a href="/iller/">Hizmet Bölgeleri</a><a href="/iletisim">İletişim</a></nav><a class="yg-button" href="/teklif-al">İletişim Talebi <span aria-hidden="true">↗</span></a><button class="yg-menu-button" type="button" aria-label="Menüyü aç" aria-expanded="false" aria-controls="yg-navigation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button></div></header>
+<main id="yg-main" tabindex="-1"><nav class="seo-breadcrumb" aria-label="İçerik yolu"><a href="/">Ana Sayfa</a> / <a href="/blog/">Blog ve Makaleler</a> / <span>Zemin Etüdü VS30 ve TBDY 2018 Tasarım SpektrumuSAP2000'e Adım Adım Aktarım Rehberi</span></nav><p class="audit-content-kind">Teknik makale · <a href="/blog/">Teknik bilgi koleksiyonu</a></p><div class="breadcrumb">
+  <a href="/">Ana Sayfa</a> › <a href="/blog/">Blog</a> › Zemin VS30 TBDY 2018 Spektrum SAP2000
+</div><div class="article-wrap">
+<div class="article-header">
+  <div class="article-meta">
+    <span class="meta-tag">🌍 Zemin Etüdü</span>
+    <span class="meta-tag red">TBDY 2018</span>
+    <span class="meta-tag green">SAP2000</span>
+    <span class="meta-tag">⏱️ 10 dk okuma</span>
+  </div>
+  <h1>Zemin Etüdü VS30 ve TBDY 2018 Tasarım Spektrumu<br>SAP2000'e Adım Adım Aktarım Rehberi</h1><nav class="seo-toc" aria-label="Yazı içindekiler"><strong>Bu rehberde</strong><ul><li><a href="#yg-topic-1">1.</a></li><li><a href="#yg-topic-2">2. Zemin Katsayıları (Fs ve F1) — TBDY 2018 Tablo 2.3-2.4</a></li><li><a href="#yg-topic-3">3. Tasarım Spektrumu Hesabı — Tam Örnek</a></li><li><a href="#yg-topic-4">4. ZA vs ZD Karşılaştırması — Aynı Konum</a></li><li><a href="#yg-topic-5">5. SAP2000'e Spektrum Girişi</a></li><li><a href="#yg-topic-6">6. Zemin Farkının Analiz Sonucuna Etkisi</a></li></ul></nav>
+  <p style="font-size:13px;color:#999;margin-top:10px">📅 Ağustos 2026 | ✍️ YAPIGÜÇ Mühendislik Ekibi</p>
+  <div class="article-intro">ZD zemin ile ZA zemin arasındaki fark deprem kuvvetini 2-3 kat değiştirebilir. Bu rehberde SS, S1, SDS, SD1 parametrelerini hesaplayıp SAP2000'e nasıl gireceğinizi adım adım açıklıyoruz.
+  </div>
+</div>
+<div class="article-body"><details class="yg-reading-nav"><summary>Bu makalede</summary><ol><li>1.</li><li><a href="#yg-topic-2">2. Zemin Katsayıları (Fs ve F1) — TBDY 2018 Tablo 2.3-2.4</a></li><li><a href="#yg-topic-3">3. Tasarım Spektrumu Hesabı — Tam Örnek</a></li><li><a href="#yg-topic-4">4. ZA vs ZD Karşılaştırması — Aynı Konum</a></li><li><a href="#yg-topic-5">5. SAP2000'e Spektrum Girişi</a></li><li><a href="#yg-topic-6">6. Zemin Farkının Analiz Sonucuna Etkisi</a></li></ol></details>
+
+<h2 id="yg-topic-1">1.</h2>
+
+
+<div class="yg-table-wrap" role="region" aria-label="Teknik bilgi tablosu" tabindex="0"><table class="data-table">
+  <tbody><tr><th>VS30 (m/s)</th><th>Tanım</th><th>Deprem Riski</th></tr>
+  <tr><td><strong>ZA</strong></td><td>&gt; 1500</td><td>Sağlam kaya</td><td class="yes">Çok Düşük</td></tr>
+  <tr><td><strong>ZB</strong></td><td>760 – 1500</td><td>Kaya</td><td class="yes">Düşük</td></tr>
+  <tr><td><strong>ZC</strong></td><td>360 – 760</td><td>Sıkı zemin</td><td class="warn">Orta</td></tr>
+  <tr><td><strong>ZD</strong></td><td>180 – 360</td><td>Orta sıkı zemin</td><td class="no">Yüksek</td></tr>
+  <tr><td><strong>ZE</strong></td><td>&lt; 180</td><td>Yumuşak zemin</td><td class="no">Çok Yüksek</td></tr>
+  <tr><td><strong>ZF</strong></td><td>Özel</td><td>Ayrıntılı araştırma</td><td class="no">Kritik</td></tr>
+</tbody></table></div>
+
+<h2 id="yg-topic-2">2. Zemin Katsayıları (Fs ve F1) — TBDY 2018 Tablo 2.3-2.4</h2>
+
+
+<div class="yg-table-wrap" role="region" aria-label="Teknik bilgi tablosu" tabindex="0"><table class="data-table">
+  <tbody><tr><th>Zemin</th><th>Fs (kısa periyot)</th><th>F1 (uzun periyot)</th><th>Etki Çarpanı</th></tr>
+  <tr><td>ZA</td><td class="yes">0.8</td><td class="yes">0.8</td><td class="yes">Azaltıcı</td></tr>
+  <tr><td>ZB</td><td class="yes">0.9</td><td class="yes">0.8</td><td class="yes">Hafif azaltıcı</td></tr>
+  <tr><td>ZC</td><td class="warn">1.3</td><td class="warn">1.5</td><td class="warn">Artırıcı</td></tr>
+  <tr><td>ZD</td><td class="no">1.6</td><td class="no">2.4</td><td class="no">Önemli artırıcı</td></tr>
+  <tr><td>ZE</td><td class="no">2.4</td><td class="no">4.2</td><td class="no">Kritik artırıcı</td></tr>
+</tbody></table></div>
+
+<div class="info-box red">
+  <h3>⚠️ ZD Zeminin Kritik Etkisi</h3>
+  <p>ZD zeminde F1=2.4 katsayısı, uzun periyotlu yapılarda deprem kuvvetini 2.4 kat artırır. İstanbul'un büyük bölümü ZD-ZE zemin üzerindedir. Bu nedenle zemin etüdü yapılmadan güçlendirme projesi hazırlamak eksik ve hatalı sonuçlar verir.</p>
+</div>
+
+<h2 id="yg-topic-3">3. Tasarım Spektrumu Hesabı — Tam Örnek</h2>
+<p><strong>Örnek:</strong> İstanbul Kadıköy, ZD zemin (VS30=250 m/s), DD-2 deprem düzeyi (%10/50 yıl)</p>
+
+<div class="formula-box">
+<div class="f-title">Adım 1: AFAD Haritasından Spektral İvmeler</div>
+Ss = 1.20 g  (kısa periyot spektral ivme — AFAD TDTH)
+S1 = 0.40 g  (1 sn spektral ivme — AFAD TDTH)
+</div>
+
+<div class="formula-box">
+<div class="f-title">Adım 2: Zemin Katsayıları (ZD için)</div>
+Fs = 1.6  (TBDY 2018 Tablo 2.3, Ss=1.20 için interpolasyon)
+F1 = 2.4  (TBDY 2018 Tablo 2.4, S1=0.40 için)
+</div>
+
+<div class="formula-box">
+<div class="f-title">Adım 3: Tasarım Spektral İvmeleri</div>
+SDS = Ss × Fs = 1.20 × 1.6 = <strong>1.92 g</strong>
+SD1 = S1 × F1 = 0.40 × 2.4 = <strong>0.96 g</strong>
+</div>
+
+<div class="formula-box">
+<div class="f-title">Adım 4: Köşe Periyotları</div>
+TA = 0.2 × SD1/SDS = 0.2 × 0.96/1.92 = 0.10 sn
+TB = SD1/SDS = 0.96/1.92 = 0.50 sn
+TL = 6.0 sn  (sabit)
+</div>
+
+<h2 id="yg-topic-4">4. ZA vs ZD Karşılaştırması — Aynı Konum</h2>
+<div class="compare-grid">
+  <div class="compare-card blue">
+    <h3>✅ ZA Zemin (Kaya, VS30&gt;1500)</h3>
+    <p>Fs = 0.8, F1 = 0.8</p>
+    <p>SDS = 1.20 × 0.8 = <strong>0.96 g</strong></p>
+    <p>SD1 = 0.40 × 0.8 = <strong>0.32 g</strong></p>
+    <p>TB = 0.32/0.96 = <strong>0.33 sn</strong></p>
+    <p style="margin-top:8px;color:#1b5e20;font-weight:700">Deprem kuvveti: Baz</p>
+  </div>
+  <div class="compare-card red">
+    <h4>⚠️ ZD Zemin (Orta, VS30=250)</h4>
+    <p>Fs = 1.6, F1 = 2.4</p>
+    <p>SDS = 1.20 × 1.6 = <strong>1.92 g</strong></p>
+    <p>SD1 = 0.40 × 2.4 = <strong>0.96 g</strong></p>
+    <p>TB = 0.96/1.92 = <strong>0.50 sn</strong></p>
+    <p style="margin-top:8px;color:#b71c1c;font-weight:700">Deprem kuvveti: 2× FAZLA!</p>
+  </div>
+</div>
+
+<h2 id="yg-topic-5">5. SAP2000'e Spektrum Girişi</h2>
+
+<div class="code-block">
+<div class="code-label">TBDY 2018 Spektrum Noktaları — ZD Zemin, İstanbul DD-2</div>
+<pre><span class="comment">SDS=1.92g, SD1=0.96g, TA=0.10sn, TB=0.50sn, TL=6.0sn</span>
+
+T (sn)  |  Sa (g)
+─────────────────────────────
+0.00    |  <span class="value">0.768</span>  <span class="comment">(= 0.4×SDS)</span>
+0.10    |  <span class="value">1.920</span>  <span class="comment">(= SDS, TA noktası)</span>
+0.50    |  <span class="value">1.920</span>  <span class="comment">(= SDS, TB noktası — plato)</span>
+0.60    |  <span class="value">1.600</span>  <span class="comment">(= SD1/T = 0.96/0.60)</span>
+0.80    |  <span class="value">1.200</span>
+1.00    |  <span class="value">0.960</span>
+1.50    |  <span class="value">0.640</span>
+2.00    |  <span class="value">0.480</span>
+3.00    |  <span class="value">0.320</span>
+4.00    |  <span class="value">0.240</span>
+6.00    |  <span class="value">0.160</span>  <span class="comment">(TL noktası)</span>
+8.00    |  <span class="value">0.090</span>  <span class="comment">(= SD1×TL/T² = 0.96×6/64)</span>
+10.0    |  <span class="value">0.058</span></pre>
+</div>
+
+<div class="code-block">
+<div class="code-label">SAP2000 — Spektrum Tanımı ve Yük Durumu</div>
+<pre><span class="comment">Adım 1: Spektrum fonksiyonu tanımla</span>
+Define → Function → Response Spectrum
+  → Add New Function → <span class="value">User</span>
+  → Yukarıdaki T-Sa değerlerini gir
+
+<span class="comment">Adım 2: Deprem yük durumu tanımla</span>
+Define → Load Cases → Add New Load Case
+  Load Case Type: <span class="value">Response Spectrum</span>
+  Modal Combination: <span class="value">CQC</span>
+  Directional Combination: <span class="value">SRSS</span>
+  
+  Loads:
+    U1: Spectrum_TBDY2018_ZD, Scale=<span class="value">9.81</span> m/s²
+    U2: Spectrum_TBDY2018_ZD, Scale=<span class="value">9.81×0.3</span> m/s²
+    <span class="comment">(TBDY 2018: dik yönde %30 kombinasyon)</span></pre>
+</div>
+
+<h2 id="yg-topic-6">6. Zemin Farkının Analiz Sonucuna Etkisi</h2>
+<p>Aynı bina (T=0.5 sn doğal periyot), farklı zemin sınıflarında:</p>
+
+<div class="yg-table-wrap" role="region" aria-label="Teknik bilgi tablosu" tabindex="0"><table class="data-table">
+  <tbody><tr><th>Zemin</th><th>SDS (g)</th><th>SD1 (g)</th><th>Sa(T=0.5) (g)</th><th>Taban Kesme</th><th>Performans</th></tr>
+  <tr><td>ZA</td><td class="yes">0.96</td><td class="yes">0.32</td><td class="yes">0.96</td><td class="yes">0.96×W</td><td class="yes">KH</td></tr>
+  <tr><td>ZC</td><td class="warn">1.56</td><td class="warn">0.60</td><td class="warn">1.56</td><td class="warn">1.56×W</td><td class="warn">GÖ sınırı</td></tr>
+  <tr><td>ZD</td><td class="no">1.92</td><td class="no">0.96</td><td class="no">1.92</td><td class="no">1.92×W</td><td class="no">GÖ aşılıyor</td></tr>
+  <tr><td>ZE</td><td class="no">2.88</td><td class="no">1.68</td><td class="no">2.88</td><td class="no">2.88×W</td><td class="no">Göçme riski</td></tr>
+</tbody></table></div>
+
+<div class="info-box gold">
+  <h3>💡 Pratik Sonuç</h3>
+  <p>ZD zemindeki bir bina, ZA zemindeki aynı binaya göre <strong>2 kat daha fazla deprem kuvvetine</strong> maruz kalır. Bu nedenle zemin etüdü yapılmadan hazırlanan güçlendirme projesi, yapının gerçek riskini yanlış değerlendirebilir. YAPIGÜÇ A.Ş. tüm projelerinde zemin etüdü verilerini analize dahil etmektedir.</p>
+</div>
+
+
+<!-- İlgili Makaleler -->
+<div class="ilgili-makaleler" style="background:#fff;border-radius:14px;padding:24px;margin:28px 0;box-shadow:0 4px 16px rgba(0,0,0,.06);border-top:3px solid #c9a84c">
+  <h3 style="font-size:16px;font-weight:800;color:#1c2331;margin-bottom:14px">📚 İlgili Makaleler</h3>
+  <div style="display:flex;flex-direction:column;gap:8px">
+    
+      <a href="/blog/riskli-yapi-tespiti-nedir" onmouseout="this.style.background=\" #f8f9fa\';this.style.color="\'#1c2331\''" onmouseover="this.style.background=\" #1c2331\';this.style.color="\'#c9a84c\''" style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:#f8f9fa;border-radius:10px;text-decoration:none;color:#1c2331;font-size:13px;font-weight:700;border-left:3px solid #c9a84c;transition:.2s;">Riskli Yapı Tespiti Nedir? Yetki, Rapor Amacı ve Sonraki İşlemler</a>
+      <a href="/blog/guclendirme-ruhsati-nasil-alinir-2026" onmouseout="this.style.background=\" #f8f9fa\';this.style.color="\'#1c2331\''" onmouseover="this.style.background=\" #1c2331\';this.style.color="\'#c9a84c\''" style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:#f8f9fa;border-radius:10px;text-decoration:none;color:#1c2331;font-size:13px;font-weight:700;border-left:3px solid #c9a84c;transition:.2s;">
+        <span>🔗</span> Güçlendirme Ruhsatı
+      </a>
+  </div>
+</div>
+
+<div id="ic-link-bolumu" style="background:#fff;border:2px solid #e8eaf6;border-radius:14px;padding:22px;margin:24px 0">
+  <h4 style="font-size:15px;font-weight:800;color:#1c2331;margin-bottom:12px">📚 İlgili Konular</h4>
+  <a href="/blog/riskli-yapi-tespiti-nedir" onmouseout="this.style.background=\" #f8f9fa\';this.style.color="\'#1c2331\''" onmouseover="this.style.background=\" #1c2331\';this.style.color="\'#c9a84c\''" style="color:#1c2331;text-decoration:none;font-size:13px;font-weight:700;padding:8px 14px;background:#f8f9fa;border-radius:8px;border-left:3px solid #c9a84c;display:block;margin-bottom:6px;transition:.2s">Riskli Yapı Tespiti Nedir? Yetki, Rapor Amacı ve Sonraki İşlemler</a>
+<a href="/blog/guclendirme-ruhsati-nasil-alinir-2026" onmouseout="this.style.background=\" #f8f9fa\';this.style.color="\'#1c2331\''" onmouseover="this.style.background=\" #1c2331\';this.style.color="\'#c9a84c\''" style="color:#1c2331;text-decoration:none;font-size:13px;font-weight:700;padding:8px 14px;background:#f8f9fa;border-radius:8px;border-left:3px solid #c9a84c;display:block;margin-bottom:6px;transition:.2s">🔗 Güçlendirme Ruhsatı</a>
+<a href="/blog/guclendirme-hibe-kredi-destekleri-2026" onmouseout="this.style.background=\" #f8f9fa\';this.style.color="\'#1c2331\''" onmouseover="this.style.background=\" #1c2331\';this.style.color="\'#c9a84c\''" style="color:#1c2331;text-decoration:none;font-size:13px;font-weight:700;padding:8px 14px;background:#f8f9fa;border-radius:8px;border-left:3px solid #c9a84c;display:block;margin-bottom:6px;transition:.2s">🔗 Devlet Destekleri 2026</a>
+
+  <a href="/blog/" style="color:#c9a84c;font-size:12px;font-weight:700;text-decoration:none;display:block;margin-top:8px">→ Tüm Makaleler</a>
+</div>
+<div class="cta-box">
+  <h3>🌍 Binanızın Zemin Analizi</h3>
+  <p>YAPIGÜÇ A.Ş. — Zemin etüdü, sismik ölçüm ve SAP2000 analizi tek çatı altında</p>
+  <div class="cta-btns">
+    <a href="tel:+905405163636" class="cta-btn red">📞 Hemen Ara</a>
+    <a href="https://wa.me/905405163636?text=Zemin+etüdü+ve+SAP2000+analizi+hakkında+bilgi+almak+istiyorum" target="_blank" class="cta-btn wa" rel="noopener noreferrer">💬 WhatsApp</a>
+    <a class="cta-btn white" href="/deprem-risk-skoru">📊 Risk Skoru</a>
+  </div>
+</div>
+</div>
+<div class="share-bar">
+  <span>📤 Paylaş:</span>
+  <a href="https://twitter.com/intent/tweet?url=https://www.yapiguc.net/blog/zemin-vs30-tbdy2018-spektrum-sap2000.html" target="_blank" class="share-btn tw" rel="noopener noreferrer">🐦 Twitter</a>
+  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.yapiguc.net/blog/zemin-vs30-tbdy2018-spektrum-sap2000.html" target="_blank" class="share-btn li" rel="noopener noreferrer">💼 LinkedIn</a>
+  <a href="https://wa.me/?text=Zemin+VS30+TBDY+2018+Spektrum+SAP2000+https://www.yapiguc.net/blog/zemin-vs30-tbdy2018-spektrum-sap2000.html" target="_blank" class="share-btn wa" rel="noopener noreferrer">💬 WhatsApp</a>
+</div>
+</div><aside class="growth-cta"><span class="yg-eyebrow">YAPIGÜÇ · MÜHENDİSLİK VE SAHA UYGULAMASI</span><h2>Sahanızın proje ve uygulama ihtiyacını görüşelim</h2><p>Bulunduğunuz yeri, hizmet ihtiyacınızı ve mevcut proje veya raporlarınızı görüşmede paylaşın.</p><div class="growth-actions"><a class="yg-button" href="/teklif-al">İletişim talebi hazırlayın</a><a class="yg-button growth-secondary" href="/uzmanlik-alanlarimiz">Uzmanlık alanlarımız</a></div></aside><section class="seo-related"><h2>İlgili rehberler</h2><div class="audit-article-grid seo-card-grid"><article class="audit-article-card"><span class="yg-eyebrow">Mevzuat</span><h2><a href="/blog/6306-kanun-rehberi">6306 Kapsamında Riskli Yapı: Tespit, İtiraz ve Güçlendirme Koşulları</a></h2><p>Riskli yapı sürecinde tespit, bildirim, itiraz ve güçlendirme ruhsatını ayırt edin. Karar oranlarını ve destekleri her işleme aynı şekilde uygulamayın.</p><a href="/blog/6306-kanun-rehberi">6306 Kapsamında Riskli Yapı: Tespit, İtiraz ve Güçlendirme Koşulları</a></article><article class="audit-article-card"><span class="yg-eyebrow">Mevzuat</span><h2><a href="/blog/apartman-yonetimi-guclendirme-hukuku">Apartman Yönetiminin Güçlendirme Sorumluluğu: Hukuki Yükümlülükler ve Riskler</a></h2><p>Apartman yönetiminin hukuki yükümlülükleri ve risklerini keşfedin. YAPIGÜÇ A.Ş. ile güçlü bir yönetim için gerekenleri öğrenin.</p><a href="/blog/apartman-yonetimi-guclendirme-hukuku">Rehberi okuyun →</a></article><article class="audit-article-card"><span class="yg-eyebrow">Mevzuat</span><h2><a href="/blog/celik-yapilarda-deprem-guclendirme-tbdy-2018">Çelik Yapılarda Deprem Güçlendirme: TBDY 2018 Kapsamında Tasarım, Analiz ve Uygulama</a></h2><p>Çelik yapılar, yüksek dayanım-ağırlık oranı, süneklik kapasitesi ve hızlı montaj avantajları nedeniyle depreme dayanıklı yapı tasarımında tercih edilen yap</p><a href="/blog/celik-yapilarda-deprem-guclendirme-tbdy-2018">Rehberi okuyun →</a></article></div></section><aside class="vf-reading" aria-label="Teknik kaynaklar ve ilgili hizmetler"><h2>Teknik kaynakları birlikte okuyun</h2><p>Kaynakları kendi kapsamlarıyla değerlendirin. Teknik kütüphaneden resmi ve üretici yayınlarına ulaşabilir, proje ve uygulama ihtiyacınızı ekibimizle görüşebilirsiniz.</p><p><a href="/teknik-kutuphane">Teknik kaynak kütüphanesi →</a> · <a href="/teklif-al">Proje ve uygulama görüşmesi →</a></p></aside></main>
+
+
+
+
+
+
+
+<!-- ===== DİNAMİK FİLİGRAN ===== -->
+<style>
+/* Sayfa üzerinde şeffaf filigran */
+body::after {
+  content: '© YAPIGÜÇ A.Ş. — İzinsiz Kullanım Yasaktır';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-35deg);
+  font-size: clamp(18px, 3vw, 32px);
+  font-weight: 900;
+  color: rgba(28, 35, 49, 0.07);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 999999;
+  letter-spacing: 2px;
+  font-family: Arial, sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Çoklu filigran katmanı */
+.wm-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999998;
+  overflow: hidden;
+}
+.wm-overlay span {
+  position: absolute;
+  font-size: clamp(11px, 1.5vw, 16px);
+  font-weight: 800;
+  color: rgba(28, 35, 49, 0.055);
+  white-space: nowrap;
+  transform: rotate(-35deg);
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: none;
+  font-family: Arial, sans-serif;
+  letter-spacing: 1px;
+}
+
+/* Yazdırma filigranı - baskıda daha belirgin */
+@media print {
+  .wm-overlay span {
+    color: rgba(0,0,0,0.18) !important;
+    font-size: 14px !important;
+  }
+  body::after {
+    color: rgba(0,0,0,0.15) !important;
+    font-size: 28px !important;
+  }
+}
+</style>
+
+
+
+
+<!-- ===== FİLİGRAN SONU ===== -->
+
+<style id="global-cta-fix">
+.cta-box{color:#fff!important}
+.cta-box h1,.cta-box h2,.cta-box h3,.cta-box h4{color:#c9a84c!important}
+.cta-box p,.cta-box li,.cta-box span{color:rgba(255,255,255,.9)!important}
+.cta-box a[href^="tel"],.cta-box a[href*="wa.me"]{color:#1c2331!important}
+.hero h1,.hero h2{color:#fff!important}
+.hero p{color:rgba(255,255,255,.85)!important}
+[class*="dark"] h2,[class*="dark"] h3{color:#c9a84c!important}
+[class*="dark"] p{color:rgba(255,255,255,.85)!important}
+</style>
+
+<script type="application/json" id="audit-trackers">[]</script><footer class="yg-footer"><div class="yg-footer-inner"><a class="yg-brand" href="/" aria-label="YAPIGÜÇ ana sayfa"><img class="growth-brand-logo" src="/assets/yapiguc-logo-transparent.png" alt="YAPIGÜÇ" width="2172" height="724"><small class="scope-brand-subtitle">Müşavirlik Mühendislik A.Ş.</small></a><nav class="yg-footer-links" aria-label="Alt menü"><a href="/cerez-politikasi">Çerez Politikası</a><a href="/referanslar/">Referans Koleksiyonları</a><a href="/uygulama-fotograflari">Uygulama Fotoğrafları</a><a href="/iletisim">Kurumsal İletişim</a><a href="/kvkk">Gizlilik ve KVKK</a><a href="/teklif-al">İletişim Talebi</a><button type="button" data-consent-open="">Çerez tercihleri</button></nav><div class="yg-footer-contact"><span>İLETİŞİM</span><a href="tel:+905405163636">0540 516 36 36</a><a href="mailto:info@yapiguc.net">info@yapiguc.net</a><small>© YAPIGÜÇ · Tüm hakları saklıdır.</small></div></div></footer><section class="audit-consent" aria-label="Çerez tercihleri" hidden=""><h2>İsteğe bağlı ziyaretçi ölçümü</h2><p>İzin verirseniz Google Analytics ile sayfa ziyaretlerini ve telefon/WhatsApp bağlantısı tıklamalarını ölçeriz. Formdaki ad, telefon ve açıklamalar bu ölçüme gönderilmez. İzin vermeden de siteyi ve iletişim seçeneklerini kullanabilirsiniz. <a href="/kvk-aydinlatma-metni">Gizlilik ve KVKK metni</a></p><a href="/kvkk">Veri işleme bilgileri</a><div class="audit-consent-actions"><button type="button" data-consent="reject">Ölçümü reddet</button><button type="button" data-consent="accept">Ölçümü kabul et</button><button type="button" data-consent-close="">Tercihleri kapat</button></div><p role="status" data-consent-status=""></p></section><script src="/assets/yapiguc.js" defer=""></script><nav class="quick-contact" aria-label="Hızlı iletişim"><a href="tel:+905405163636">Hemen arayın</a><a href="https://wa.me/905405163636" target="_blank" rel="noopener noreferrer">WhatsApp</a></nav><script defer src="/assets/accessibility-ee4de8d13d.js"></script><script src="/assets/site-guide-20261015.js" defer></script></body></html>

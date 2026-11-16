@@ -1,5 +1,13 @@
-# Object file
+.netlify/
+dist/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+# Existing repository rules
 *.o
-
-# Ada Library Information
 *.ali
+

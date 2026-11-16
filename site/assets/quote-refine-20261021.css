@@ -1,0 +1,14 @@
+#quote-comparison input,#quote-comparison select{box-sizing:border-box;min-width:0}
+@media screen and (max-width:600px){
+ #quote-comparison table{min-width:0;table-layout:auto;display:block}
+ #quote-comparison caption{display:block}
+ #quote-comparison thead{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+ #quote-comparison tbody{display:block}
+ #quote-comparison tbody tr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-bottom:2px solid #aebdc7}
+ #quote-comparison tbody th{grid-column:1/-1;background:#e8eef1;border-bottom:0}
+ #quote-comparison tbody td{min-width:0;border:0;padding:12px 8px}
+ #quote-comparison .vp18-screen-only{font-size:12px;font-weight:500;line-height:1.5;overflow-wrap:anywhere}
+ #quote-comparison select{font-size:14px;padding:8px 4px}
+ #quote-comparison .vp18-table-wrap:focus-visible{outline:3px solid #af8746;outline-offset:3px}
+}
+@media print{body.quote-printing #quote-comparison .vp18-table-wrap{overflow:visible}body.quote-printing #quote-download-status{display:none}}

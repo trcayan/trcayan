@@ -1,0 +1,11 @@
+(()=>{'use strict';const form=document.querySelector('[data-request-preview]');if(!form)return;
+const preview=document.getElementById('request-preview'),text=document.getElementById('request-preview-text'),link=document.getElementById('request-whatsapp-link'),status=document.getElementById('offer-status'),phone=document.getElementById('tel');
+const normal=s=>s.toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+const params=new URLSearchParams(location.search);for(const [param,id] of [['city','sehir'],['service','hizmet'],['stage','projectStage'],['building','buildingType']]){const value=params.get(param),field=document.getElementById(id);if(!value||!field)continue;const option=[...field.options].find(x=>normal(x.value)===normal(value));if(option)field.value=option.value;}
+form.querySelector('[data-js-enable]').disabled=false;
+function validatePhone(){const digits=phone.value.replace(/\D/g,'');phone.setCustomValidity(!digits||/^(?:0|90)?[2-5]\d{9}$/.test(digits)?'':'Geçerli bir Türkiye telefon numarası yazın veya alanı boş bırakın.');}
+function invalidate(){preview.hidden=true;link.removeAttribute('href');status.textContent='';}
+phone.addEventListener('input',validatePhone);form.addEventListener('input',invalidate);form.addEventListener('change',invalidate);
+form.addEventListener('submit',event=>{event.preventDefault();validatePhone();if(!form.reportValidity())return;const lines=['YAPIGÜÇ iletişim talebi'];form.querySelectorAll('input,select,textarea').forEach(field=>{const value=field.value.trim();if(!value)return;const label=form.querySelector('label[for="'+field.id+'"]')?.textContent.replace(/\s*\*$/,'').replace(/\s*\(isteğe bağlı\)/,'')||field.name;lines.push(label+': '+value);});text.textContent=lines.join('\n');const url=new URL('https://wa.me/905405163636');url.searchParams.set('text',lines.join('\n'));link.href=url.href;preview.hidden=false;status.textContent='Önizleme hazır. Henüz hiçbir mesaj gönderilmedi.';preview.focus();document.dispatchEvent(new Event('yapiguc:whatsapp-draft'));});
+document.getElementById('request-edit').addEventListener('click',()=>{invalidate();document.getElementById('sehir').focus();});
+})();

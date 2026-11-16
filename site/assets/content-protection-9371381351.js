@@ -1,0 +1,16 @@
+(() => {
+ 'use strict';
+ const main=document.getElementById('yg-main');if(!main)return;
+ const exempt=node=>node instanceof Element&&!!node.closest('input,textarea,select,button,a,[contenteditable="true"],.audit-form-privacy,.audit-consent');
+ const copyright=document.createElement('div');copyright.className='content-protection-notice';copyright.setAttribute('role','status');copyright.setAttribute('aria-live','polite');copyright.hidden=true;copyright.textContent='İçerik ve saha görselleri YAPIGÜÇ’e aittir. Yeniden kullanım için info@yapiguc.net üzerinden iletişime geçin.';document.body.append(copyright);let noticeTimer;
+ function notice(){copyright.hidden=false;clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>{copyright.hidden=true;},2500);}
+ function protectImage(img){if(img.closest('.watermark-photo,.academic-figure,header,footer,nav')||/logo|favicon|bro[sş][uü]r|qr|icon|certificate|sertifika|belge/i.test(img.getAttribute('src')||''))return;img.draggable=false;if(/\/assets\/(saha-galerileri|kaya-bariyeri)\//.test(img.getAttribute('src')||''))return;if(!img.complete||!img.naturalWidth||img.naturalWidth<240||img.naturalHeight<140)return;const wrap=document.createElement('span');wrap.className='watermark-photo';img.replaceWith(wrap);wrap.append(img);const mark=document.createElement('span');mark.className='photo-watermark';mark.setAttribute('aria-hidden','true');mark.innerHTML='<span>YAPIGÜÇ</span><small>www.yapiguc.net</small>';wrap.append(mark);const corner=document.createElement('span');corner.className='photo-watermark-corner';corner.setAttribute('aria-hidden','true');corner.textContent='© YAPIGÜÇ';wrap.append(corner);}
+ function scan(){document.querySelectorAll('#yg-main img,#audit-lightbox img').forEach(img=>{protectImage(img);if(!img.complete&&!img.dataset.watermarkWaiting){img.dataset.watermarkWaiting='1';img.addEventListener('load',()=>protectImage(img),{once:true});}});}
+ scan();new MutationObserver(scan).observe(document.body,{childList:true,subtree:true});
+ document.addEventListener('dragstart',e=>{if(e.target instanceof Element&&main.contains(e.target)&&(!exempt(e.target)||e.target.closest('img,video,.watermark-photo')))e.preventDefault();});
+ document.addEventListener('contextmenu',e=>{if(e.target instanceof Element&&main.contains(e.target)&&(!exempt(e.target)||e.target.closest('img,.watermark-photo'))){e.preventDefault();notice();}});
+ const editable=node=>node instanceof Element&&!!node.closest('input,textarea,select,[contenteditable="true"]');
+ function protectedSelection(e){if(editable(document.activeElement)||editable(e.target))return false;const selection=window.getSelection();if(!selection||selection.isCollapsed)return e.target instanceof Element&&main.contains(e.target)&&!exempt(e.target);for(let i=0;i<selection.rangeCount;i++){if(selection.getRangeAt(i).intersectsNode(main))return true;}return false;}
+ for(const type of ['copy','cut'])document.addEventListener(type,e=>{if(protectedSelection(e)){e.preventDefault();if(e.clipboardData)e.clipboardData.clearData();notice();}});
+ document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&['c','x'].includes(e.key.toLowerCase())&&protectedSelection(e)){e.preventDefault();notice();}});
+})();

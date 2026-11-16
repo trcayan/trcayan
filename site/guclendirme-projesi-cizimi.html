@@ -1,0 +1,255 @@
+<!DOCTYPE html><html lang="tr"><head>
+
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Bina Güçlendirme Projesi Hazırlama | YAPIGÜÇ</title>
+
+<meta name="description" content="Mevcut yapı bilgileri, analiz, hesap ve uygulama detaylarıyla bina güçlendirme projesi hazırlığı. Proje ve saha kapsamı için YAPIGÜÇ’e danışın.">
+
+<meta name="keywords" content="güçlendirme projesi çizimi, güçlendirme statik proje, deprem performans analizi projesi, SAP2000 güçlendirme projesi, güçlendirme projesi hazırlama">
+
+
+
+<link rel="canonical" href="https://www.yapiguc.net/guclendirme-projesi-cizimi">
+
+<meta property="og:title" content="Bina Güçlendirme Projesi Hazırlama | YAPIGÜÇ">
+
+<meta property="og:description" content="Mevcut yapı bilgileri, analiz, hesap ve uygulama detaylarıyla bina güçlendirme projesi hazırlığı. Proje ve saha kapsamı için YAPIGÜÇ’e danışın.">
+
+<meta property="og:url" content="https://www.yapiguc.net/guclendirme-projesi-cizimi">
+
+<meta property="og:type" content="website">
+
+<meta property="og:image" content="https://www.yapiguc.net/assets/yapiguc-logo-original.png">
+
+
+
+
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{font-family:"Segoe UI",Arial,sans-serif;background:#f8f9fa;color:#333;line-height:1.7}
+
+.hdr{background:linear-gradient(135deg,#1c2331,#2d3a4a);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:999;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+
+.hdr a.b{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
+
+.nav{display:flex;gap:20px}.nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:13px;font-weight:600}.nav a:hover{color:#c9a84c}
+
+.hero{background:linear-gradient(135deg,#1c2331,#2d3a4a);color:#fff;padding:60px 24px;text-align:center}
+
+.hero h1{font-size:clamp(26px,5vw,42px);font-weight:900;margin-bottom:16px;line-height:1.3}
+
+.hero p{opacity:.85;font-size:16px;max-width:700px;margin:0 auto 28px}
+
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+.hbtn{padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:800;font-size:15px}
+
+.hb1{background:#c9a84c;color:#1c2331}.hb2{background:#25D366;color:#fff}
+
+.bc{background:#fff;padding:12px 20px;border-bottom:1px solid #e0e0e0;font-size:13px}.bc a{color:#1c2331;text-decoration:none}
+
+.wrap{max-width:1100px;margin:0 auto;padding:40px 20px}
+
+.art h2{color:#1c2331;font-size:22px;font-weight:800;margin:32px 0 14px;padding-bottom:8px;border-bottom:2px solid #e8eaf6}
+
+.art h3{color:#2d3a4a;font-size:17px;font-weight:700;margin:22px 0 10px}
+
+.art p{margin-bottom:14px;color:#444;font-size:15px}
+
+.art ul,.art ol{margin:10px 0 16px 24px}.art li{margin-bottom:8px;color:#444;font-size:15px}
+
+.art strong{color:#1c2331}
+
+.art table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
+
+.art th{background:#1c2331;color:#fff;padding:10px 14px;text-align:left}
+
+.art td{padding:10px 14px;border-bottom:1px solid #f0f0f0}
+
+.art tr:nth-child(even) td{background:#f8f9ff}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:24px 0}
+
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.07);border-top:4px solid #c9a84c}
+
+.card h3{color:#1c2331;font-size:16px;font-weight:700;margin-bottom:10px}
+
+.card p{color:#555;font-size:14px;line-height:1.6;margin:0}
+
+.cta{background:linear-gradient(135deg,#1c2331,#2d3a4a);color:#fff;border-radius:16px;padding:40px;text-align:center;margin:40px 0}
+
+.cta h2{font-size:24px;margin-bottom:12px}.cta p{opacity:.85;margin-bottom:24px;font-size:15px}
+
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+.cb1{background:#c9a84c;color:#1c2331;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:800;font-size:15px}
+
+.cb2{background:#25D366;color:#fff;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:800;font-size:15px}
+
+footer{background:#1c2331;color:rgba(255,255,255,.7);text-align:center;padding:24px;font-size:13px;margin-top:60px}
+
+footer a{color:#c9a84c;text-decoration:none}
+
+@media(max-width:768px){.nav{display:none}.grid{grid-template-columns:1fr}.hero h1{font-size:26px}}
+
+</style>
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="twitter:title" content="Güçlendirme Projesi Çizimi ve Hazırlanması | YAPIGÜÇ A.Ş.">
+
+<meta name="twitter:description" content="TBDY 2018 kapsamında güçlendirme projesi çizimi ve hazırlanması. SAP2000, STA4CAD ile deprem performans analizi ve statik proje. Ücretsiz keşif: 0540 516 3">
+
+<link rel="stylesheet" href="/assets/yapiguc.css"><noscript><style>@media(max-width:900px){.yg-navigation{display:flex!important;position:static!important;flex-direction:column!important;max-height:none!important}.yg-header-main{flex-wrap:wrap!important}.yg-menu-button{display:none!important}.yg-header{position:static!important}}</style></noscript><meta name="robots" content="index,follow,max-image-preview:large"><link rel="stylesheet" href="/assets/audit.css"><link rel="stylesheet" href="/assets/growth.css"><link rel="stylesheet" href="/assets/refinement.css"><link rel="icon" href="/favicon.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180"><link rel="stylesheet" href="/assets/visitor-growth.css"><link rel="stylesheet" href="/assets/content-protection-6154b6995f.css"><script defer src="/assets/content-protection-9371381351.js"></script><link rel="stylesheet" href="/assets/service-details.e7c23b1ca5.css"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Bina Güçlendirme Projesi Hazırlama","description":"Mevcut yapı bilgileri, analiz, hesap ve uygulama detaylarıyla bina güçlendirme projesi hazırlığı. Proje ve saha kapsamı için YAPIGÜÇ’e danışın.","url":"https://www.yapiguc.net/guclendirme-projesi-cizimi","serviceType":"Güçlendirme Projesi Hazırlama","areaServed":{"@type":"Country","name":"Türkiye"},"provider":{"@type":"Organization","@id":"https://www.yapiguc.net/#organization","name":"YAPIGÜÇ MÜŞ. MÜH. SAN. VE TİC. A.Ş.","url":"https://www.yapiguc.net","telephone":"+905405163636"}}</script><script defer src="/assets/contact-metrics-39a5a7e808.js"></script><link rel="stylesheet" href="/assets/academic-content.css"><style id="tbdy-layout-fix">.yg-header-main > .yg-button{flex-shrink:0;white-space:nowrap;min-width:156px}.academic-article .seo-toc{padding:20px 24px;background:#eff3f8;border-radius:12px}.academic-article .academic-table table{display:table;table-layout:fixed;width:100%}@media(min-width:1000px){.yg-header-main{gap:24px}.yg-header-main .yg-brand{min-width:200px}.yg-header-main .yg-navigation{gap:18px}}.academic-article caption{text-align:left;padding:12px;font-weight:600}</style><link rel="stylesheet" href="/assets/cookie-panel-0cd7f09d2b.css"><link rel="stylesheet" href="/assets/accessibility-0ccdd9c109.css"><link rel="stylesheet" href="/assets/layout-repair-03eb26008a.css"><link rel="stylesheet" href="/assets/home-modern-20261014.css?v=18abe02549"><link rel="stylesheet" href="/assets/site-growth-20261015.css"><link rel="stylesheet" href="/assets/seo-navigation-20261028.css"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana sayfa","item":"https://www.yapiguc.net/"},{"@type":"ListItem","position":2,"name":"Hizmetler","item":"https://www.yapiguc.net/uzmanlik-alanlarimiz"},{"@type":"ListItem","position":3,"name":"Bina Güçlendirme Projesi Hazırlama","item":"https://www.yapiguc.net/guclendirme-projesi-cizimi"}]}</script><link rel="stylesheet" href="/assets/expansion-20261101.css"><link rel="stylesheet" href="/assets/mobile-contact-20261101.css"><link rel="stylesheet" href="/assets/journeys-20261106.css"><link rel="stylesheet" href="/assets/service-gallery-20261116.css">
+<meta property="og:image:width" content="1080">
+<meta property="og:image:height" content="500">
+<meta property="og:image:alt" content="YAPIGÜÇ · Proje, onarım ve güçlendirme">
+</head>
+
+<body class="yg-site yg-service"><a class="yg-skip" href="#yg-main">İçeriğe geç</a><header class="yg-header"><div class="yg-utility"><p>Türkiye Genelinde Proje · Onarım · Güçlendirme</p><div class="yg-utility-links"><a href="tel:+905405163636">0540 516 36 36</a><a href="https://wa.me/905405163636" target="_blank" rel="noopener noreferrer">WhatsApp</a></div></div><div class="yg-header-main"><a class="yg-brand" href="/" aria-label="YAPIGÜÇ ana sayfa"><img class="growth-brand-logo" src="/assets/yapiguc-logo-transparent.png" alt="YAPIGÜÇ" width="2172" height="724"><small class="scope-brand-subtitle">Müşavirlik Mühendislik A.Ş.</small></a><nav class="yg-navigation" id="yg-navigation" aria-label="Ana menü"><details class="yg-mega"><summary>Hizmetler</summary><div class="yg-mega-links"><a href="/tasarim-gozetmenligi">Tasarım Gözetmenliği</a><a href="/universite-onay-sureci">Üniversite Değerlendirme ve Onay Süreci</a><a href="/guclendirme-projesi-cizimi">Güçlendirme Projesi Hazırlama</a><a href="/yapi-guclendirme">Yapısal Güçlendirme İmalatları</a><a href="/betonarme-guclendirme">Betonarme Güçlendirme</a><a href="/celik-guclendirme">Çelik Güçlendirme</a><a href="/kolon-guclendirme">Karbon Fiber / FRP Güçlendirme</a><a href="/temel-guclendirme">Temel Güçlendirme</a><a href="/kiris-doseme-guclendirme">Kiriş ve Döşeme Güçlendirme</a><a href="/perde-duvar-guclendirme">Perde ve Duvar Güçlendirme</a><a href="/ankraj-guclendirme">Ankraj ve Bağlantı İmalatları</a><a href="/epoksi-enjeksiyon">Güçlendirme Kapsamında Enjeksiyon</a><a href="/tarihi-eser-guclendirme">Tarihi ve Yığma Yapı Güçlendirme</a><a href="/karot-delim">Güçlendirme Amaçlı Karot İşlemleri</a></div></details><a href="/hakkimizda">Kurumsal</a><a href="/referans-projeler">Referanslarımız</a><a href="/blog/">Blog ve Makaleler</a><a href="/iller/">Hizmet Bölgeleri</a><a href="/iletisim">İletişim</a></nav><a class="yg-button" href="/teklif-al">İletişim Talebi <span aria-hidden="true">↗</span></a><button class="yg-menu-button" type="button" aria-label="Menüyü aç" aria-expanded="false" aria-controls="yg-navigation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg></button></div></header>
+
+<main id="yg-main" tabindex="-1" class="yg-service-page"><nav class="seo28-crumb" aria-label="İçerik yolu"><a href="/">Ana sayfa</a><span aria-hidden="true"> / </span><a href="/uzmanlik-alanlarimiz">Hizmetler</a><span aria-hidden="true"> / </span><span>Bina Güçlendirme Projesi Hazırlama</span></nav><article class="growth-article technical-service"><header class="yg-page-intro"><p class="yg-eyebrow">PROJE · ONARIM · GÜÇLENDİRME</p><h1>Bina Güçlendirme Projesi Hazırlama</h1><p class="growth-lead">Mevcut yapı bilgileri, mühendislik analizleri ve uygulanabilir detaylarla yapıya özgü güçlendirme projesi hazırlanması.</p><div class="yg-intro-actions"><a href="/teklif-al" class="yg-intro-primary">Projenizi görüşelim →</a><a href="tel:+905405163636" class="yg-intro-secondary">0540 516 36 36</a></div></header><nav class="service-sections" aria-label="Bu hizmet sayfasında"><a href="#teknik-kapsam">Teknik kapsam</a><a href="#calisma-asamalari">Çalışma aşamaları</a><a href="#teknik-terimler">Terimler</a><a href="#teslim-belgeleri">Teslim belgeleri</a></nav><section id="teknik-kapsam"><h2>Teknik kapsam ve yaklaşım</h2><p>Proje, yalnızca müdahale çizimi değildir. Yapının mevcut durumuna ait bilgiler, model kabulleri, değerlendirme yöntemi, yükler ve güçlendirilmiş sistem birlikte ele alınır. Yeni elemanın kapasitesi ile mevcut sisteme bağlanma koşulları hesap ve detaylarda uyumlu olmalıdır. STA4CAD, ideCAD ve SAP2000 kullandığımız yazılımlardır; yazılım seçimi modelin kapsamına göre yapılır. Bir program çıktısı tek başına bütün tasarım ve saha kabullerini doğrulamaz.</p></section><section id="calisma-asamalari"><h2>Çalışma nasıl yürütülür?</h2><ol><li>Mevcut proje, inceleme ve malzeme bilgilerinin kapsamı belirlenir.</li><li>Yöntem ve model kabulleri oluşturulur; müdahale seçenekleri değerlendirilir.</li><li>Hesaplar, uygulama detayları, gerekli revizyonlar ve idare koordinasyonu dosyalanır.</li></ol><p>İlk görüşmede yapı türü, şehir, kullanım durumu ve mevcut belgeler birlikte ele alınır. Hangi inceleme, hesap, imalat ve belge işlerinin hizmete dâhil olduğu iş başlamadan önce belirlenir. Saha erişimi, mevcut yapı bilgileri ve kurumların değerlendirme kapsamı çalışma planını etkiler; süre ve bedel iş özelinde netleştirilir.</p></section><section><h2>Teknik kontrollerde hangi başlıklar izlenir?</h2><ul><li>Mevcut ve güçlendirilmiş modelin karşılaştırılması</li><li>Yük aktarımı ve bağlantı detaylarının hesaplarla tutarlılığı</li><li>Çizim, rapor ve revizyon numaralarının eşleşmesi</li></ul></section><section id="teknik-terimler"><h2>Teknik terimler ne anlama gelir?</h2><dl class="service-glossary"><div><dt>Rölöve</dt><dd>Taşıyıcı sistemin mevcut ölçü ve detaylarının ölçüm ve çizimlerle belgelenmesi.</dd></div><div><dt>Metraj</dt><dd>Projede tanımlanan imalatların ölçü ve miktarlarının hesaplanması.</dd></div><div><dt>Revizyon</dt><dd>Yeni bilgi veya kontrol sonucu proje belgelerinde yapılan izlenebilir değişiklik.</dd></div><div><dt>Model kabulü</dt><dd>Hesapta malzeme, bağlantı, yük ve davranış için kullanılan varsayım.</dd></div></dl><p>Bu açıklamalar kavramları anlamaya yardımcı olur. Kesit ölçüsü, bağlantı ayrıntısı, malzeme miktarı ve kabul sınırları, ilgili yapının projesinde ve teknik şartnamesinde belirlenir.</p></section><section id="teslim-belgeleri"><h2>İş kapsamında hangi belgeler teslim edilir?</h2><p>Aşağıdaki teslim başlıkları, üstlenilen çalışma ve sözleşmede tanımlanan kapsam üzerinden netleştirilir:</p><ul><li>Hesap ve değerlendirme raporu</li><li>Güçlendirme çizimleri, kesitler ve bağlantı detayları</li><li>Kapsama göre metraj, teknik şartname ve başvuru dosyası</li></ul><p>Hesap, çizim ve saha kayıtları aynı revizyonu göstermelidir. Uygulama sırasında ortaya çıkan farklılıklar ile projede yapılan değişiklikler kayıt altına alınarak teslim dosyasıyla ilişkilendirilir.</p></section><section><h2>Kaynaklar ve teknik okuma</h2><ul><li><a href="https://www.afad.gov.tr/turkiye-bina-deprem-yonetmeligi" target="_blank" rel="noopener noreferrer">AFAD — Türkiye Bina Deprem Yönetmeliği</a></li><li><a href="https://help.idecad.com.tr/ideCAD/plastik-mafsal-disinda-kalan-boelgeler-5-4-2-4" target="_blank" rel="noopener noreferrer">ideCAD — Plastik mafsal modeli ve etkin kesit rijitliği</a></li></ul><p>Kaynak kontrolü: 3 Ekim 2026. Uluslararası rehberler teknik okuma için sunulur; Türkiye’deki proje ve idari süreçlerin yerine geçmez.</p><p><a href="/teknik-kutuphane">Yazılımlar, performans raporları ve açıklamalı hesap örnekleri →</a> · <a href="/referans-projeler">Referanslarımızı inceleyin →</a></p></section></article><details class="yg-service-resources"><summary>İlgili rehberler ve ek kaynaklar</summary><section id="project-dossier-feature" class="academic-feature"><p class="academic-kicker">GÜNCELLENEN TEKNİK REHBER</p><h2><a href="/blog/guclendirme-projesi-teknik-dosya-ve-revizyon-yonetimi">Güçlendirme Projesinde Teknik Dosya: Model, Hesap, Çizim ve Uygulama</a></h2><p>Güçlendirme projesinde model kabulleri, birimler, performans raporu, yöntem seçimi, onay görevleri ve saha revizyonlarını birlikte değerlendiren teknik rehber.</p><a class="yg-button" href="/blog/guclendirme-projesi-teknik-dosya-ve-revizyon-yonetimi">Teknik rehberi okuyun →</a></section><section id="tbdy-scope-feature" class="academic-feature"><p class="academic-kicker">GÜNCELLENEN TEKNİK REHBER</p><h2><a href="/blog/guclendirme-projesi-tbdy2018-bolum15">TBDY Bölüm 15: Güçlendirme Projesinin Kapsamı ve Performans Hedefleri</a></h2><p>Mevcut bina değerlendirmesinde kapsam, bina kullanım sınıfı, performans hedefi ve model kabulleri. Güçlendirme projesi dosyasını kaynaklarla okuyun.</p><a class="yg-button" href="/blog/guclendirme-projesi-tbdy2018-bolum15">Teknik rehberi okuyun →</a></section><section class="growth-page" id="hizmet-kapsamini-netlestirin"><h2>Hizmet kapsamını nasıl netleştiriyoruz?</h2><p>Mevcut belgeler, saha incelemesi, analiz kapsamı, güçlendirme detayları ve gerekli değerlendirme süreçleri birlikte tanımlanır.</p><ul><li>Şehir, yapı kullanımı ve mevcut belge durumu.</li><li>Proje ve saha uygulamasına ait dahil–hariç işler.</li><li>Uygulama sırası, erişim ve kontrol kayıtlarının kapsamı.</li></ul><p>Yöntem, metraj ve teklif yapıya özgü bilgilerle belirlenir.</p><p><a href="/isveren-rehberi">İşveren rehberini okuyun →</a> · <a href="/teklif-al">Teknik ekibimizle kapsamı görüşün →</a></p></section><section class="seo28-related" id="ilgili-teknik-rehberler" aria-labelledby="seo28-related-title"><p class="yg-eyebrow">HİZMETİ TEKNİK REHBERLERLE BİRLİKTE OKUYUN</p><h2 id="seo28-related-title">Proje ve uygulama görüşmesine hazırlanın</h2><p>Bu rehberler genel bilgilendirmedir. Yapınıza uygun çözüm ve iş kapsamı inceleme ve projeyle belirlenir.</p><ul class="seo28-grid"><li><a href="/blog/bina-guclendirme-sureci-adim-adim-2026">Bina Güçlendirme Süreci: İncelemeden Kontrollü Teslime</a><p>İnceleme, proje, idari işlemler, saha planlaması ve teslim kayıtları. Güçlendirme takvimini etkileyen koşullar için hazırlık rehberi.</p></li><li><a href="/blog/guclendirmede-gecici-destekleme-uygulama-sirasi">Güçlendirmede Geçici Destekleme ve Uygulama Sırası</a><p>Kalıcı güçlendirme projesiyle geçici saha koşullarını ayırın: işverenler için destekleme, çalışma sırası ve kontrol kayıtları rehberi.</p></li><li><a href="/blog/guclendirme-uygulamasi-kontrol-teslim-kayitlari">Güçlendirme Uygulamasında Kontrol ve Teslim Dosyası</a><p>Güçlendirme işinde proje sürümü, uygulama kayıtları, malzeme belgeleri ve teslim kapsamını değerlendirmek için açıklamalı rehber ve örnek dosya düzeni.</p></li></ul><p><a href="/teknik-rehberler?review=reviewed">Kaynaklı inceleme listesindeki rehberler →</a> · <a href="/referans-projeler">Üstlendiğimiz iş kapsamları →</a> · <a href="/teklif-al">YAPIGÜÇ’e danışın →</a></p></section><section class="ex26" aria-label="İş kapsamı ve ilk görüşme"><h2>Güçlendirme projesi görüşmesine hazırlanırken</h2><p>Mevcut çizimler, önceki raporlar, kullanım değişiklikleri ve saha erişimini açıklayın. Belge yoksa bunu da görüşmede belirtin.</p><div class="ex26-grid"><div class="ex26-card"><h3>Mevcut belgeler</h3><p>Proje ve raporların tarihini, sürümünü ve hangi yapıya ait olduğunu hazırlayın. Eksik belgeleri gizlemek yerine belirtin.</p><a href="/isveren-rehberi">İşveren rehberi</a></div><div class="ex26-card"><h3>Uygulama ve kontrol</h3><p>Geçici işler, erişim, kontrol noktaları ve teslim kayıtlarını başlangıçta konuşun.</p><a href="/blog/bina-kullanim-degisikligi-yuk-artisi-degerlendirme">İlgili teknik rehber</a></div><div class="ex26-card"><h3>YAPIGÜÇ’e danışın</h3><p>Yapı bilgilerinizi iletin; proje ve saha kapsamını teknik görüşmede netleştirelim.</p><a href="/teklif-al">İletişim talebi gönderin</a></div></div><small>Yöntem, süre ve bedel yapıya ve belirlenen iş kapsamına bağlıdır; bu sayfa sabit fiyat veya güvenlik garantisi sunmaz.</small></section><section class="jn26" id="kapsam-karsilastirma"><h2>Proje hazırlığı ile uygulama teklifini ayırın</h2><div class="jn26-grid"><div><h3>Mevcut veri ve değerlendirme</h3><p>Mevcut proje, inceleme ve deney kayıtlarının bulunup bulunmadığını belirtin. Gerekli ilave çalışmalar yapının ve işin kapsamına göre belirlenir.</p></div><div><h3>Çizim, revizyon ve saha koordinasyonu</h3><p>Proje teslim kapsamı, hesap ve çizim sürümleri, saha değişikliklerinin değerlendirilmesi ve ilgili izin süreçlerini ayrı başlıklarla görüşelim.</p></div><div><h3>İlgili çalışma ve ilk görüşme</h3><p><a href="/blog/guclendirmede-proje-revizyonu-degisiklik-kaydi">Proje revizyonu ve değişiklik kaydı rehberi</a></p><p><a href="/teklif-al">Yapı ve iletişim bilgilerinizi iletin; YAPIGÜÇ’e danışın.</a></p></div></div><p class="jn26-note">Bu başlıklar ilk görüşmeye hazırlık içindir. Yöntem, miktar, fiyat ve süre yapıya özgü değerlendirme ve iş kapsamıyla belirlenir.</p></section></details><aside class="growth-cta yg-page-contact"><span class="yg-eyebrow">YAPIGÜÇ · MÜHENDİSLİK VE SAHA UYGULAMASI</span><h2>Proje ve uygulama ihtiyacınızı görüşelim</h2><p>Bulunduğunuz yeri, hizmet ihtiyacınızı ve mevcut proje veya raporlarınızı görüşmede paylaşın.</p><div class="growth-actions"><a class="yg-button" href="/teklif-al">İletişim talebi hazırlayın</a><a class="yg-button growth-secondary" href="/uzmanlik-alanlarimiz">Uzmanlık alanlarımız</a></div></aside></main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ===== DİNAMİK FİLİGRAN ===== -->
+
+<style>
+
+/* Sayfa üzerinde şeffaf filigran */
+
+body::after {
+
+  content: '© YAPIGÜÇ A.Ş. — İzinsiz Kullanım Yasaktır';
+
+  position: fixed;
+
+  top: 50%;
+
+  left: 50%;
+
+  transform: translate(-50%, -50%) rotate(-35deg);
+
+  font-size: clamp(18px, 3vw, 32px);
+
+  font-weight: 900;
+
+  color: rgba(28, 35, 49, 0.07);
+
+  white-space: nowrap;
+
+  pointer-events: none;
+
+  z-index: 999999;
+
+  letter-spacing: 2px;
+
+  font-family: Arial, sans-serif;
+
+  user-select: none;
+
+  -webkit-user-select: none;
+
+}
+
+
+
+/* Çoklu filigran katmanı */
+
+.wm-overlay {
+
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 999998;
+
+  overflow: hidden;
+
+}
+
+.wm-overlay span {
+
+  position: absolute;
+
+  font-size: clamp(11px, 1.5vw, 16px);
+
+  font-weight: 800;
+
+  color: rgba(28, 35, 49, 0.055);
+
+  white-space: nowrap;
+
+  transform: rotate(-35deg);
+
+  user-select: none;
+
+  -webkit-user-select: none;
+
+  pointer-events: none;
+
+  font-family: Arial, sans-serif;
+
+  letter-spacing: 1px;
+
+}
+
+
+
+/* Yazdırma filigranı - baskıda daha belirgin */
+
+@media print {
+
+  .wm-overlay span {
+
+    color: rgba(0,0,0,0.18) !important;
+
+    font-size: 14px !important;
+
+  }
+
+  body::after {
+
+    color: rgba(0,0,0,0.15) !important;
+
+    font-size: 28px !important;
+
+  }
+
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+<!-- ===== FİLİGRAN SONU ===== -->
+
+
+
+
+
+<footer class="yg-footer"><div class="yg-footer-inner"><a class="yg-brand" href="/" aria-label="YAPIGÜÇ ana sayfa"><img class="growth-brand-logo" src="/assets/yapiguc-logo-transparent.png" alt="YAPIGÜÇ" width="2172" height="724"><small class="scope-brand-subtitle">Müşavirlik Mühendislik A.Ş.</small></a><nav class="yg-footer-links" aria-label="Alt menü"><a href="/cerez-politikasi">Çerez Politikası</a><a href="/referanslar/">Referans Koleksiyonları</a><a href="/uygulama-fotograflari">Uygulama Fotoğrafları</a><a href="/iletisim">Kurumsal İletişim</a><a href="/kvkk">Gizlilik ve KVKK</a><a href="/teklif-al">İletişim Talebi</a><button type="button" data-consent-open="">Çerez tercihleri</button></nav><div class="yg-footer-contact"><span>İLETİŞİM</span><a href="tel:+905405163636">0540 516 36 36</a><a href="mailto:info@yapiguc.net">info@yapiguc.net</a><small>© YAPIGÜÇ · Tüm hakları saklıdır.</small></div></div></footer><section class="audit-consent" aria-label="Çerez tercihleri" hidden><h2>İsteğe bağlı ziyaretçi ölçümü</h2><p>İzin verirseniz Google Analytics ile sayfa ziyaretlerini ve telefon/WhatsApp bağlantısı tıklamalarını ölçeriz. Formdaki ad, telefon ve açıklamalar bu ölçüme gönderilmez. İzin vermeden de siteyi ve iletişim seçeneklerini kullanabilirsiniz. <a href="/kvk-aydinlatma-metni">Gizlilik ve KVKK metni</a></p><a href="/kvkk">Veri işleme bilgileri</a><div class="audit-consent-actions"><button type="button" data-consent="reject">Ölçümü reddet</button><button type="button" data-consent="accept">Ölçümü kabul et</button><button type="button" data-consent-close="">Tercihleri kapat</button></div><p role="status" data-consent-status=""></p></section><script src="/assets/yapiguc.js" defer></script><nav class="quick-contact" aria-label="Hızlı iletişim"><a href="tel:+905405163636">Hemen arayın</a><a href="https://wa.me/905405163636" target="_blank" rel="noopener noreferrer">WhatsApp</a></nav><script defer src="/assets/accessibility-ee4de8d13d.js"></script><script src="/assets/site-guide-20261015.js" defer></script></body></html>
