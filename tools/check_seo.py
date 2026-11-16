@@ -4,9 +4,10 @@ from pathlib import Path
 from urllib.parse import urlsplit, unquote
 from xml.etree import ElementTree as ET
 import json
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-SITE = ROOT / 'site'
+SITE = ROOT / ('dist' if '--built' in sys.argv else 'site')
 BASE = 'https://www.yapiguc.net'
 NS = {'s': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
 

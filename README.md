@@ -11,7 +11,7 @@
   kuralı korundu; `site/_redirects` içindeki 6 kural da korundu.
 - `tools/preview.py`: Python 3.11+ ile ek paket gerektirmeyen yerel önizleme.
 - `tools/build.mjs`: Node.js ile ek paket gerektirmeyen derleme. `site/`
-  kaynaklarını `dist/` içine kopyalar; üretim bağlamında içeriği değiştirmez.
+  kaynaklarını `dist/` içine kopyalar; blog ve rehberlerin ortak okuma düzenini ve metadata eşleşmelerini hazırlar.
   Deploy Preview ve branch deploy ortamlarında indekslemeyi ve form gönderimini
   kapatan bir önizleme katmanı ekler. Kaynak dosyaları değiştirmez.
 
@@ -143,3 +143,33 @@ Search Console'a gönderim ve canlıya yayın bu önizleme çalışmasının par
 
 Uygulama kaynakları: [Google sitemap rehberi](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap),
 [Netlify rewrite açıklaması](https://docs.netlify.com/manage/routing/redirects/rewrites-proxies/).
+
+
+## Blog ve teknik okuma · 16 Kasım 2026
+
+`tools/prepare-reading.mjs`, derleme sırasında 1.025 blog/rehber sayfasına ortak
+okuma CSS dosyasını ekler. 389 içindekiler listesi native details/summary
+olarak açılır; 223 tablo klavyeyle kaydırılabilir bölgede sunulur. 527 boş
+telefon bağlantısına mevcut numaranın görünür metni eklenir. Orijinal teknik
+paragraflar, başlıklar, bölüm kimlikleri ve yayın/inceleme tarihleri korunur.
+Kaynak HTML ve özgün yedek topluca yeniden yazılmaz.
+
+1.017 blog içeriğinde görünür içerik yolu ve BreadcrumbList eşleştirilir.
+Mevcut Article/BlogPosting kayıtlarının başlığı, açıklaması ve ana sayfa adresi
+HTML metadata/canonical ile eşleşir; bölgesel Service içeriği Article olarak
+yeniden sınıflandırılmaz. Paylaşım metinleri sayfanın gerçek başlığını izler.
+Teknik rehber aramasında ana başlık ve arama öne, tanıtım bloğu sona alınır.
+Teknik kütüphanede ek kaynaklar açılır bölümde korunur. Aramalarda yüklenme
+durumu duyurulur; blog sonuçlarında aynı canonical yazının tekrarı önlenir.
+
+Derleme sonrası ek paket gerektirmeyen doğrulama:
+
+```text
+python tools/check_seo.py --built
+python tools/check_reading.py
+```
+
+İkinci kontrol kaynak ve çıktıyı karşılaştırır; paragraflar, başlıklar, eski
+bölüm kimlikleri veya kaynak tarihleri değişirse hata verir. Üretim bağlamında
+da okuma hazırlığı uygulanır; önizlemeye özgü form/noindex katmanı eklenmez.
+Bu dal birleştirilmediği sürece canlı Netlify dağıtımı değişmez.

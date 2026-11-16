@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { prepareReading } from './prepare-reading.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const source = path.join(root, 'site');
@@ -9,10 +10,11 @@ if (path.relative(root, output) !== 'dist') throw new Error('Unexpected build di
 await fs.access(path.join(source, 'index.html'));
 await fs.rm(output, { recursive: true, force: true });
 await fs.cp(source, output, { recursive: true });
+await prepareReading(output);
 
 const context = process.env.CONTEXT || 'production';
 if (!['deploy-preview', 'branch-deploy'].includes(context)) {
-  console.log('Production build: source content copied unchanged to dist.');
+  console.log('Production build: prepared reading layouts and metadata without preview guards.');
   process.exit(0);
 }
 
