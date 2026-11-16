@@ -19,17 +19,62 @@
   });
   const menu = document.querySelector('.yg-menu-button');
   const navigation = document.querySelector('.yg-navigation');
+  const sizeMenu = () => {
+    const bottom = document.querySelector('.yg-header')?.getBoundingClientRect().bottom || 0;
+    navigation?.style.setProperty('--yg-menu-height', `${Math.max(160, (window.visualViewport?.height || window.innerHeight) - bottom - 82)}px`);
+  };
   const closeMenu = () => {
     navigation?.classList.remove('yg-open');
     menu?.setAttribute('aria-expanded', 'false');
     menu?.setAttribute('aria-label', 'Menüyü aç');
   };
   menu?.addEventListener('click', () => {
+    sizeMenu();
     const opened = navigation.classList.toggle('yg-open');
     menu.setAttribute('aria-expanded', String(opened));
     menu.setAttribute('aria-label', opened ? 'Menüyü kapat' : 'Menüyü aç');
     if (opened) navigation.querySelector('summary,a')?.focus();
   });
+  navigation?.addEventListener('click', event => {
+    if (event.target.closest('a')) closeMenu();
+  });
+  window.addEventListener('resize', () => {
+    sizeMenu();
+    if (window.innerWidth > 900) closeMenu();
+  }, { passive: true });
+  window.visualViewport?.addEventListener('resize', sizeMenu, { passive: true });
+  document.querySelectorAll('[data-yg-search]').forEach(input => {
+    let entries;
+    try { entries = [...document.querySelectorAll(input.dataset.ygSearch)]; } catch { return; }
+    if (!entries.length) return;
+    const indexed = entries.map(element => ({ element, text: normalize(element.textContent) }));
+    const status = document.getElementById(input.getAttribute('aria-describedby'));
+    const filter = () => {
+      const terms = normalize(input.value).split(' ').filter(Boolean);
+      let count = 0;
+      indexed.forEach(({ element, text }) => {
+        const matches = terms.every(term => text.includes(term));
+        element.hidden = !matches;
+        if (matches) count++;
+      });
+      if (status) status.textContent = count ? `${count} ${input.dataset.ygSearchUnit || 'sonuç'} gösteriliyor.` : 'Sonuç bulunamadı. Farklı bir il adı deneyin.';
+    };
+    input.addEventListener('input', filter);
+    input.closest('.yg-search-wrap')?.removeAttribute('hidden');
+    filter();
+  });
+  const revealHash = () => {
+    if (!location.hash) return;
+    let target;
+    try { target = document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch { return; }
+    let opened = false;
+    for (let parent = target?.parentElement; parent; parent = parent.parentElement) {
+      if (parent instanceof HTMLDetailsElement && !parent.open) { parent.open = true; opened = true; }
+    }
+    if (opened) requestAnimationFrame(() => target.scrollIntoView());
+  };
+  window.addEventListener('hashchange', revealHash);
+  revealHash();
   document.addEventListener('keydown', event => {
     if (event.key !== 'Escape') return;
     const wasOpen = navigation?.classList.contains('yg-open');

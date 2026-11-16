@@ -17,7 +17,7 @@
 
 Özgün `netlify.toml`, değiştirilmemiş tam yedekte bulunur. Çalışma kopyasında
 yapılandırma dosyası web kökünün dışına alındı. Bu sayede bilgisayar yolu tekrar
-yayınlanmaz; içerik dosyaları özgün yedekle aynı kalır.
+yayınlanmaz; özgün içerik tam yedekte korunur. Geliştirme değişiklikleri aşağıda belirtilmiştir.
 
 ## Yerel önizleme
 
@@ -75,3 +75,23 @@ gizli değerleri, form kayıtları, dış hizmetlerdeki dosyalar ve dağıtımda
 bulunmayan özgün derleme kaynakları bu arşive dahil değildir. İncelenen sürümde
 0 Netlify Function görünüyordu. Eski AFAD görevinin önizlemesi daha eski bir
 ana sayfaya dayanıyordu; doğrudan üretime taşınmamalıdır.
+
+
+## Önizleme iyileştirmeleri · 16 Kasım 2026
+
+- Ana sayfada gerçek saha görseli, daha kısa giriş ve görünür iletişim düğmesi;
+  hizmetler, referanslar ve kaynaklar için sadeleştirilmiş akış. Üç boyutlu
+  modeller kendi bölümüne taşındı; eski bölüm bağlantıları korundu.
+- Mobil başlık küçültüldü; menü kullanılabilir ekran yüksekliğine uyar ve
+  bağlantıya dokunulduğunda kapanır. Uzun giriş metinleri ve form alanları
+  okunabilir boyutta gösterilir.
+- Referanslarda başlık ve açıklama öne, blogda arşiv ve arama öne alındı.
+- 81 il için Türkçe karakterleri destekleyen arama, sonuç sayısı ve boş sonuç
+  açıklaması eklendi. Ek makale dizini açılır bölümde korundu.
+- Zorunlu yapı kullanımı alanındaki çelişkili “isteğe bağlı” etiketi düzeltildi.
+
+Doğrulama: 1.237 HTML sayfasının iç bağlantı, dosya ve bölüm bağlantısı
+kontrolü; 1440 ve 390 pikselde 11 ana sayfa/akış, ayrıca 320 pikselde ana
+sayfa, talep formu ve il dizini kontrolü. Yatay sayfa taşması veya yüklenemeyen
+öncelikli görsel gözlenmedi. İl ve blog aramaları tarayıcıda denendi. Önizlemede
+form gönderimi ve indeksleme koruması sürer; üretim dalına birleştirme yapılmaz.
