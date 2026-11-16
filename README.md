@@ -173,3 +173,13 @@ python tools/check_reading.py
 bölüm kimlikleri veya kaynak tarihleri değişirse hata verir. Üretim bağlamında
 da okuma hazırlığı uygulanır; önizlemeye özgü form/noindex katmanı eklenmez.
 Bu dal birleştirilmediği sürece canlı Netlify dağıtımı değişmez.
+
+
+## Yayın öncesi form kaydı
+
+Kurtarılan HTML, Netlify'ın işlenmiş çıktısı olduğundan form tanıma işareti
+yayımlanmış dosyada bulunmuyordu. `/teklif-al` içindeki mevcut
+`yapiguc-iletisim-20261021` formuna `data-netlify="true"` ve mevcut `website`
+alanı için honeypot tanımı geri eklendi. İşveren rehberindeki AJAX akışı da aynı
+form adına ve kayıtlı ortak alanlara gönderir; yeni form adı oluşturulmaz.
+Bildirim ayarları ve mevcut kayıtlar korunur.
