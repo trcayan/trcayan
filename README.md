@@ -95,3 +95,51 @@ kontrolü; 1440 ve 390 pikselde 11 ana sayfa/akış, ayrıca 320 pikselde ana
 sayfa, talep formu ve il dizini kontrolü. Yatay sayfa taşması veya yüklenemeyen
 öncelikli görsel gözlenmedi. İl ve blog aramaları tarayıcıda denendi. Önizlemede
 form gönderimi ve indeksleme koruması sürer; üretim dalına birleştirme yapılmaz.
+
+
+## Hizmetler ve proje galerisi · 16 Kasım 2026
+
+Ana slogan “Proje, Onarım ve Güçlendirmede YAPIGÜÇ” olarak düzenlendi.
+16 hizmet sayfasında ortak lacivert giriş, altın iletişim düğmesi, bölüm
+bağlantıları ve tutarlı içerik kartları kullanılır. Ek rehberler açılır bölümde,
+iletişim çağrısı sayfanın sonunda bulunur. Teknik açıklamalar ve eski bölüm
+kimlikleri korunur. Uzmanlık alanları, saha galeri merkezi, dört saha galerisi
+ve dört proje dosyası da ortak başlık ve arşiv düzenini kullanır.
+
+Proje galerisinde filtreye uymayan proje blokları gizlenir. Fotoğraflar native
+dialog içinde açılır; filtrelenmiş kayıtlar arasında ileri/geri düğmeleri ve
+ok tuşlarıyla gezilir. Escape ile kapanır ve klavye odağı açan bağlantıya döner.
+JavaScript olmadığında özgün görsel bağlantıları çalışır. Medya, iş kapsamları
+ve telif işaretleri korunur; yeni proje veya görsel üretilmez.
+
+Geliştirme aynı recovery dalında sürer. Canlı dağıtım ve master değiştirilmez.
+
+
+## SEO ve site haritaları
+
+Sekiz XML site haritasındaki adresler mevcut canonical değerleriyle eşleştirildi;
+ana dizindeki sayfa, makale ve bölge haritaları 1.228 benzersiz canonical URL
+içerir. 29 eksik sayfa eklendi. Video haritasının mevcut medya bilgileri
+korundu. `lastmod` yalnız bu çalışmada değişen içerik sayfaları için güncellendi.
+`robots.txt` ana sitemap adresini göstermeyi sürdürür.
+
+Hizmetlerde BreadcrumbList verisi görünür içerik yoluyla eşleşir. Güncellenen
+sayfalarda paylaşım açıklamaları ve görselleri doğrulandı. Eski
+`/logo-og.jpg` adresine gelen istek, var olan marka görseline 200 rewrite ile
+yanıt verir; 193 eski sayfanın ortak kırık paylaşım adresi böylece korunarak
+onarılır. Önceki 255 yönlendirme kuralı ve 5 başlık kuralı korunur.
+
+Ek paket gerektirmeyen kontrol:
+
+```text
+python tools/check_seo.py
+```
+
+Bu kontrol HTML metadata ve JSON-LD verilerini, yerel paylaşım görsellerini,
+canonical URL kapsamını ve XML haritalarını denetler. Yandex sahiplik doğrulama
+dosyası bir içerik sayfası değildir ve değiştirilmez. Netlify Deploy Preview
+`noindex, nofollow` kalır; sitemap URL'leri canlı alan adını kullanır.
+Search Console'a gönderim ve canlıya yayın bu önizleme çalışmasının parçası değildir.
+
+Uygulama kaynakları: [Google sitemap rehberi](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap),
+[Netlify rewrite açıklaması](https://docs.netlify.com/manage/routing/redirects/rewrites-proxies/).

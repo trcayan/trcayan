@@ -4,3 +4,6 @@
 /guclendirme-projesi /guclendirme-projesi-cizimi.html 301
 /katalog/katalog-2026 /katalog/ 301!
 /katalog/katalog-2026.html /katalog/ 301!
+
+# Repair the shared legacy Open Graph image URL without duplicating the logo.
+/logo-og.jpg /assets/yapiguc-logo-original.png 200

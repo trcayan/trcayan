@@ -10,12 +10,15 @@ config=tomllib.loads((ROOT/'netlify.toml').read_text(encoding='utf8'))
 redirects={r['from']:r for r in config.get('redirects',[]) if r.get('status') in (301,302,303,307,308) and '*' not in r.get('from','')}
 for line in (SITE/'_redirects').read_text(encoding='utf8').splitlines():
  fields=line.split()
- if len(fields)>=3:redirects[fields[0]]={'to':fields[1],'status':int(fields[2].rstrip('!'))}
+ if len(fields)>=3 and not fields[0].startswith('#'):redirects[fields[0]]={'to':fields[1],'status':int(fields[2].rstrip('!'))}
 
 class Preview(SimpleHTTPRequestHandler):
  def translate_path(self,path):
   url=urllib.parse.urlsplit(path)
   clean=urllib.parse.unquote(url.path).lstrip('/')
+  rule=redirects.get('/'+clean)
+  if rule and rule['status']==200 and str(rule['to']).startswith('/'):
+   clean=rule['to'].lstrip('/')
   target=(SITE/clean).resolve()
   if not target.is_relative_to(SITE.resolve()):return str(SITE/'__invalid_path__')
   if not target.exists() and not target.suffix:
@@ -31,7 +34,7 @@ class Preview(SimpleHTTPRequestHandler):
   if path.startswith(('/api/','/.netlify/')):
    self.send_error(503,'Server endpoints are unavailable in the local static preview');return
   rule=redirects.get(path)
-  if rule and str(rule.get('to','')).startswith('/'):
+  if rule and rule['status']!=200 and str(rule.get('to','')).startswith('/'):
    self.send_response(rule['status']);self.send_header('Location',rule['to']);self.end_headers();return
   super().do_GET()
  def do_POST(self):self.send_error(503,'Forms are not submitted from the local static preview')
